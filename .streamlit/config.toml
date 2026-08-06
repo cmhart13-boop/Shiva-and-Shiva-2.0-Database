@@ -1,6 +1,0 @@
-[theme]
-primaryColor = "#00FF66"          # Neon Accent Green for spikes/ROI
-backgroundColor = "#11141A"       # Deep ESPN-Style Charcoal Dark
-secondaryBackgroundColor = "#1E232E" # Clean Card Backgrounds
-textColor = "#FFFFFF"             # Crisp White Text
-font = "sans serif"
