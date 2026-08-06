@@ -33,12 +33,59 @@ section[data-testid="stSidebar"]{background:#090a0b;border-right:1px solid #292c
 @media(max-width:900px){.block-container{padding-left:.8rem;padding-right:.8rem;}div[data-testid="stMetricValue"]{font-size:1.25rem!important;}.shiva-banner{font-size:1.05rem;}.shiva-shield{width:118px;height:132px;border-width:11px;}.shiva-shield:after{width:60px;height:60px;bottom:-28px;border-right-width:11px;border-bottom-width:11px;}.shiva-s{font-size:5.8rem;}}
 </style>
 
+<style>
+:root{
+ --espn-bg:#0b0d0f; --espn-black:#000; --espn-card:#1d1f21; --espn-card2:#252729;
+ --espn-line:#34373a; --espn-green:#35f23e; --espn-blue:#5b96ff; --espn-white:#f6f7f8;
+ --espn-muted:#9fa3a7;
+}
+.stApp{background:linear-gradient(180deg,#050607 0,#0b0d0f 155px,#0b0d0f 100%)!important;}
+.shiva-logo-svg{width:152px;height:178px;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.12));}
+.shiva-banner{
+ background:#000!important;border-bottom:1px solid #202225!important;
+ padding:18px 18px 14px!important;margin:0 -1rem 14px!important;
+ font-family:"Arial Narrow","Roboto Condensed",Arial,sans-serif!important;
+}
+.shiva-banner span{color:#fff!important;}
+.shiva-banner:after{background:var(--espn-green)!important;width:100%!important;max-width:none!important;height:4px!important;}
+.mobile-filter-shell{
+ background:var(--espn-card);border:1px solid var(--espn-line);border-radius:18px;
+ padding:14px 14px 4px;margin:0 0 14px;box-shadow:0 8px 24px rgba(0,0,0,.28);
+}
+.mobile-filter-title{font-size:.82rem;font-weight:1000;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:4px;}
+.mobile-filter-sub{font-size:.76rem;color:var(--espn-muted);margin-bottom:8px;}
+div[data-testid="stMetric"]{background:var(--espn-card)!important;border-color:var(--espn-line)!important;}
+div[data-testid="stMetricValue"]{color:var(--espn-green)!important;}
+[data-testid="stDataFrame"],[data-testid="stPlotlyChart"]{background:var(--espn-card)!important;}
+.stTabs [data-baseweb="tab-list"]{background:#000;border-bottom:1px solid #2b2e31;gap:2px;}
+.stTabs [data-baseweb="tab"]{color:#a7aaae;font-weight:900;text-transform:uppercase;}
+.stTabs [aria-selected="true"]{color:#fff!important;border-bottom:4px solid var(--espn-green)!important;}
+[data-baseweb="select"]>div{background:var(--espn-card2)!important;border-color:#45484c!important;}
+div[role="radiogroup"]{background:var(--espn-card)!important;}
+@media(max-width:900px){
+ section[data-testid="stSidebar"]{display:none!important;}
+ .block-container{padding-top:0!important;padding-left:.65rem!important;padding-right:.65rem!important;}
+ .shiva-banner{margin-left:-.65rem!important;margin-right:-.65rem!important;}
+ .mobile-filter-shell{display:block;}
+ div[data-testid="column"]{min-width:0!important;}
+ div[data-testid="stMetric"]{padding:11px 9px!important;}
+ div[data-testid="stMetricValue"]{font-size:1.08rem!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;}
+}
+</style>
+
+
 ''', unsafe_allow_html=True)
 
 st.markdown(
     """
 <div class="shiva-splash" aria-label="Shiva Draft Intelligence loading">
-    <div class="shiva-shield"><div class="shiva-s">S</div></div>
+  <svg class="shiva-logo-svg" viewBox="0 0 220 250" role="img" aria-label="Shiva S logo">
+    <path d="M28 24 H192 L180 166 Q174 203 110 230 Q46 203 40 166 Z"
+          fill="none" stroke="#C8FF00" stroke-width="15" stroke-linejoin="round"/>
+    <text x="110" y="154" text-anchor="middle"
+          font-family="Arial Black, Arial, sans-serif" font-size="128"
+          font-style="italic" font-weight="900" fill="#C8FF00">S</text>
+  </svg>
 </div>
 """,
     unsafe_allow_html=True,
@@ -86,29 +133,47 @@ def show(df, roi_col=None):
     if roi_col in df.columns: s=s.background_gradient(subset=[roi_col],cmap='RdYlGn')
     st.dataframe(s,use_container_width=True,hide_index=True)
 
+
+def style_fig(fig, title=None):
+    fig.update_layout(
+        template='plotly_dark',
+        paper_bgcolor='#1d1f21',
+        plot_bgcolor='#1d1f21',
+        font=dict(color='#f6f7f8'),
+        title=title,
+        margin=dict(l=18,r=18,t=48,b=18),
+        coloraxis_colorbar=dict(tickfont=dict(color='#f6f7f8')),
+    )
+    fig.update_xaxes(gridcolor='#34373a', zerolinecolor='#34373a')
+    fig.update_yaxes(gridcolor='#34373a', zerolinecolor='#34373a')
+    return fig
+
 def default_idx():
     for n in ('Chris H','Chris Hart'):
         if n in managers: return managers.index(n)
     return 0
 
-st.sidebar.markdown(
-    '<div class="sidebar-panel"><div class="sidebar-panel-title">🏆 Control Center</div><div class="sidebar-panel-sub">Select the manager, league, and season.</div></div>',
-    unsafe_allow_html=True,
-)
-manager=st.sidebar.selectbox('👤 Manager',managers,index=default_idx())
-scope=st.sidebar.selectbox('🏈 League',scopes)
-season=st.sidebar.selectbox('📅 Season',seasons)
-st.sidebar.markdown(
-    '<div class="sidebar-panel"><div class="sidebar-panel-title">📊 Intelligence Views</div><div class="sidebar-panel-sub">Switch between reports and comparisons.</div></div>',
-    unsafe_allow_html=True,
-)
-page=st.sidebar.radio('Navigation',['📈 Manager Dashboard','⚔️ Head-to-Head','🏅 League Leaderboard','🔥 Draft Heatmap','🧾 All Picks','📘 Methodology'])
-page=page.split(' ',1)[1]
-st.sidebar.markdown(
-    '<div class="sidebar-panel"><div class="sidebar-panel-title">🛡️ Data Integrity</div><div class="sidebar-panel-sub">Verified database only. No invented values.</div></div>',
-    unsafe_allow_html=True,
-)
 
+st.markdown(
+    '<div class="mobile-filter-shell"><div class="mobile-filter-title">League History Controls</div><div class="mobile-filter-sub">Tap any field to change the manager, league, season, or report.</div></div>',
+    unsafe_allow_html=True,
+)
+fc1, fc2, fc3 = st.columns([1.45,1,1])
+manager = fc1.selectbox('👤 Manager', managers, index=default_idx(), key='main_manager')
+scope = fc2.selectbox('🏈 League', scopes, key='main_scope')
+season = fc3.selectbox('📅 Season', seasons, key='main_season')
+page_choice = st.radio(
+    'Report',
+    ['📈 Manager Dashboard','⚔️ Head-to-Head','🏅 League Leaderboard','🔥 Draft Heatmap','🧾 All Picks','📘 Methodology'],
+    horizontal=True,
+    key='main_page'
+)
+page = page_choice.split(' ',1)[1]
+
+st.sidebar.markdown(
+    '<div class="sidebar-panel"><div class="sidebar-panel-title">🏆 Shiva Controls</div><div class="sidebar-panel-sub">Desktop navigation mirrors the mobile controls shown in the main screen.</div></div>',
+    unsafe_allow_html=True,
+)
 if page=='Manager Dashboard':
     x=filt(manager,scope,season); s=summary(x)
     st.title('Shiva Draft Intelligence'); st.subheader(f'{manager} · {scope} · {season}')
@@ -116,7 +181,7 @@ if page=='Manager Dashboard':
     a.metric('Graded Picks',s['picks']); b.metric('Avg Final ROI','—' if pd.isna(s['avg']) else f"{s['avg']:.2f}"); c.metric('Avg PPG ROI','—' if pd.isna(s['ppg']) else f"{s['ppg']:.2f}"); d.metric('Steal Rate','—' if pd.isna(s['steal']) else f"{s['steal']:.1f}%"); e.metric('Bust Rate','—' if pd.isna(s['bust']) else f"{s['bust']:.1f}%")
     st.markdown('### Round-by-Round Performance'); rt=round_table(x); show(rt,'Avg Final ROI')
     if not rt.empty:
-        fig=px.bar(rt,x='Round',y='Avg Final ROI',color='Avg Final ROI',color_continuous_scale='RdYlGn'); fig.update_layout(coloraxis_showscale=False); st.plotly_chart(fig,use_container_width=True)
+        fig=px.bar(rt,x='Round',y='Avg Final ROI',color='Avg Final ROI',color_continuous_scale='RdYlGn'); fig.update_layout(coloraxis_showscale=False); style_fig(fig,'Average Draft ROI by Round'); st.plotly_chart(fig,use_container_width=True)
     st.markdown('### Position Performance'); show(pos_table(x),'Avg Final ROI')
     cols=['league_name','season','round','player_name','position','position_draft_rank','position_finish_total','position_finish_ppg','ppg','games_played','final_draft_roi']; ren={'league_name':'League','season':'Season','round':'Round','player_name':'Player','position':'Pos','position_draft_rank':'Drafted Pos','position_finish_total':'Total Finish','position_finish_ppg':'PPG Finish','ppg':'PPG','games_played':'Games','final_draft_roi':'Final ROI'}
     l,r=st.columns(2)
@@ -129,7 +194,8 @@ elif page=='Head-to-Head':
     xa,xb=filt(ma,sc,se),filt(mb,sc,se); sa,sb=summary(xa),summary(xb)
     st.dataframe(pd.DataFrame([['Graded Picks',sa['picks'],sb['picks']],['Avg Final ROI',sa['avg'],sb['avg']],['Avg PPG ROI',sa['ppg'],sb['ppg']],['Steal %',sa['steal'],sb['steal']],['Bust %',sa['bust'],sb['bust']]],columns=['Metric',ma,mb]),use_container_width=True,hide_index=True)
     pa=pos_table(xa)[['Position','Avg Final ROI']].rename(columns={'Avg Final ROI':ma}) if not xa.empty else pd.DataFrame(columns=['Position',ma]); pb=pos_table(xb)[['Position','Avg Final ROI']].rename(columns={'Avg Final ROI':mb}) if not xb.empty else pd.DataFrame(columns=['Position',mb]); pc=pa.merge(pb,on='Position',how='outer').fillna(0)
-    if not pc.empty: st.plotly_chart(px.bar(pc.melt(id_vars='Position',var_name='Manager',value_name='Avg Final ROI'),x='Position',y='Avg Final ROI',color='Manager',barmode='group'),use_container_width=True)
+    if not pc.empty:
+        fig=px.bar(pc.melt(id_vars='Position',var_name='Manager',value_name='Avg Final ROI'),x='Position',y='Avg Final ROI',color='Manager',barmode='group'); style_fig(fig,'Position ROI Comparison'); st.plotly_chart(fig,use_container_width=True)
 
 elif page=='League Leaderboard':
     st.title('League Draft Efficiency Leaderboard'); a,b=st.columns(2); sc=a.selectbox('League Scope',scopes); se=b.selectbox('Season',seasons); x=roi.copy()
@@ -142,7 +208,7 @@ elif page=='Draft Heatmap':
     st.title('Draft Heatmap'); x=filt(manager,scope,'Career')
     if x.empty: st.info('No data available.')
     else:
-        p=x.pivot_table(index='season',columns='round',values='final_draft_roi',aggfunc='mean').sort_index().reindex(columns=list(range(1,17))); st.plotly_chart(px.imshow(p,aspect='auto',color_continuous_scale='RdYlGn',labels={'x':'Round','y':'Season','color':'Avg ROI'}),use_container_width=True); st.dataframe(p.style.background_gradient(cmap='RdYlGn',axis=None),use_container_width=True)
+        p=x.pivot_table(index='season',columns='round',values='final_draft_roi',aggfunc='mean').sort_index().reindex(columns=list(range(1,17))); fig=px.imshow(p,aspect='auto',color_continuous_scale='RdYlGn',labels={'x':'Round','y':'Season','color':'Avg ROI'}); style_fig(fig,'Draft ROI Heatmap'); st.plotly_chart(fig,use_container_width=True); st.dataframe(p.style.background_gradient(cmap='RdYlGn',axis=None),use_container_width=True)
 
 elif page=='All Picks':
     st.title('Complete Pick-Level ROI'); x=filt(manager,scope,season)
