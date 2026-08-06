@@ -1,22 +1,26 @@
 from __future__ import annotations
 
-import math
 import sqlite3
 from pathlib import Path
-from typing import Any
 
 import numpy as np
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 import requests
 import streamlit as st
 
 APP_DIR = Path(__file__).resolve().parent
 DB_PATH = APP_DIR / "shiva_draft_roi.sqlite"
-LOCAL_RANKINGS = APP_DIR / "current_rankings.csv"
+CURRENT_RANKINGS = APP_DIR / "current_rankings.csv"
+
+LEAGUE_IDS = {
+    "Shiva": 1465338,
+    "Shiva 2.0": 1506903,
+}
+CURRENT_SEASON = 2026
 
 st.set_page_config(
-    page_title="Shiva Draft Intelligence",
+    page_title="Shiva League",
     page_icon="🏆",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -26,155 +30,205 @@ st.markdown(
     """
 <style>
 :root{
-  --bg:#0b0d0f;--card:#1d1f21;--card2:#252729;--line:#373a3d;
-  --muted:#a1a5aa;--white:#f7f8fa;--green:#35f23e;
-  --blue:#5b96ff;--red:#ff4e59;--gold:#ffb52b;
+  --bg:#111113;
+  --top:#080809;
+  --card:#1c1c1e;
+  --card2:#242426;
+  --line:#2d2d30;
+  --muted:#7d7e84;
+  --white:#f5f5f7;
+  --green:#28f33d;
+  --blue:#5898ff;
+  --red:#ff515b;
+  --gold:#ffb52b;
 }
-.stApp{background:linear-gradient(180deg,#000 0,#000 116px,var(--bg) 116px);color:var(--white);}
-.block-container{max-width:1180px;padding-top:0;padding-bottom:4rem;}
+html,body,[class*="css"]{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.stApp{background:var(--bg);color:var(--white);}
+.block-container{max-width:430px;padding:0 14px 52px!important;}
 #MainMenu,footer,header{visibility:hidden;}
-html,body,[class*="css"]{font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif;}
-.shiva-banner{
-  position:sticky;top:0;z-index:999;margin:0 -1rem 12px;padding:18px 18px 13px;
-  background:#000;border-bottom:1px solid #242629;color:#fff;
-  font-size:clamp(1.05rem,4vw,1.65rem);font-weight:1000;text-transform:uppercase;
+
+.espn-top{
+  position:sticky;top:0;z-index:999;margin:0 -14px 14px;
+  background:var(--top);border-bottom:1px solid #222225;
 }
-.shiva-banner:after{content:"";display:block;height:4px;width:100%;margin-top:10px;background:var(--green);}
-.control-shell,.grade-card,.summary-card,.war-card{
-  background:var(--card);border:1px solid var(--line);border-radius:18px;
-  box-shadow:0 8px 24px rgba(0,0,0,.28);
+.espn-title-row{
+  position:relative;display:flex;align-items:center;justify-content:space-between;
+  padding:13px 14px 7px;min-height:34px;
 }
-.control-shell{padding:14px 14px 4px;margin-bottom:14px;}
-.control-title,.eyebrow{
-  color:var(--muted);font-size:.76rem;font-weight:1000;letter-spacing:.08em;text-transform:uppercase;
+.espn-back{color:#d8d8da;font-size:15px;font-weight:600;}
+.espn-title{
+  position:absolute;left:50%;transform:translateX(-50%);
+  color:#fff;font-size:15px;font-weight:900;text-transform:uppercase;white-space:nowrap;
 }
-.control-title{color:#fff;margin-bottom:3px;}
-.control-sub{color:var(--muted);font-size:.76rem;margin-bottom:8px;}
-.grade-card,.war-card{padding:18px;margin:8px 0 16px;}
-.grade-value{color:var(--green);font-size:3.35rem;line-height:1;font-weight:1000;margin-top:6px;}
-.grade-sub{color:#fff;font-weight:900;margin-top:8px;}
-.summary-card{padding:14px 16px;margin:8px 0 14px;}
-.summary-title{color:#fff;font-size:1.15rem;font-weight:1000;}
-.summary-sub{color:var(--muted);font-size:.84rem;margin-top:3px;}
-h1,h2,h3,h4,p,label,.stMarkdown{color:var(--white)!important;}
-h1,h2,h3{font-weight:1000!important;letter-spacing:-.02em;}
+.espn-tabs{display:flex;border-bottom:1px solid #232326;padding:0 14px;}
+.espn-tab{
+  flex:1;text-align:center;color:#6f7076;font-size:11px;font-weight:900;
+  letter-spacing:.06em;text-transform:uppercase;padding:10px 0 9px;
+}
+.espn-tab.active{color:#fff;border-bottom:3px solid var(--green);}
+
+.section-label{
+  color:#77787d;font-size:10px;font-weight:900;letter-spacing:.1em;
+  text-transform:uppercase;margin:17px 0 8px;
+}
+.card{
+  background:var(--card);border:1px solid #252528;border-radius:14px;
+  padding:14px;margin-bottom:11px;box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+.card-title{color:#fff;font-size:15px;font-weight:900;}
+.card-sub{color:var(--muted);font-size:11px;margin-top:3px;}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;}
+.hero-grade{color:var(--green);font-size:58px;line-height:.9;font-weight:1000;}
+.hero-rank{color:#fff;font-size:14px;font-weight:900;text-align:right;}
+.hero-note{color:var(--muted);font-size:10px;text-align:right;margin-top:3px;}
+
+.triple-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:11px;}
+.stat-box{
+  background:var(--card);border:1px solid #252528;border-radius:13px;
+  min-height:76px;padding:11px;display:flex;flex-direction:column;justify-content:space-between;
+}
+.stat-label{
+  color:#73747a;font-size:9px;line-height:1.2;font-weight:900;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.stat-value{color:#fff;font-size:19px;font-weight:1000;line-height:1.05;}
+.stat-value.green{color:var(--green);}
+.stat-value.blue{color:var(--blue);}
+.stat-value.red{color:var(--red);}
+
+.list-row{
+  display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;
+  padding:11px 0;border-top:1px solid #29292c;
+}
+.list-row:first-child{border-top:0;}
+.rank-circle{
+  width:30px;height:30px;border-radius:50%;background:var(--card2);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:1000;
+}
+.row-title{color:#fff;font-size:14px;font-weight:900;}
+.row-sub{color:#7f8085;font-size:10px;margin-top:2px;}
+.row-grade{font-size:16px;font-weight:1000;color:var(--green);}
+.row-grade.red{color:var(--red);}
+.row-grade.blue{color:var(--blue);}
+
+.pos-badge{
+  display:inline-flex;align-items:center;justify-content:center;width:34px;height:23px;
+  border-radius:6px;font-size:10px;font-weight:1000;color:#111;
+}
+.pos-RB{background:#56d78d}.pos-WR{background:#6bb8ff}.pos-QB{background:#ff6b70}.pos-TE{background:#c78cff}
+
+.result{
+  font-size:10px;font-weight:1000;text-align:right;text-transform:uppercase;
+}
+.result-Steal{color:#70c8ff}.result-Hit{color:var(--green)}
+.result-Bust{color:var(--red)}.result-Injury-Protected{color:var(--gold)}
+
 [data-baseweb="select"]>div{
-  background:var(--card2)!important;border:1px solid #474b4f!important;
-  border-radius:999px!important;min-height:47px;
+  background:var(--card)!important;border:1px solid #313134!important;
+  border-radius:999px!important;min-height:44px;
 }
-[data-baseweb="select"] span,[data-baseweb="select"] input{color:var(--blue)!important;font-weight:900!important;}
+[data-baseweb="select"] span,[data-baseweb="select"] input{
+  color:var(--blue)!important;font-weight:900!important;
+}
 .stSelectbox label p,.stRadio label p,.stNumberInput label p,.stFileUploader label p{
-  color:#e8e8e8!important;font-weight:900!important;
+  color:#dedee1!important;font-weight:800!important;
 }
-div[role="radiogroup"]{background:var(--card);border:1px solid #303337;border-radius:15px;padding:8px 10px;}
-div[data-testid="stMetric"]{
-  background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:14px 15px;overflow:visible;box-shadow:0 9px 24px rgba(0,0,0,.24);
+div[role="radiogroup"]{
+  background:var(--card);border:1px solid #303033;border-radius:12px;padding:6px 8px;
 }
-div[data-testid="stMetricLabel"]{
-  color:var(--muted);font-size:.72rem;font-weight:900;letter-spacing:.055em;text-transform:uppercase;
-}
-div[data-testid="stMetricValue"]{
-  color:var(--green);font-size:clamp(1.25rem,3vw,1.9rem)!important;font-weight:1000;
-  white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;
-}
-[data-testid="stDataFrame"],[data-testid="stPlotlyChart"]{
-  background:var(--card)!important;border:1px solid #34373a!important;border-radius:14px!important;overflow:hidden;
+[data-testid="stDataFrame"]{
+  background:var(--card)!important;border:1px solid #29292c!important;
+  border-radius:13px!important;overflow:hidden;
 }
 .stButton button,.stDownloadButton button{
-  color:var(--blue)!important;background:transparent!important;border:2px solid var(--blue)!important;
-  border-radius:999px!important;font-weight:1000!important;width:100%;
+  color:var(--blue)!important;background:transparent!important;
+  border:2px solid var(--blue)!important;border-radius:999px!important;
+  font-weight:900!important;width:100%;
 }
-@media(max-width:900px){
-  section[data-testid="stSidebar"]{display:none!important;}
-  .block-container{padding-left:.65rem!important;padding-right:.65rem!important;}
-  .shiva-banner{margin-left:-.65rem!important;margin-right:-.65rem!important;}
-  div[data-testid="stMetric"]{padding:11px 9px!important;}
-  div[data-testid="stMetricValue"]{font-size:1rem!important;}
-  .grade-value{font-size:2.7rem;}
-}
+h1,h2,h3,h4,p,label,.stMarkdown{color:var(--white)!important;}
+@media(min-width:900px){.block-container{max-width:430px;}}
 </style>
 """,
     unsafe_allow_html=True,
 )
 
-st.markdown('<div class="shiva-banner">SHIVA LEAGUE DRAFT INTELLIGENCE</div>', unsafe_allow_html=True)
+st.markdown(
+    """
+<div class="espn-top">
+  <div class="espn-title-row">
+    <div class="espn-back">‹ League</div>
+    <div class="espn-title">Shiva League</div>
+    <div style="width:48px"></div>
+  </div>
+  <div class="espn-tabs">
+    <div class="espn-tab">League</div>
+    <div class="espn-tab active">League History</div>
+  </div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
 
 
 @st.cache_data(show_spinner=False)
-def load_history() -> pd.DataFrame:
+def load_data():
     with sqlite3.connect(DB_PATH) as con:
-        return pd.read_sql_query(
-            """
-            SELECT *
-            FROM draft_roi_scores
-            ORDER BY league_name, season, overall_pick
-            """,
+        roi = pd.read_sql_query(
+            "SELECT * FROM draft_roi_scores ORDER BY league_name,season,overall_pick",
             con,
         )
+        full = pd.read_sql_query(
+            "SELECT * FROM draft_picks_full WHERE season<=2025 ORDER BY league_name,season,overall_pick",
+            con,
+        )
+    return roi, full
 
 
-history = load_history()
+roi, full_draft = load_data()
+latest_season = int(roi["season"].max())
 
-# Deduplicate player-season outcomes before calculating historical benchmarks.
+# Current franchises only: exactly 10 teams per league from the latest completed season.
+current_franchises = (
+    roi[roi["season"].eq(latest_season)]
+    [["league_name","team_id","team_name","manager_name","owner_id"]]
+    .drop_duplicates(["league_name","team_id"])
+    .sort_values(["league_name","team_id"])
+)
+
+# Historical player benchmarks for each positional finish (RB5, WR7, etc.).
 player_seasons = (
-    history[
-        [
-            "season","player_id","player_name","position",
-            "position_finish_total","position_finish_ppg",
-            "fantasy_points_ppr","ppg","games_played",
-        ]
+    roi[
+        ["season","player_id","position","position_finish_total",
+         "fantasy_points_ppr","ppg","games_played"]
     ]
     .drop_duplicates(["season","player_id","position"])
-    .copy()
 )
-
-finish_benchmarks = (
-    player_seasons.groupby(["position","position_finish_total"], as_index=False)
-    .agg(
-        Expected_Points=("fantasy_points_ppr","mean"),
-        Expected_PPG=("ppg","mean"),
-        Benchmark_Seasons=("season","nunique"),
-    )
+benchmarks = (
+    player_seasons.groupby(["position","position_finish_total"],as_index=False)
+    .agg(expected_points=("fantasy_points_ppr","mean"),expected_ppg=("ppg","mean"))
     .rename(columns={"position_finish_total":"position_draft_rank"})
 )
-
-graded_base = history.merge(
-    finish_benchmarks,
+base = roi.merge(
+    benchmarks,
     on=["position","position_draft_rank"],
     how="left",
 )
 
-managers = sorted(graded_base["manager_name"].dropna().unique().tolist())
-scopes = ["Combined","Shiva","Shiva 2.0"]
-seasons = ["Career"] + [str(x) for x in sorted(graded_base["season"].unique(), reverse=True)]
 
-
-def default_manager_index() -> int:
-    for name in ("Chris H","Chris Hart"):
-        if name in managers:
-            return managers.index(name)
-    return 0
-
-
-# ---------------- STRICTER HISTORICAL GRADING ----------------
-
-def finish_buffer(expected_rank: int) -> int:
-    if expected_rank <= 5:
-        return 2
-    if expected_rank <= 12:
-        return 4
-    if expected_rank <= 24:
-        return 6
+def finish_buffer(rank: int) -> int:
+    if rank <= 5: return 2
+    if rank <= 12: return 4
+    if rank <= 24: return 6
     return 9
 
 
 def round_weight(round_number: int) -> float:
-    weights = {
-        1:1.00,2:0.92,3:0.84,4:0.74,5:0.64,6:0.55,7:0.46,8:0.38,
-        9:0.29,10:0.22,11:0.17,12:0.13,13:0.10,14:0.08,15:0.06,16:0.05,
-    }
-    return weights.get(int(round_number),0.05)
+    return {
+        1:1.00,2:.92,3:.84,4:.74,5:.64,6:.55,7:.46,8:.38,
+        9:.29,10:.22,11:.17,12:.13,13:.10,14:.08,15:.06,16:.05,
+    }.get(int(round_number),.05)
 
 
 def grade_pick(row: pd.Series) -> pd.Series:
@@ -183,72 +237,57 @@ def grade_pick(row: pd.Series) -> pd.Series:
     buffer = finish_buffer(expected)
     gap = actual - expected
 
-    expected_points = float(row["Expected_Points"]) if pd.notna(row["Expected_Points"]) else np.nan
-    expected_ppg = float(row["Expected_PPG"]) if pd.notna(row["Expected_PPG"]) else np.nan
-
     points_ratio = (
-        float(row["fantasy_points_ppr"]) / expected_points
-        if pd.notna(expected_points) and expected_points > 0 else np.nan
+        float(row["fantasy_points_ppr"]) / float(row["expected_points"])
+        if pd.notna(row["expected_points"]) and row["expected_points"] > 0
+        else np.nan
     )
     ppg_ratio = (
-        float(row["ppg"]) / expected_ppg
-        if pd.notna(expected_ppg) and expected_ppg > 0 else np.nan
+        float(row["ppg"]) / float(row["expected_ppg"])
+        if pd.notna(row["expected_ppg"]) and row["expected_ppg"] > 0
+        else np.nan
     )
 
     finish_pass = gap <= buffer
     production_pass = (
-        (pd.notna(points_ratio) and points_ratio >= 0.85)
-        or (pd.notna(ppg_ratio) and ppg_ratio >= 0.90)
+        (pd.notna(points_ratio) and points_ratio >= .85)
+        or (pd.notna(ppg_ratio) and ppg_ratio >= .90)
     )
-    injury_protection = (
-        not finish_pass
-        and pd.notna(ppg_ratio)
-        and ppg_ratio >= 0.95
+    injury = (
+        not finish_pass and pd.notna(ppg_ratio) and ppg_ratio >= .95
         and int(row["games_played"]) <= 13
     )
-    clear_steal = (
-        actual <= max(1, expected - buffer)
+    steal = (
+        actual <= max(1,expected-buffer)
         and (
             (pd.notna(points_ratio) and points_ratio >= 1.05)
             or (pd.notna(ppg_ratio) and ppg_ratio >= 1.05)
         )
     )
 
-    if clear_steal:
-        result = "Steal"
-    elif finish_pass and production_pass:
-        result = "Hit"
-    elif injury_protection:
-        result = "Injury-Protected"
-    else:
-        result = "Bust"
-
-    # Strict, explainable score:
-    # 55% finish vs draft cost, 30% total production, 15% PPG.
-    finish_score = max(0.0, min(100.0, 100 - max(0, gap - buffer) * 6.5))
-    points_score = max(0.0, min(110.0, points_ratio * 100)) if pd.notna(points_ratio) else 45.0
-    ppg_score = max(0.0, min(110.0, ppg_ratio * 100)) if pd.notna(ppg_ratio) else 45.0
-    pick_score = 0.55 * finish_score + 0.30 * points_score + 0.15 * ppg_score
-
-    # Injury protection prevents an F, but does not award a strong grade.
-    if result == "Injury-Protected":
-        pick_score = min(max(pick_score, 58.0), 69.0)
-
-    return pd.Series(
-        {
-            "Finish Buffer":buffer,
-            "Expected Points":expected_points,
-            "Expected PPG":expected_ppg,
-            "Points vs Expected %":points_ratio * 100 if pd.notna(points_ratio) else np.nan,
-            "PPG vs Expected %":ppg_ratio * 100 if pd.notna(ppg_ratio) else np.nan,
-            "Result":result,
-            "Pick Score":max(0.0,min(100.0,pick_score)),
-            "Round Weight":round_weight(int(row["round"])),
-        }
+    result = (
+        "Steal" if steal
+        else "Hit" if finish_pass and production_pass
+        else "Injury-Protected" if injury
+        else "Bust"
     )
 
+    finish_score = max(0,min(100,100-max(0,gap-buffer)*6.5))
+    point_score = max(0,min(110,points_ratio*100)) if pd.notna(points_ratio) else 45
+    ppg_score = max(0,min(110,ppg_ratio*100)) if pd.notna(ppg_ratio) else 45
+    score = .55*finish_score + .30*point_score + .15*ppg_score
 
-graded = graded_base.join(graded_base.apply(grade_pick, axis=1))
+    if result == "Injury-Protected":
+        score = min(max(score,58),69)
+
+    return pd.Series({
+        "Result":result,
+        "Pick Score":max(0,min(100,score)),
+        "Round Weight":round_weight(row["round"]),
+    })
+
+
+graded = base.join(base.apply(grade_pick,axis=1))
 
 
 def letter_grade(score: float) -> str:
@@ -268,522 +307,433 @@ def letter_grade(score: float) -> str:
 def weighted_score(rows: pd.DataFrame) -> float:
     if rows.empty:
         return np.nan
-    return float(np.average(rows["Pick Score"], weights=rows["Round Weight"]))
+    return float(np.average(rows["Pick Score"],weights=rows["Round Weight"]))
 
 
-def filter_history(manager: str, scope: str, season: str) -> pd.DataFrame:
-    rows = graded[graded["manager_name"].eq(manager)].copy()
+def current_managers_for_scope(scope: str) -> list[str]:
+    if scope == "Combined":
+        return sorted(current_franchises["manager_name"].unique().tolist())
+    return sorted(
+        current_franchises[current_franchises["league_name"].eq(scope)]
+        ["manager_name"].unique().tolist()
+    )
+
+
+def franchise_rows(manager_name: str,scope: str) -> pd.DataFrame:
+    current = current_franchises[current_franchises["manager_name"].eq(manager_name)]
     if scope != "Combined":
-        rows = rows[rows["league_name"].eq(scope)]
-    if season != "Career":
-        rows = rows[rows["season"].eq(int(season))]
-    return rows
+        current = current[current["league_name"].eq(scope)]
+
+    keys = set(zip(current["league_name"],current["team_id"]))
+    if not keys:
+        return graded.iloc[0:0].copy()
+
+    mask = graded.apply(
+        lambda row:(row["league_name"],row["team_id"]) in keys,
+        axis=1,
+    )
+    # Historical picks stay with the current franchise, even if a previous person managed it.
+    return graded[mask].copy()
 
 
-def manager_board(scope: str, season: str) -> pd.DataFrame:
-    pool = graded.copy()
+def franchise_name(manager_name: str,scope: str) -> str:
+    current = current_franchises[current_franchises["manager_name"].eq(manager_name)]
     if scope != "Combined":
-        pool = pool[pool["league_name"].eq(scope)]
-    if season != "Career":
-        pool = pool[pool["season"].eq(int(season))]
-
-    rows = []
-    for manager_name, group in pool.groupby("manager_name"):
-        score = weighted_score(group)
-        rows.append(
-            {
-                "Manager":manager_name,
-                "Draft Score":score,
-                "Draft Grade":letter_grade(score),
-                "Hit Rate":group["Result"].isin(["Hit","Steal"]).mean() * 100,
-                "Steal Rate":group["Result"].eq("Steal").mean() * 100,
-                "Injury-Protected":group["Result"].eq("Injury-Protected").mean() * 100,
-                "Bust Rate":group["Result"].eq("Bust").mean() * 100,
-                "Picks":len(group),
-            }
-        )
-    board = pd.DataFrame(rows).sort_values(
-        ["Draft Score","Hit Rate"], ascending=False
-    ).reset_index(drop=True)
-    board.insert(0,"League Rank",board.index + 1)
-    return board
+        current = current[current["league_name"].eq(scope)]
+    names = current["team_name"].dropna().unique().tolist()
+    return " / ".join(names) if names else manager_name
 
 
 def round_summary(rows: pd.DataFrame) -> pd.DataFrame:
     output = []
-    for rnd, group in rows.groupby("round"):
+    for rnd,group in rows.groupby("round"):
         score = float(group["Pick Score"].mean())
-        output.append(
-            {
-                "Round":int(rnd),
-                "Grade":letter_grade(score),
-                "Hit Rate":group["Result"].isin(["Hit","Steal"]).mean() * 100,
-                "Steal Rate":group["Result"].eq("Steal").mean() * 100,
-                "Bust Rate":group["Result"].eq("Bust").mean() * 100,
-                "Picks":len(group),
-                "_score":score,
-            }
-        )
+        best = group.loc[group["Pick Score"].idxmax()]
+        worst = group.loc[group["Pick Score"].idxmin()]
+        output.append({
+            "Round":int(rnd),
+            "Grade":letter_grade(score),
+            "Score":score,
+            "Best Pick":f"{best['player_name']} ({int(best['season'])})",
+            "Worst Pick":f"{worst['player_name']} ({int(worst['season'])})",
+            "Picks":len(group),
+        })
     return pd.DataFrame(output).sort_values("Round")
 
 
 def position_summary(rows: pd.DataFrame) -> pd.DataFrame:
     output = []
-    for position, group in rows.groupby("position"):
+    for pos,group in rows.groupby("position"):
         score = float(group["Pick Score"].mean())
-        output.append(
-            {
-                "Position":position,
-                "Grade":letter_grade(score),
-                "Hit Rate":group["Result"].isin(["Hit","Steal"]).mean() * 100,
-                "Steal Rate":group["Result"].eq("Steal").mean() * 100,
-                "Bust Rate":group["Result"].eq("Bust").mean() * 100,
-                "Picks":len(group),
-                "_score":score,
-            }
-        )
-    return pd.DataFrame(output).sort_values("_score",ascending=False)
+        output.append({
+            "Position":pos,
+            "Grade":letter_grade(score),
+            "Score":score,
+            "Picks":len(group),
+        })
+    return pd.DataFrame(output).sort_values("Score",ascending=False)
 
 
-def show_table(table: pd.DataFrame) -> None:
-    if table.empty:
-        st.info("No data for this selection.")
-        return
-    formats = {
-        column:"{:.1f}%"
-        for column in table.columns
-        if column.endswith("Rate") or column == "Injury-Protected"
-    }
-    formats.update({
-        column:"{:.1f}"
-        for column in table.columns
-        if column in {"PPR Points","Historical Avg Points","PPG","Historical Avg PPG","Draft Score"}
-    })
-    st.dataframe(table.style.format(formats), use_container_width=True, hide_index=True)
+def draft_tendencies(rows: pd.DataFrame) -> list[tuple[str,str]]:
+    if rows.empty:
+        return []
+
+    early = rows[rows["round"] <= 3]
+    early_counts = early["position"].value_counts()
+    favorite_early = early_counts.index[0] if not early_counts.empty else "—"
+
+    qb_rounds = rows[rows["position"].eq("QB")]["round"]
+    avg_qb = f"Round {qb_rounds.mean():.1f}" if not qb_rounds.empty else "Rarely drafts QB"
+
+    rb_share = (early["position"].eq("RB").mean()*100) if not early.empty else 0
+    wr_share = (early["position"].eq("WR").mean()*100) if not early.empty else 0
+
+    return [
+        ("Early-Round Identity",f"{favorite_early}-first"),
+        ("Average First QB",avg_qb),
+        ("Rounds 1–3 RB Share",f"{rb_share:.0f}%"),
+        ("Rounds 1–3 WR Share",f"{wr_share:.0f}%"),
+    ]
 
 
-# ---------------- DRAFT WAR ROOM ----------------
-
-def snake_picks(draft_slot: int, team_count: int, rounds: int) -> list[dict[str,int]]:
-    picks = []
-    for rnd in range(1, rounds + 1):
-        if rnd % 2 == 1:
-            overall = (rnd - 1) * team_count + draft_slot
-        else:
-            overall = rnd * team_count - draft_slot + 1
-        picks.append({"Round":rnd,"Overall Pick":overall})
-    return picks
-
-
-def load_rankings(uploaded_file: Any) -> pd.DataFrame:
-    if uploaded_file is not None:
-        rankings = pd.read_csv(uploaded_file)
-    elif LOCAL_RANKINGS.exists():
-        rankings = pd.read_csv(LOCAL_RANKINGS)
-    else:
-        return pd.DataFrame()
-
-    required = {"player_name","position","adp","projected_points","projected_ppg"}
-    missing = required - set(rankings.columns)
-    if missing:
-        st.error("Rankings file is missing: " + ", ".join(sorted(missing)))
-        return pd.DataFrame()
-
-    for optional, default in {
-        "espn_player_id":np.nan,
-        "team":"",
-        "tier":np.nan,
-        "injury_status":"",
-    }.items():
-        if optional not in rankings.columns:
-            rankings[optional] = default
-
-    rankings["adp"] = pd.to_numeric(rankings["adp"],errors="coerce")
-    rankings["projected_points"] = pd.to_numeric(rankings["projected_points"],errors="coerce")
-    rankings["projected_ppg"] = pd.to_numeric(rankings["projected_ppg"],errors="coerce")
-    rankings["espn_player_id"] = pd.to_numeric(rankings["espn_player_id"],errors="coerce")
-    return rankings.dropna(subset=["player_name","position","adp"])
-
-
-def espn_headers() -> dict[str,str]:
-    return {
-        "User-Agent":"Mozilla/5.0",
-        "Accept":"application/json",
-    }
-
-
-def fetch_espn_draft(
-    league_id: int,
-    season_id: int,
-    swid: str = "",
-    espn_s2: str = "",
-) -> tuple[pd.DataFrame,str]:
-    url = (
-        f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/"
-        f"seasons/{season_id}/segments/0/leagues/{league_id}"
-        f"?view=mDraftDetail&view=mTeam&view=mStatus"
-    )
-    cookies = {}
-    if swid:
-        cookies["SWID"] = swid
-    if espn_s2:
-        cookies["espn_s2"] = espn_s2
-
-    try:
-        response = requests.get(
-            url,
-            headers=espn_headers(),
-            cookies=cookies,
-            timeout=10,
-        )
-        response.raise_for_status()
-        data = response.json()
-    except Exception as exc:
-        return pd.DataFrame(), f"ESPN feed error: {exc}"
-
-    picks = ((data.get("draftDetail") or {}).get("picks") or [])
+def leaderboard(scope: str) -> pd.DataFrame:
     rows = []
-    for pick in picks:
-        rows.append(
-            {
-                "overall_pick":pick.get("overallPickNumber"),
-                "round":pick.get("roundId"),
-                "round_pick":pick.get("roundPickNumber"),
-                "team_id":pick.get("teamId"),
-                "espn_player_id":pick.get("playerId"),
-            }
+    for manager in current_managers_for_scope(scope):
+        fr = franchise_rows(manager,scope)
+        score = weighted_score(fr)
+        pos = position_summary(fr)
+        strength = (
+            f"{pos.iloc[0]['Position']} ({pos.iloc[0]['Grade']})"
+            if not pos.empty else "—"
         )
-    return pd.DataFrame(rows), "Connected"
+        rows.append({
+            "Manager":manager,
+            "Team":franchise_name(manager,scope),
+            "Grade":letter_grade(score),
+            "Score":score,
+            "Best Strength":strength,
+        })
+    return pd.DataFrame(rows).sort_values("Score",ascending=False).reset_index(drop=True)
 
 
-def recommendation_board(
-    rankings: pd.DataFrame,
-    drafted_ids: set[int],
-    drafted_names: set[str],
-    current_overall_pick: int,
-    roster_positions: list[str],
-    strategy: str,
-) -> pd.DataFrame:
-    available = rankings.copy()
-
-    if drafted_ids and "espn_player_id" in available:
-        available = available[
-            ~available["espn_player_id"].fillna(-999999).astype(int).isin(drafted_ids)
-        ]
-    if drafted_names:
-        available = available[
-            ~available["player_name"].str.lower().isin({name.lower() for name in drafted_names})
-        ]
-
-    if available.empty:
-        return available
-
-    # Better projections and players falling past ADP rate higher.
-    available["Projection Score"] = available["projected_points"].rank(pct=True) * 100
-    available["PPG Score"] = available["projected_ppg"].rank(pct=True) * 100
-    available["ADP Value"] = current_overall_pick - available["adp"]
-
-    position_counts = pd.Series(roster_positions).value_counts().to_dict()
-    need_bonus = []
-    for pos in available["position"]:
-        bonus = 0.0
-        if pos == "RB" and position_counts.get("RB",0) < 2:
-            bonus += 12
-        if pos == "WR" and position_counts.get("WR",0) < 2:
-            bonus += 12
-        if pos == "TE" and position_counts.get("TE",0) < 1:
-            bonus += 5
-        if pos == "QB" and position_counts.get("QB",0) < 1:
-            bonus += 5
-
-        if strategy == "RB Heavy" and pos == "RB":
-            bonus += 10
-        elif strategy == "WR Heavy" and pos == "WR":
-            bonus += 10
-        elif strategy == "Best Player Available":
-            bonus += 0
-        need_bonus.append(bonus)
-
-    available["Roster Fit"] = need_bonus
-    available["Recommendation Score"] = (
-        0.46 * available["Projection Score"]
-        + 0.24 * available["PPG Score"]
-        + 1.4 * available["ADP Value"].clip(-20,20)
-        + available["Roster Fit"]
-    )
-
-    return available.sort_values(
-        ["Recommendation Score","projected_points"],
-        ascending=False,
-    )
+def render_ranked_rows(table: pd.DataFrame,best: bool=True):
+    if table.empty:
+        st.info("No draft history available.")
+        return
+    ordered = table.sort_values("Score",ascending=not best).head(3)
+    for i,(_,row) in enumerate(ordered.iterrows(),1):
+        color = "" if best else " red"
+        detail = row["Best Pick"] if best else row["Worst Pick"]
+        st.markdown(
+            f"""
+<div class="list-row">
+  <div class="rank-circle">{i}</div>
+  <div>
+    <div class="row-title">Round {int(row['Round'])}</div>
+    <div class="row-sub">{detail}</div>
+  </div>
+  <div class="row-grade{color}">{row['Grade']}</div>
+</div>
+""",
+            unsafe_allow_html=True,
+        )
 
 
-st.markdown(
-    '<div class="control-shell"><div class="control-title">League Controls</div><div class="control-sub">Choose a report or open the Draft War Room.</div></div>',
-    unsafe_allow_html=True,
-)
-
+# Main navigation.
 page = st.radio(
-    "View",
-    [
-        "📈 Historical Report Card",
-        "⚔️ Head-to-Head",
-        "🏅 League Leaderboard",
-        "🎯 Draft Projector",
-        "🔴 Live Draft War Room",
-        "📘 How Grades Work",
-    ],
+    "Section",
+    ["League History","Draft DNA","League Intelligence","Draft War Room"],
     horizontal=True,
+    label_visibility="collapsed",
 )
-page = page.split(" ",1)[1]
 
+if page == "League History":
+    scope = st.selectbox("League",["Shiva","Shiva 2.0","Combined"])
+    managers = current_managers_for_scope(scope)
+    manager = st.selectbox("Current Manager",managers)
 
-if page == "Historical Report Card":
-    c1,c2,c3 = st.columns([1.5,1,1])
-    manager = c1.selectbox("Manager",managers,index=default_manager_index())
-    scope = c2.selectbox("League",scopes)
-    season = c3.selectbox("Season",seasons)
-
-    rows = filter_history(manager,scope,season)
-    board = manager_board(scope,season)
-    board_row = board[board["Manager"].eq(manager)]
+    rows = franchise_rows(manager,scope)
     score = weighted_score(rows)
-    rank = int(board_row["League Rank"].iloc[0]) if not board_row.empty else None
+    board = leaderboard(scope)
+    rank = int(board.index[board["Manager"].eq(manager)][0])+1 if manager in board["Manager"].values else 0
 
+    rounds = round_summary(rows)
+    positions = position_summary(rows)
+
+    st.markdown('<div class="section-label">Franchise Snapshot</div>',unsafe_allow_html=True)
     st.markdown(
         f"""
-<div class="grade-card">
-  <div class="eyebrow">Overall Draft Grade</div>
-  <div class="grade-value">{letter_grade(score)}</div>
-  <div class="grade-sub">Draft Score {score:.1f}/100 · League Rank #{rank if rank else "—"}</div>
+<div class="card">
+  <div class="card-title">{franchise_name(manager,scope)}</div>
+  <div class="card-sub">{manager} · {scope}</div>
 </div>
 """,
         unsafe_allow_html=True,
     )
 
-    a,b,c = st.columns(3)
-    a.metric("Hit Rate",f"{rows['Result'].isin(['Hit','Steal']).mean()*100:.1f}%" if not rows.empty else "—")
-    b.metric("Steal Rate",f"{rows['Result'].eq('Steal').mean()*100:.1f}%" if not rows.empty else "—")
-    c.metric("Bust Rate",f"{rows['Result'].eq('Bust').mean()*100:.1f}%" if not rows.empty else "—")
+    st.markdown(
+        f"""
+<div class="card">
+  <div class="hero-row">
+    <div>
+      <div class="card-sub" style="text-transform:uppercase;font-weight:900;letter-spacing:.08em">Historical Draft Grade</div>
+      <div class="hero-grade">{letter_grade(score)}</div>
+    </div>
+    <div>
+      <div class="hero-rank">#{rank} of {len(board)}</div>
+      <div class="hero-note">Current franchises only</div>
+    </div>
+  </div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-    st.subheader("Round-by-Round Report Card")
-    rounds = round_summary(rows)
-    show_table(rounds[["Round","Grade","Hit Rate","Steal Rate","Bust Rate","Picks"]])
+    best_round = rounds.sort_values("Score",ascending=False).iloc[0] if not rounds.empty else None
+    weak_round = rounds.sort_values("Score").iloc[0] if not rounds.empty else None
+    best_pos = positions.iloc[0] if not positions.empty else None
 
-    st.subheader("Position Report Card")
+    st.markdown(
+        f"""
+<div class="triple-grid">
+  <div class="stat-box">
+    <div class="stat-label">Best Round</div>
+    <div class="stat-value green">{f"R{int(best_round['Round'])}" if best_round is not None else "—"}</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Weakest Round</div>
+    <div class="stat-value red">{f"R{int(weak_round['Round'])}" if weak_round is not None else "—"}</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Best Position</div>
+    <div class="stat-value blue">{best_pos['Position'] if best_pos is not None else "—"}</div>
+  </div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
+
+    st.markdown('<div class="section-label">Best Drafting Rounds</div>',unsafe_allow_html=True)
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    render_ranked_rows(rounds,True)
+    st.markdown('</div>',unsafe_allow_html=True)
+
+    st.markdown('<div class="section-label">Weakest Drafting Rounds</div>',unsafe_allow_html=True)
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    render_ranked_rows(rounds,False)
+    st.markdown('</div>',unsafe_allow_html=True)
+
+elif page == "Draft DNA":
+    scope = st.selectbox("League",["Shiva","Shiva 2.0","Combined"])
+    managers = current_managers_for_scope(scope)
+    manager = st.selectbox("Current Manager",managers)
+    rows = franchise_rows(manager,scope)
+
+    st.markdown('<div class="section-label">Position Strengths</div>',unsafe_allow_html=True)
     positions = position_summary(rows)
-    show_table(positions[["Position","Grade","Hit Rate","Steal Rate","Bust Rate","Picks"]])
-
-    st.subheader("Pick-by-Pick Explanation")
-    picks = rows[
-        [
-            "season","league_name","round","player_name","position",
-            "position_draft_rank","position_finish_total",
-            "fantasy_points_ppr","Expected Points","ppg","Expected PPG","Result",
-        ]
-    ].rename(
-        columns={
-            "season":"Season","league_name":"League","round":"Round",
-            "player_name":"Player","position":"Pos",
-            "position_draft_rank":"Drafted As","position_finish_total":"Finished As",
-            "fantasy_points_ppr":"PPR Points","Expected Points":"Historical Avg Points",
-            "ppg":"PPG","Expected PPG":"Historical Avg PPG",
-        }
-    )
-    picks["Drafted As"] = picks["Pos"] + picks["Drafted As"].astype(int).astype(str)
-    picks["Finished As"] = picks["Pos"] + picks["Finished As"].astype(int).astype(str)
-    show_table(picks)
-
-
-elif page == "Head-to-Head":
-    a,b,c,d = st.columns(4)
-    manager_a = a.selectbox("Manager A",managers,index=default_manager_index())
-    manager_b = b.selectbox("Manager B",managers,index=1 if len(managers)>1 else 0)
-    scope = c.selectbox("League",scopes)
-    season = d.selectbox("Season",seasons)
-
-    board = manager_board(scope,season)
-    display = board[board["Manager"].isin([manager_a,manager_b])][
-        ["League Rank","Manager","Draft Grade","Hit Rate","Steal Rate","Injury-Protected","Bust Rate","Picks"]
-    ]
-    show_table(display)
-
-
-elif page == "League Leaderboard":
-    a,b = st.columns(2)
-    scope = a.selectbox("League",scopes)
-    season = b.selectbox("Season",seasons)
-    show_table(
-        manager_board(scope,season)[
-            ["League Rank","Manager","Draft Grade","Hit Rate","Steal Rate","Injury-Protected","Bust Rate","Picks"]
-        ]
-    )
-
-
-elif page == "Draft Projector":
-    st.title("Draft Projector")
-    a,b,c,d = st.columns(4)
-    teams = a.number_input("Teams",min_value=8,max_value=16,value=10,step=1)
-    slot = b.number_input("Your Draft Slot",min_value=1,max_value=int(teams),value=min(9,int(teams)),step=1)
-    rounds = c.number_input("Rounds",min_value=8,max_value=20,value=16,step=1)
-    strategy = d.selectbox("Strategy",["RB Heavy","Balanced","WR Heavy","Best Player Available"])
-
-    uploaded = st.file_uploader(
-        "Upload current verified rankings/projections CSV",
-        type=["csv"],
-        help="Required columns: player_name, position, adp, projected_points, projected_ppg. Optional: espn_player_id, team, tier, injury_status.",
-    )
-    rankings = load_rankings(uploaded)
-
-    schedule = pd.DataFrame(snake_picks(int(slot),int(teams),int(rounds)))
-    st.subheader("Your Snake-Draft Pick Schedule")
-    st.dataframe(schedule,use_container_width=True,hide_index=True)
-
-    if rankings.empty:
-        st.warning(
-            "No current rankings file is loaded, so the app will not invent player recommendations. "
-            "Upload a verified 2026 rankings/projections CSV to activate targets."
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    for _,row in positions.iterrows():
+        st.markdown(
+            f"""
+<div class="list-row">
+  <div><span class="pos-badge pos-{row['Position']}">{row['Position']}</span></div>
+  <div>
+    <div class="row-title">{row['Position']} Drafting</div>
+    <div class="row-sub">{int(row['Picks'])} historical picks</div>
+  </div>
+  <div class="row-grade">{row['Grade']}</div>
+</div>
+""",
+            unsafe_allow_html=True,
         )
-    else:
-        st.subheader("Round-by-Round Target Windows")
-        target_rows = []
-        for _,pick in schedule.iterrows():
-            overall = int(pick["Overall Pick"])
-            window = rankings[
-                rankings["adp"].between(max(1,overall-8),overall+12)
-            ].sort_values(["adp","projected_points"],ascending=[True,False]).head(8)
-            target_rows.append(
-                {
-                    "Round":int(pick["Round"]),
-                    "Your Pick":overall,
-                    "Realistic Targets":", ".join(window["player_name"].tolist()),
-                }
-            )
-        st.dataframe(pd.DataFrame(target_rows),use_container_width=True,hide_index=True)
+    st.markdown('</div>',unsafe_allow_html=True)
 
-
-elif page == "Live Draft War Room":
-    st.title("Live ESPN Draft War Room")
-    st.caption("The feed polls ESPN. Current recommendations require your verified rankings CSV.")
-
-    a,b,c,d = st.columns(4)
-    league_id = a.number_input("ESPN League ID",min_value=1,value=1465338,step=1)
-    season_id = b.number_input("Season",min_value=2026,value=2026,step=1)
-    teams = c.number_input("Teams",min_value=8,max_value=16,value=10,step=1)
-    slot = d.number_input("Your Draft Slot",min_value=1,max_value=int(teams),value=min(9,int(teams)),step=1)
-
-    strategy = st.selectbox("Draft Strategy",["RB Heavy","Balanced","WR Heavy","Best Player Available"])
-    uploaded = st.file_uploader("Upload verified current rankings/projections CSV",type=["csv"],key="live_rankings")
-    rankings = load_rankings(uploaded)
-
-    swid = ""
-    espn_s2 = ""
-    try:
-        swid = st.secrets.get("ESPN_SWID","")
-        espn_s2 = st.secrets.get("ESPN_S2","")
-    except Exception:
-        pass
-
-    @st.fragment(run_every="5s")
-    def live_board() -> None:
-        picks,status = fetch_espn_draft(int(league_id),int(season_id),swid,espn_s2)
-        st.write(f"Feed status: **{status}**")
-
-        if picks.empty:
-            st.info("No completed draft picks are currently visible.")
-            drafted_ids:set[int] = set()
-            current_overall = 1
-        else:
-            picks = picks.sort_values("overall_pick")
-            drafted_ids = set(
-                picks["espn_player_id"].dropna().astype(int).tolist()
-            )
-            current_overall = int(picks["overall_pick"].max()) + 1
-            st.dataframe(picks.tail(20),use_container_width=True,hide_index=True)
-
-        schedule = pd.DataFrame(snake_picks(int(slot),int(teams),16))
-        future = schedule[schedule["Overall Pick"] >= current_overall]
-        next_user_pick = int(future["Overall Pick"].iloc[0]) if not future.empty else None
-        picks_until = next_user_pick - current_overall if next_user_pick is not None else None
-
-        m1,m2,m3 = st.columns(3)
-        m1.metric("Current Overall Pick",current_overall)
-        m2.metric("Your Next Pick",next_user_pick if next_user_pick is not None else "Draft Complete")
-        m3.metric("Picks Until Your Turn",picks_until if picks_until is not None else "—")
-
-        if rankings.empty:
-            st.warning("Upload current rankings to activate recommendations.")
-            return
-
-        roster_positions:list[str] = []
-        recommendation = recommendation_board(
-            rankings=rankings,
-            drafted_ids=drafted_ids,
-            drafted_names=set(),
-            current_overall_pick=next_user_pick or current_overall,
-            roster_positions=roster_positions,
-            strategy=strategy,
+    st.markdown('<div class="section-label">Draft Tendencies</div>',unsafe_allow_html=True)
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    for label,value in draft_tendencies(rows):
+        st.markdown(
+            f"""
+<div class="list-row">
+  <div class="rank-circle">•</div>
+  <div><div class="row-title">{label}</div></div>
+  <div class="row-grade blue">{value}</div>
+</div>
+""",
+            unsafe_allow_html=True,
         )
+    st.markdown('</div>',unsafe_allow_html=True)
 
-        if recommendation.empty:
-            st.info("No available players remain in the rankings file.")
-            return
-
-        display = recommendation.head(15)[
-            [
-                "player_name","position","team","adp","projected_points",
-                "projected_ppg","tier","injury_status","ADP Value",
-                "Roster Fit","Recommendation Score",
-            ]
-        ].rename(
-            columns={
-                "player_name":"Player","position":"Pos","team":"Team","adp":"ADP",
-                "projected_points":"Projected Points","projected_ppg":"Projected PPG",
-                "tier":"Tier","injury_status":"Injury Status",
-            }
+    st.markdown('<div class="section-label">Biggest Steals</div>',unsafe_allow_html=True)
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    for _,row in rows.sort_values("Pick Score",ascending=False).head(5).iterrows():
+        st.markdown(
+            f"""
+<div class="list-row">
+  <div><span class="pos-badge pos-{row['position']}">{row['position']}</span></div>
+  <div>
+    <div class="row-title">{row['player_name']}</div>
+    <div class="row-sub">{int(row['season'])} · Round {int(row['round'])} · Drafted {row['position']}{int(row['position_draft_rank'])} · Finished {row['position']}{int(row['position_finish_total'])}</div>
+  </div>
+  <div class="result result-{row['Result']}">{row['Result']}</div>
+</div>
+""",
+            unsafe_allow_html=True,
         )
-        st.subheader("Best Available Recommendations")
-        st.dataframe(display.style.format({
-            "ADP":"{:.1f}","Projected Points":"{:.1f}","Projected PPG":"{:.1f}",
-            "ADP Value":"{:.1f}","Recommendation Score":"{:.1f}",
-        }),use_container_width=True,hide_index=True)
+    st.markdown('</div>',unsafe_allow_html=True)
 
-    live_board()
+    st.markdown('<div class="section-label">Biggest Busts</div>',unsafe_allow_html=True)
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    for _,row in rows.sort_values("Pick Score").head(5).iterrows():
+        st.markdown(
+            f"""
+<div class="list-row">
+  <div><span class="pos-badge pos-{row['position']}">{row['position']}</span></div>
+  <div>
+    <div class="row-title">{row['player_name']}</div>
+    <div class="row-sub">{int(row['season'])} · Round {int(row['round'])} · Drafted {row['position']}{int(row['position_draft_rank'])} · Finished {row['position']}{int(row['position_finish_total'])}</div>
+  </div>
+  <div class="result result-{row['Result']}">{row['Result']}</div>
+</div>
+""",
+            unsafe_allow_html=True,
+        )
+    st.markdown('</div>',unsafe_allow_html=True)
 
+elif page == "League Intelligence":
+    scope = st.selectbox("League",["Shiva","Shiva 2.0","Combined"])
+    board = leaderboard(scope)
+    st.markdown('<div class="section-label">Drafting Power Rankings</div>',unsafe_allow_html=True)
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    for idx,row in board.iterrows():
+        st.markdown(
+            f"""
+<div class="list-row">
+  <div class="rank-circle">{idx+1}</div>
+  <div>
+    <div class="row-title">{row['Manager']}</div>
+    <div class="row-sub">{row['Team']} · Best: {row['Best Strength']}</div>
+  </div>
+  <div class="row-grade">{row['Grade']}</div>
+</div>
+""",
+            unsafe_allow_html=True,
+        )
+    st.markdown('</div>',unsafe_allow_html=True)
 
 else:
-    st.title("How Grades Work")
-    st.markdown(
-        """
-### Stricter draft grading
+    war_league = st.selectbox("League",["Shiva","Shiva 2.0"])
+    tab1,tab2 = st.tabs(["DRAFT PROJECTOR","LIVE DRAFT"])
 
-Every pick is judged by:
+    with tab1:
+        teams = 10
+        c1,c2 = st.columns(2)
+        slot = c1.number_input("Your Draft Slot",1,10,9,1)
+        rounds = c2.number_input("Rounds",8,20,16,1)
 
-1. Where he was drafted at his position.
-2. Where he finished at his position.
-3. His total PPR points compared with the historical average for that drafted positional rank.
-4. His PPG compared with the same historical expectation.
+        schedule = []
+        for rnd in range(1,int(rounds)+1):
+            overall = (
+                (rnd-1)*teams+int(slot)
+                if rnd%2==1
+                else rnd*teams-int(slot)+1
+            )
+            schedule.append({"Round":rnd,"Your Pick":overall})
+        st.dataframe(pd.DataFrame(schedule),use_container_width=True,hide_index=True)
 
-### Results
+        uploaded = st.file_uploader(
+            "Upload verified current rankings",
+            type=["csv"],
+            help="Required columns: player_name, position, adp, projected_points, projected_ppg",
+        )
+        rankings_path = uploaded if uploaded is not None else CURRENT_RANKINGS if CURRENT_RANKINGS.exists() else None
 
-- **Steal:** Clearly beat the expected finish and delivered strong production.
-- **Hit:** Passed both the finish test and production test.
-- **Injury-Protected:** Missed the total finish test, but delivered at least 95% of expected PPG in 13 or fewer games. This prevents an automatic bust, but does not award a high grade.
-- **Bust:** Failed the required finish/production standard.
+        if rankings_path is None:
+            st.warning("Upload current rankings to activate player recommendations. The app will not guess.")
+        else:
+            rankings = pd.read_csv(rankings_path)
+            required = {"player_name","position","adp","projected_points","projected_ppg"}
+            missing = required-set(rankings.columns)
+            if missing:
+                st.error("Missing columns: "+", ".join(sorted(missing)))
+            else:
+                st.markdown('<div class="section-label">Round Targets</div>',unsafe_allow_html=True)
+                for pick in schedule[:10]:
+                    overall = pick["Your Pick"]
+                    targets = rankings[
+                        rankings["adp"].between(max(1,overall-8),overall+12)
+                    ].sort_values(["adp","projected_points"],ascending=[True,False]).head(4)
 
-### Finish buffers
+                    st.markdown(
+                        f'<div class="card-title" style="margin:12px 0 5px">Round {pick["Round"]} · Pick {overall}</div>',
+                        unsafe_allow_html=True,
+                    )
+                    st.markdown('<div class="card">',unsafe_allow_html=True)
+                    for _,player in targets.iterrows():
+                        pos = str(player["position"])
+                        st.markdown(
+                            f"""
+<div class="list-row">
+  <div><span class="pos-badge pos-{pos}">{pos}</span></div>
+  <div>
+    <div class="row-title">{player['player_name']}</div>
+    <div class="row-sub">ADP {float(player['adp']):.1f} · {float(player['projected_points']):.1f} projected PPR points</div>
+  </div>
+  <div class="row-grade blue">{float(player['projected_ppg']):.1f}</div>
+</div>
+""",
+                            unsafe_allow_html=True,
+                        )
+                    st.markdown('</div>',unsafe_allow_html=True)
 
-- Drafted 1–5: within 2 spots.
-- Drafted 6–12: within 4 spots.
-- Drafted 13–24: within 6 spots.
-- Drafted 25+: within 9 spots.
+    with tab2:
+        st.info("The live feed uses the selected league automatically. League IDs are hidden from the app.")
 
-### Overall grade weighting
+        def fetch_live():
+            league_id = LEAGUE_IDS[war_league]
+            url = (
+                f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/"
+                f"seasons/{CURRENT_SEASON}/segments/0/leagues/{league_id}"
+                f"?view=mDraftDetail&view=mTeam&view=mStatus"
+            )
+            cookies = {}
+            try:
+                if st.secrets.get("ESPN_SWID",""):
+                    cookies["SWID"] = st.secrets["ESPN_SWID"]
+                if st.secrets.get("ESPN_S2",""):
+                    cookies["espn_s2"] = st.secrets["ESPN_S2"]
+            except Exception:
+                pass
 
-Rounds 1–3 count the most. Rounds 9–16 carry sharply reduced weight. A late-round miss cannot outweigh an early-round bust.
+            try:
+                response = requests.get(
+                    url,
+                    headers={"User-Agent":"Mozilla/5.0","Accept":"application/json"},
+                    cookies=cookies,
+                    timeout=10,
+                )
+                response.raise_for_status()
+                data = response.json()
+                picks = ((data.get("draftDetail") or {}).get("picks") or [])
+                return pd.DataFrame(picks),"Connected"
+            except Exception as exc:
+                return pd.DataFrame(),f"Feed unavailable: {exc}"
 
-### Draft War Room data rule
+        @st.fragment(run_every="5s")
+        def live_feed():
+            picks,status = fetch_live()
+            st.caption(status)
+            if picks.empty:
+                st.write("Waiting for the draft to begin.")
+            else:
+                columns = [
+                    c for c in
+                    ["overallPickNumber","roundId","roundPickNumber","teamId","playerId"]
+                    if c in picks.columns
+                ]
+                st.dataframe(
+                    picks[columns].sort_values("overallPickNumber").tail(20),
+                    use_container_width=True,
+                    hide_index=True,
+                )
 
-The War Room never invents current rankings. It requires a verified current rankings/projections CSV. The live ESPN feed removes drafted players when matching ESPN player IDs are present.
-"""
-    )
+        live_feed()
