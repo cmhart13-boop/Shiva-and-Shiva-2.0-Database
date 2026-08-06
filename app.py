@@ -8,7 +8,46 @@ import streamlit as st
 
 DB = Path(__file__).with_name('shiva_draft_roi.sqlite')
 st.set_page_config(page_title='Shiva Draft Intelligence', page_icon='🏆', layout='wide')
-st.markdown('''<style>.block-container{padding-top:1.2rem}div[data-testid="stMetric"]{background:#f8fafc;border:1px solid #dbe3ec;padding:12px;border-radius:12px}[data-testid="stSidebar"]{background:#f8fafc}</style>''', unsafe_allow_html=True)
+
+st.markdown('''
+
+<style>
+:root {--bg:#0b0c0e;--deep:#050607;--panel:#1b1d1f;--line:#3a3d40;--muted:#9da1a6;--white:#f7f7f7;--green:#35f23e;--blue:#5b96ff;--red:#ff4e59;}
+html,body,[class*="css"]{font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif;}
+.stApp{background:var(--bg);color:var(--white);} .block-container{max-width:1180px;padding-top:.25rem;padding-bottom:4rem;} #MainMenu,footer,header{visibility:hidden;}
+.shiva-splash{position:fixed;inset:0;z-index:999999;background:#0828bd;display:flex;align-items:center;justify-content:center;animation:splashFade .55s ease 2.15s forwards;}
+.shiva-shield{position:relative;width:148px;height:164px;border:14px solid #c9ff00;border-radius:18px 18px 58px 58px;display:grid;place-items:center;transform:skew(-3deg);}
+.shiva-shield:after{content:"";position:absolute;left:50%;bottom:-34px;width:75px;height:75px;background:#0828bd;border-right:14px solid #c9ff00;border-bottom:14px solid #c9ff00;transform:translateX(-50%) rotate(45deg);}
+.shiva-s{position:relative;z-index:2;color:#c9ff00;font:italic 1000 7.2rem/1 "Arial Black",Arial,sans-serif;transform:translateY(-2px) skew(-5deg);}
+@keyframes splashFade{0%{opacity:1;visibility:visible;}99%{opacity:0;visibility:visible;}100%{opacity:0;visibility:hidden;pointer-events:none;}}
+.shiva-banner{position:sticky;top:0;z-index:999;margin:0 -1rem 12px;padding:14px 18px 12px;background:rgba(5,6,7,.98);border-bottom:1px solid #242629;color:#fff;font-size:clamp(1.15rem,4vw,1.75rem);font-weight:1000;letter-spacing:.015em;line-height:1.05;text-transform:uppercase;backdrop-filter:blur(14px);}
+.shiva-banner span{color:var(--green);} .shiva-banner:after{content:"";display:block;height:4px;width:48%;max-width:330px;margin-top:10px;background:var(--green);}
+h1,h2,h3,h4,p,label,.stMarkdown{color:var(--white)!important;} h1,h2,h3{font-weight:1000!important;letter-spacing:-.02em;} hr{border-color:#313438;}
+[data-baseweb="select"]>div{background:#242628!important;border:1px solid #42464a!important;border-radius:999px!important;min-height:47px;} [data-baseweb="select"] span,[data-baseweb="select"] input{color:var(--blue)!important;font-weight:900!important;}
+.stSelectbox label p,.stRadio label p{color:#e8e8e8!important;font-weight:900!important;} div[role="radiogroup"]{background:var(--panel);border:1px solid #303337;border-radius:15px;padding:8px 10px;}
+div[data-testid="stMetric"]{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 15px;min-width:0;overflow:visible;box-shadow:0 9px 24px rgba(0,0,0,.24);} div[data-testid="stMetricLabel"]{color:var(--muted);font-size:.73rem;font-weight:900;letter-spacing:.055em;text-transform:uppercase;} div[data-testid="stMetricValue"]{color:var(--green);font-size:clamp(1.4rem,3vw,2.05rem)!important;font-weight:1000;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;min-width:max-content;line-height:1.05;} div[data-testid="stMetricDelta"]{color:var(--blue);}
+[data-testid="stDataFrame"]{background:var(--panel)!important;border:1px solid #34373a!important;border-radius:14px!important;overflow:hidden;} [data-testid="stDataFrame"] *{font-family:"Arial Narrow",Arial,sans-serif!important;}
+section[data-testid="stSidebar"]{background:#090a0b;border-right:1px solid #292c2f;} section[data-testid="stSidebar"] *{color:#fff;} .sidebar-panel{background:var(--panel);border:1px solid #36393c;border-radius:14px;padding:13px 14px;margin:10px 0 8px;} .sidebar-panel-title{color:#fff;font-size:.84rem;font-weight:1000;letter-spacing:.07em;text-transform:uppercase;} .sidebar-panel-sub{color:var(--muted);font-size:.76rem;margin-top:4px;}
+.stDownloadButton button,.stButton button{color:var(--blue)!important;background:transparent!important;border:2px solid var(--blue)!important;border-radius:999px!important;font-weight:1000!important;width:100%;}
+[data-testid="stPlotlyChart"]{background:var(--panel);border:1px solid #303337;border-radius:16px;padding:8px;}
+@media(max-width:900px){.block-container{padding-left:.8rem;padding-right:.8rem;}div[data-testid="stMetricValue"]{font-size:1.25rem!important;}.shiva-banner{font-size:1.05rem;}.shiva-shield{width:118px;height:132px;border-width:11px;}.shiva-shield:after{width:60px;height:60px;bottom:-28px;border-right-width:11px;border-bottom-width:11px;}.shiva-s{font-size:5.8rem;}}
+</style>
+
+''', unsafe_allow_html=True)
+
+st.markdown(
+    """
+<div class="shiva-splash" aria-label="Shiva Draft Intelligence loading">
+    <div class="shiva-shield"><div class="shiva-s">S</div></div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    '<div class="shiva-banner">SHIVA LEAGUE <span>DRAFT INTELLIGENCE MATRIX</span></div>',
+    unsafe_allow_html=True,
+)
 
 @st.cache_data(show_spinner=False)
 def load():
@@ -52,12 +91,23 @@ def default_idx():
         if n in managers: return managers.index(n)
     return 0
 
-st.sidebar.title('🏆 Shiva Controls')
-manager=st.sidebar.selectbox('Manager',managers,index=default_idx())
-scope=st.sidebar.selectbox('League',scopes)
-season=st.sidebar.selectbox('Season',seasons)
-page=st.sidebar.radio('View',['Manager Dashboard','Head-to-Head','League Leaderboard','Draft Heatmap','All Picks','Methodology'])
-st.sidebar.caption('Verified database only. No invented values.')
+st.sidebar.markdown(
+    '<div class="sidebar-panel"><div class="sidebar-panel-title">🏆 Control Center</div><div class="sidebar-panel-sub">Select the manager, league, and season.</div></div>',
+    unsafe_allow_html=True,
+)
+manager=st.sidebar.selectbox('👤 Manager',managers,index=default_idx())
+scope=st.sidebar.selectbox('🏈 League',scopes)
+season=st.sidebar.selectbox('📅 Season',seasons)
+st.sidebar.markdown(
+    '<div class="sidebar-panel"><div class="sidebar-panel-title">📊 Intelligence Views</div><div class="sidebar-panel-sub">Switch between reports and comparisons.</div></div>',
+    unsafe_allow_html=True,
+)
+page=st.sidebar.radio('Navigation',['📈 Manager Dashboard','⚔️ Head-to-Head','🏅 League Leaderboard','🔥 Draft Heatmap','🧾 All Picks','📘 Methodology'])
+page=page.split(' ',1)[1]
+st.sidebar.markdown(
+    '<div class="sidebar-panel"><div class="sidebar-panel-title">🛡️ Data Integrity</div><div class="sidebar-panel-sub">Verified database only. No invented values.</div></div>',
+    unsafe_allow_html=True,
+)
 
 if page=='Manager Dashboard':
     x=filt(manager,scope,season); s=summary(x)
