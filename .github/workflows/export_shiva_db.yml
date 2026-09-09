@@ -1,0 +1,30 @@
+name: Export Shiva DB
+on:
+  push:
+    paths:
+      - '.github/workflows/export_shiva_db.yml'
+  workflow_dispatch:
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export SQLite tables
+        run: |
+          python - <<'PY'
+          import sqlite3, csv, json, os
+          db='shiva_draft_roi.sqlite'
+          con=sqlite3.connect(db)
+          tables=[r[0] for r in con.execute("select name from sqlite_master where type='table' and name not like 'sqlite_%'")]
+          os.makedirs('export', exist_ok=True)
+          with open('export/tables.json','w') as f: json.dump(tables,f,indent=2)
+          for t in tables:
+              cur=con.execute(f'SELECT * FROM "{t}"')
+              cols=[d[0] for d in cur.description]
+              with open(f'export/{t}.csv','w',newline='',encoding='utf-8') as f:
+                  w=csv.writer(f); w.writerow(cols); w.writerows(cur)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shiva-db-export
+          path: export/
