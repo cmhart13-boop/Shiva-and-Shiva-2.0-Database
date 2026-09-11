@@ -1,0 +1,108 @@
+draft_picks	1984	season,overall_pick,round,round_pick,team_id,team_name,manager_names,player_id,player_name,lineup_slot_id,keeper,autodraft_type,bid_amount
+draft_picks_full	3424	league_id,league_name,season,overall_pick,round,round_pick,team_id,team_name,owner_ids,manager_names,player_id,player_name,position,lineup_slot_id,keeper
+draft_roi_scores	2942	league_id,league_name,season,round,overall_pick,team_id,team_name,owner_id,manager_name,player_id,player_name,position,position_draft_rank,position_finish_total,position_finish_ppg,total_rank_difference,ppg_rank_difference,near_hit_buffer,total_adjusted_difference,ppg_adjusted_difference,draft_capital_weight,total_points_roi,ppg_roi,final_draft_roi,classification,total_late_cap_applied,ppg_late_cap_applied,fantasy_points_ppr,ppg,games_played
+end_rosters	1832	season,team_id,team_name,manager_names,player_id,player_name,position_id,lineup_slot_id,acquisition_type,acquisition_date,injury_status
+league_settings	13	season,league_name,team_count,draft_type,seconds_per_pick,lineup_slot_counts,matchup_period_count,playoff_matchup_length,playoff_team_count,scoring_type
+manager_draft_roi_summary	27	rank,owner_id,manager_name,seasons,leagues,graded_picks,average_final_roi,average_total_roi,average_ppg_roi,median_final_roi,total_final_roi,steal_rate,met_rate,bust_rate
+manager_seasons	126	season,owner_id,manager_name,team_id,team_name,wins,losses,ties,points_for,points_against,playoff_seed,final_rank,champion
+manager_summary	21	manager,owner_id,seasons,wins,losses,ties,win_pct,points_for,points_against,titles,runner_up,top4_finishes,best_finish,latest_team
+matchups	974	season,matchup_id,matchup_period,playoff_tier,winner,home_team_id,home_team,home_manager,home_points,away_team_id,away_team,away_manager,away_points
+seasons	13	season,league_name,team_count,draft_picks,matchups,first_scoring_period,final_scoring_period,is_active,completed
+teams_standings	124	season,team_id,team_name,abbrev,manager_names,owner_ids,division_id,wins,losses,ties,points_for,points_against,playoff_seed,final_rank,champion
+transactions	5	season,transaction_id,type,status,proposed_date,processed_date,team_id,member_id,items_json
+
+END_ROSTER BY SEASON
+2014	8	128	NULL
+2015	8	128	NULL
+2016	8	128	NULL
+2017	10	162	NULL
+2018	10	155	DRAFT,ADD,TRADE
+2019	10	163	DRAFT,ADD,TRADE
+2020	10	159	DRAFT,ADD,TRADE
+2021	10	157	DRAFT,ADD,TRADE
+2022	10	164	DRAFT,ADD
+2023	10	164	DRAFT,ADD
+2024	10	160	DRAFT,ADD,TRADE
+2025	10	164	DRAFT,TRADE,ADD
+
+END_ROSTER TEAM NAMES 2018-2025
+2018	1	Password Is Taco	Chris H	16
+2018	2	Team Hewitt	Jason Hewitt	17
+2018	3	Fear Boners	Mike Hart	16
+2018	4	Flavor-est Dave of ALL	David Huffman	17
+2018	5	Team Hodges	Dustin Hodges	16
+2018	6	Fuxin  Ruxins x 2	Zack Brower	16
+2018	7	Yo Belichick Yo Self	Ben Miller, Ben Miller	16
+2018	8	Game Of Mahomes	Kyle Winterowd	16
+2018	9	Scary Larry	Stewart Helton	9
+2018	10	Raging  Falcoholics	Josh McAuliffe	16
+2019	1	Password Is Taco	Chris H	16
+2019	2	Chip Diamond	Garrett Schoudt	16
+2019	3	I Got One!	Mike Hart	16
+2019	4	Ron Mexico	Matt Hollingsworth	16
+2019	5	Team Hodges	Dustin Hodges	17
+2019	6	Fuxin  Ruxins x 2	Zack Brower	16
+2019	7	28 - 3	Ben Miller	16
+2019	8	Bend it like Beckham Jr.	Nick Chipchase	17
+2019	9	Scary Larry	Stewart Helton	16
+2019	10	Raging  Falcoholics	Josh McAuliffe	17
+2020	1	Password Is Taco	Chris H	16
+2020	2	Chip Diamond	Garrett Schoudt	16
+2020	3	Bless me Lord Shiva	Mike Hart	16
+2020	4	Rollin with Mahomies	Kyle Winterowd	16
+2020	5	everybody was kungflu fightin	Dustin Hodges	16
+2020	6	Fuxin  Ruxins x 2	Zack Brower	16
+2020	7	FuxBe3nRuxin !	Jaqueline Bascino	16
+2020	8	Bend it like Beckham Jr.	Nick Chipchase	16
+2020	9	Scary Larry	Stewart Helton	15
+2020	10	Raging  Falcoholics	Josh McAuliffe	16
+2021	1	Password Is Taco	Chris H	17
+2021	2	Chalupa Batman	Garrett Schoudt	16
+2021	3	Bless me Lord Shiva	Mike Hart	17
+2021	4	Show me  The TDs	Jacob Barton	16
+2021	5	l 0 fo fo ho	Dustin Hodges	17
+2021	6	Fuxin  Ruxins x 2	Zack Brower	16
+2021	7	Scary Mary	Jaqueline Bascino	17
+2021	8	Bend it like Beckham Jr.	Nick Chipchase	16
+2021	9	Scary Larry	Stewart Helton	9
+2021	10	Raging  Falcoholics	Josh McAuliffe	16
+2022	1	Password Is Taco	Chris H	16
+2022	2	Team Derrig	Robert Derrig	16
+2022	3	Scary Jerry	Mike Hart	17
+2022	4	Show me  the TDs	Jacob Barton	16
+2022	5	FARVES  VOLLEY FOLLEY	Dustin Hodges	17
+2022	6	Try the Veal	Zack Brower	16
+2022	7	Scary Mary	Jaqueline Bascino	17
+2022	8	Bend it like Beckham Jr.	Nick Chipchase	16
+2022	9	Scary Larry	Stewart Helton	17
+2022	10	Raging  Falcoholics	Josh McAuliffe	16
+2023	1	Password Is Taco	Chris H	17
+2023	2	Olave Asians	Rob Derrig	16
+2023	3	Scary Jerry	Mike Hart	17
+2023	4	Show me  the TDs	Jacob Barton	16
+2023	5	FARVES  VOLLEY FOLLEY	Dustin Hodges	15
+2023	6	Tyrannosaurus Rux	Zack Brower	16
+2023	7	Calvin Ridleys Bookie	Jaqueline Bascino	17
+2023	8	Bend it like Beckham Jr.	Nick Chipchase	16
+2023	9	Scary Larry	Stewart Helton	17
+2023	10	Raging  Falcoholics	Josh McAuliffe	17
+2024	1	Password Is Taco	Chris H	15
+2024	2	Olave Asians	Rob Derrig	16
+2024	3	Scary Jerry	Mike Hart	16
+2024	4	Show me  the TDs	Jacob Barton	16
+2024	5	Scary Perry	Dustin Hodges	16
+2024	6	Tyrannosaurus Rux	Zack Brower	16
+2024	7	Calvin Ridleys Bookie	Jaqueline Bascino	16
+2024	8	Bend it like Beckham Jr.	Nick Chipchase	16
+2024	9	Scary Larry	Stewart Helton	17
+2024	10	Raging  Falcoholics	Josh McAuliffe	16
+2025	1	Password Is Taco	Chris H	16
+2025	2	Olave Asians	Rob Derrig	16
+2025	3	Scary Jerry	Mike Hart	16
+2025	4	Show me  the TDs	Jacob Barton	17
+2025	5	Dichur til it Hurts	Dustin Hodges	16
+2025	6	Keefe D, Get Em	Zack Brower	17
+2025	7	Scary AND Hairy	Jaqueline Bascino	17
+2025	8	Bend it like Beckham Jr.	Nick Chipchase	16
+2025	9	Scary Larry	Stewart Helton	17
+2025	10	Raging  Falcoholics	Josh McAuliffe	16
