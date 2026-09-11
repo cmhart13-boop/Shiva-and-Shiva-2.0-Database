@@ -1,0 +1,1287 @@
+season,team_id,manager,team,player,player_id,acquisition_type,bucket,season_ppr_points
+2018,1,Chris H,Password Is Taco,Alvin Kamara,3054850,DRAFT,DRAFTED,354.2
+2018,1,Chris H,Password Is Taco,Odell Beckham Jr.,16733,DRAFT,DRAFTED,232.34
+2018,1,Chris H,Password Is Taco,Mike Evans,16737,DRAFT,DRAFTED,284.4
+2018,1,Chris H,Password Is Taco,Larry Fitzgerald,5528,DRAFT,DRAFTED,185.68
+2018,1,Chris H,Password Is Taco,Patrick Mahomes,3139477,ADD,WAIVER/ACQUISITION,417.08
+2018,1,Chris H,Password Is Taco,Matt Breida,3049916,ADD,WAIVER/ACQUISITION,
+2018,1,Chris H,Password Is Taco,Tyreek Hill,3116406,TRADE,WAIVER/ACQUISITION,334.0
+2018,1,Chris H,Password Is Taco,Ka'imi Fairbairn,2971573,ADD,WAIVER/ACQUISITION,
+2018,1,Chris H,Password Is Taco,Travis Kelce,15847,TRADE,WAIVER/ACQUISITION,294.6
+2018,1,Chris H,Password Is Taco,Spencer Ware,16020,ADD,WAIVER/ACQUISITION,
+2018,1,Chris H,Password Is Taco,Lamar Miller,14886,TRADE,WAIVER/ACQUISITION,172.6
+2018,1,Chris H,Password Is Taco,Damien Williams,17359,ADD,WAIVER/ACQUISITION,
+2018,1,Chris H,Password Is Taco,Kalen Ballage,3128774,ADD,WAIVER/ACQUISITION,
+2018,1,Chris H,Password Is Taco,Chris Carson,3919596,ADD,WAIVER/ACQUISITION,201.4
+2018,1,Chris H,Password Is Taco,Ravens D/ST,-16033,ADD,WAIVER/ACQUISITION,
+2018,1,Chris H,Password Is Taco,C.J. Anderson,16040,ADD,WAIVER/ACQUISITION,67.4
+2018,2,Jason Hewitt,Team Hewitt,David Johnson,2508176,DRAFT,DRAFTED,246.6
+2018,2,Jason Hewitt,Team Hewitt,Dalvin Cook,3116593,DRAFT,DRAFTED,152.0
+2018,2,Jason Hewitt,Team Hewitt,Davante Adams,16800,DRAFT,DRAFTED,329.6
+2018,2,Jason Hewitt,Team Hewitt,Jerick McKinnon,16782,DRAFT,DRAFTED,
+2018,2,Jason Hewitt,Team Hewitt,Doug Baldwin,14221,DRAFT,DRAFTED,141.8
+2018,2,Jason Hewitt,Team Hewitt,Marvin Jones Jr.,15072,DRAFT,DRAFTED,115.8
+2018,2,Jason Hewitt,Team Hewitt,Isaiah Crowell,17133,DRAFT,DRAFTED,140.7
+2018,2,Jason Hewitt,Team Hewitt,Corey Davis,3042778,DRAFT,DRAFTED,183.6
+2018,2,Jason Hewitt,Team Hewitt,Cooper Kupp,2977187,DRAFT,DRAFTED,135.1
+2018,2,Jason Hewitt,Team Hewitt,Jamison Crowder,2576716,DRAFT,DRAFTED,82.8
+2018,2,Jason Hewitt,Team Hewitt,Ben Roethlisberger,5536,DRAFT,DRAFTED,341.86
+2018,2,Jason Hewitt,Team Hewitt,Kenny Golladay,2974858,DRAFT,DRAFTED,207.1
+2018,2,Jason Hewitt,Team Hewitt,Charles Clay,14145,DRAFT,DRAFTED,37.4
+2018,2,Jason Hewitt,Team Hewitt,Justin Tucker,15683,DRAFT,DRAFTED,
+2018,2,Jason Hewitt,Team Hewitt,Broncos D/ST,-16007,DRAFT,DRAFTED,
+2018,2,Jason Hewitt,Team Hewitt,Matthew Stafford,12483,ADD,WAIVER/ACQUISITION,212.18
+2018,2,Jason Hewitt,Team Hewitt,Benjamin Watson,5557,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Antonio Brown,13934,DRAFT,DRAFTED,323.7
+2018,3,Mike Hart,Fear Boners,LeSean McCoy,12514,DRAFT,DRAFTED,127.2
+2018,3,Mike Hart,Fear Boners,Jordan Howard,3060022,DRAFT,DRAFTED,180.0
+2018,3,Mike Hart,Fear Boners,Josh Gordon,15705,DRAFT,DRAFTED,138.7
+2018,3,Mike Hart,Fear Boners,Deshaun Watson,3122840,DRAFT,DRAFTED,331.7
+2018,3,Mike Hart,Fear Boners,Kerryon Johnson,3916925,DRAFT,DRAFTED,139.4
+2018,3,Mike Hart,Fear Boners,David Njoku,3123076,ADD,WAIVER/ACQUISITION,143.9
+2018,3,Mike Hart,Fear Boners,Alshon Jeffery,14912,ADD,WAIVER/ACQUISITION,185.3
+2018,3,Mike Hart,Fear Boners,Mason Crosby,10636,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Vance McDonald,15853,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Mitchell Trubisky,3039707,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Anthony Miller,3050487,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Steelers D/ST,-16023,TRADE,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Curtis Samuel,3121427,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Falcons D/ST,-16001,ADD,WAIVER/ACQUISITION,
+2018,3,Mike Hart,Fear Boners,Marcus Murphy,2514123,ADD,WAIVER/ACQUISITION,
+2018,4,David Huffman,Flavor-est Dave of ALL,Todd Gurley II,2977644,DRAFT,DRAFTED,372.1
+2018,4,David Huffman,Flavor-est Dave of ALL,Leonard Fournette,3115364,DRAFT,DRAFTED,120.4
+2018,4,David Huffman,Flavor-est Dave of ALL,Christian McCaffrey,3117251,DRAFT,DRAFTED,385.5
+2018,4,David Huffman,Flavor-est Dave of ALL,Stefon Diggs,2976212,DRAFT,DRAFTED,266.3
+2018,4,David Huffman,Flavor-est Dave of ALL,Allen Robinson,16799,DRAFT,DRAFTED,153.3
+2018,4,David Huffman,Flavor-est Dave of ALL,Sterling Shepard,2976592,DRAFT,DRAFTED,182.5
+2018,4,David Huffman,Flavor-est Dave of ALL,Rashaad Penny,3139925,DRAFT,DRAFTED,70.4
+2018,4,David Huffman,Flavor-est Dave of ALL,Allen Hurns,17177,DRAFT,DRAFTED,61.5
+2018,4,David Huffman,Flavor-est Dave of ALL,Tyler Lockett,2577327,DRAFT,DRAFTED,222.4
+2018,4,David Huffman,Flavor-est Dave of ALL,Texans D/ST,-16034,DRAFT,DRAFTED,
+2018,4,David Huffman,Flavor-est Dave of ALL,Matt Prater,11122,DRAFT,DRAFTED,
+2018,4,David Huffman,Flavor-est Dave of ALL,Will Dissly,3127292,ADD,WAIVER/ACQUISITION,
+2018,4,David Huffman,Flavor-est Dave of ALL,Eric Ebron,16732,ADD,WAIVER/ACQUISITION,222.2
+2018,4,David Huffman,Flavor-est Dave of ALL,Tom Brady,2330,TRADE,WAIVER/ACQUISITION,281.3
+2018,4,David Huffman,Flavor-est Dave of ALL,Chris Herndon,3123050,ADD,WAIVER/ACQUISITION,
+2018,4,David Huffman,Flavor-est Dave of ALL,Patriots D/ST,-16017,ADD,WAIVER/ACQUISITION,
+2018,4,David Huffman,Flavor-est Dave of ALL,Ryan Fitzpatrick,8664,ADD,WAIVER/ACQUISITION,
+2018,5,Dustin Hodges,Team Hodges,Saquon Barkley,3929630,DRAFT,DRAFTED,385.8
+2018,5,Dustin Hodges,Team Hodges,Melvin Gordon,2576434,DRAFT,DRAFTED,275.5
+2018,5,Dustin Hodges,Team Hodges,T.Y. Hilton,14924,DRAFT,DRAFTED,239.0
+2018,5,Dustin Hodges,Team Hodges,Zach Ertz,15835,DRAFT,DRAFTED,280.3
+2018,5,Dustin Hodges,Team Hodges,Mark Ingram II,13981,DRAFT,DRAFTED,142.5
+2018,5,Dustin Hodges,Team Hodges,Julian Edelman,12649,DRAFT,DRAFTED,207.42
+2018,5,Dustin Hodges,Team Hodges,Rams D/ST,-16014,DRAFT,DRAFTED,
+2018,5,Dustin Hodges,Team Hodges,Philip Rivers,5529,DRAFT,DRAFTED,285.02
+2018,5,Dustin Hodges,Team Hodges,Andrew Luck,14874,ADD,WAIVER/ACQUISITION,327.92
+2018,5,Dustin Hodges,Team Hodges,Marlon Mack,3139605,ADD,WAIVER/ACQUISITION,178.1
+2018,5,Dustin Hodges,Team Hodges,Wil Lutz,2985659,ADD,WAIVER/ACQUISITION,
+2018,5,Dustin Hodges,Team Hodges,Russell Wilson,14881,ADD,WAIVER/ACQUISITION,299.42
+2018,5,Dustin Hodges,Team Hodges,Adam Humphries,2576491,ADD,WAIVER/ACQUISITION,
+2018,5,Dustin Hodges,Team Hodges,Jamaal Williams,2980453,ADD,WAIVER/ACQUISITION,114.4
+2018,5,Dustin Hodges,Team Hodges,Robby Anderson,2574808,ADD,WAIVER/ACQUISITION,
+2018,5,Dustin Hodges,Team Hodges,Seahawks D/ST,-16026,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Ezekiel Elliott,3051392,DRAFT,DRAFTED,329.1
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Robert Woods,15880,DRAFT,DRAFTED,265.6
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Phillip Lindsay,3052117,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Willie Snead IV,17258,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Doug Martin,14885,ADD,WAIVER/ACQUISITION,119.9
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Jameis Winston,2969939,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Dede Westbrook,3892889,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Stephen Gostkowski,9704,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Jeff Wilson Jr.,3122976,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Aaron Rodgers,8439,ADD,WAIVER/ACQUISITION,312.58
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Elijah McGuire,3042494,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Evan Engram,3051876,ADD,WAIVER/ACQUISITION,126.3
+2018,6,Zack Brower,Fuxin  Ruxins x 2,DaeSean Hamilton,3057987,ADD,WAIVER/ACQUISITION,
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Jordy Nelson,11270,ADD,WAIVER/ACQUISITION,156.7
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Kyle Rudolph,14054,ADD,WAIVER/ACQUISITION,151.4
+2018,6,Zack Brower,Fuxin  Ruxins x 2,Saints D/ST,-16018,ADD,WAIVER/ACQUISITION,
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Rob Gronkowski,13229,DRAFT,DRAFTED,131.2
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Michael Thomas,2976316,DRAFT,DRAFTED,315.5
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Kenyan Drake,2979843,DRAFT,DRAFTED,206.2
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Jarvis Landry,16790,DRAFT,DRAFTED,217.12
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Dion Lewis,14198,DRAFT,DRAFTED,160.7
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Drew Brees,2580,DRAFT,DRAFTED,304.98
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Sammy Watkins,16725,DRAFT,DRAFTED,115.1
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Sony Michel,3128721,DRAFT,DRAFTED,139.1
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Aaron Jones,3042519,DRAFT,DRAFTED,171.4
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Trey Burton,16974,DRAFT,DRAFTED,147.1
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,James Conner,3045147,ADD,WAIVER/ACQUISITION,
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Carson Wentz,2573079,ADD,WAIVER/ACQUISITION,193.66
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Jack Doyle,16504,ADD,WAIVER/ACQUISITION,60.5
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Chiefs D/ST,-16012,ADD,WAIVER/ACQUISITION,
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Bengals D/ST,-16004,ADD,WAIVER/ACQUISITION,
+2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,Mike Badgley,3123052,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Amari Cooper,2976499,DRAFT,DRAFTED,215.5
+2018,8,Kyle Winterowd,Game Of Mahomes,JuJu Smith-Schuster,3120348,DRAFT,DRAFTED,296.9
+2018,8,Kyle Winterowd,Game Of Mahomes,Tarik Cohen,3066158,DRAFT,DRAFTED,233.94
+2018,8,Kyle Winterowd,Game Of Mahomes,Jared Cook,12537,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Bears D/ST,-16003,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Jalen Richard,2972091,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Austin Ekeler,3068267,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Josh Adams,3932420,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Taylor Gabriel,17437,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Brandin Cooks,16731,TRADE,WAIVER/ACQUISITION,243.2
+2018,8,Kyle Winterowd,Game Of Mahomes,Adrian Peterson,10452,TRADE,WAIVER/ACQUISITION,189.0
+2018,8,Kyle Winterowd,Game Of Mahomes,Jared Goff,3046779,TRADE,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Greg Zuerlein,14993,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Jaylen Samuels,3116721,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Charcandrick West,17284,ADD,WAIVER/ACQUISITION,
+2018,8,Kyle Winterowd,Game Of Mahomes,Derrick Henry,3043078,ADD,WAIVER/ACQUISITION,201.36
+2018,9,Stewart Helton,Scary Larry,Julio Jones,13982,DRAFT,DRAFTED,325.9
+2018,9,Stewart Helton,Scary Larry,Matt Ryan,11237,DRAFT,DRAFTED,354.96
+2018,9,Stewart Helton,Scary Larry,Golden Tate,13217,DRAFT,DRAFTED,182.9
+2018,9,Stewart Helton,Scary Larry,Michael Crabtree,12563,DRAFT,DRAFTED,132.7
+2018,9,Stewart Helton,Scary Larry,Austin Hooper,3043275,ADD,WAIVER/ACQUISITION,163.0
+2018,9,Stewart Helton,Scary Larry,Jason Myers,2473037,ADD,WAIVER/ACQUISITION,
+2018,9,Stewart Helton,Scary Larry,Peyton Barber,3051902,ADD,WAIVER/ACQUISITION,150.3
+2018,9,Stewart Helton,Scary Larry,Redskins D/ST,-16028,ADD,WAIVER/ACQUISITION,
+2018,9,Stewart Helton,Scary Larry,Theo Riddick,15994,ADD,WAIVER/ACQUISITION,116.5
+2018,10,Josh McAuliffe,Raging  Falcoholics,DeAndre Hopkins,15795,DRAFT,DRAFTED,333.5
+2018,10,Josh McAuliffe,Raging  Falcoholics,Keenan Allen,15818,DRAFT,DRAFTED,260.1
+2018,10,Josh McAuliffe,Raging  Falcoholics,Joe Mixon,3116385,DRAFT,DRAFTED,243.4
+2018,10,Josh McAuliffe,Raging  Falcoholics,Adam Thielen,16460,DRAFT,DRAFTED,307.3
+2018,10,Josh McAuliffe,Raging  Falcoholics,Jimmy Graham,13232,DRAFT,DRAFTED,130.6
+2018,10,Josh McAuliffe,Raging  Falcoholics,Duke Johnson Jr.,2969962,DRAFT,DRAFTED,132.0
+2018,10,Josh McAuliffe,Raging  Falcoholics,James White,16913,DRAFT,DRAFTED,276.6
+2018,10,Josh McAuliffe,Raging  Falcoholics,Vikings D/ST,-16016,DRAFT,DRAFTED,
+2018,10,Josh McAuliffe,Raging  Falcoholics,George Kittle,3040151,ADD,WAIVER/ACQUISITION,
+2018,10,Josh McAuliffe,Raging  Falcoholics,Kirk Cousins,14880,ADD,WAIVER/ACQUISITION,283.12
+2018,10,Josh McAuliffe,Raging  Falcoholics,Nick Chubb,3128720,ADD,WAIVER/ACQUISITION,194.5
+2018,10,Josh McAuliffe,Raging  Falcoholics,Mohamed Sanu,14922,ADD,WAIVER/ACQUISITION,182.4
+2018,10,Josh McAuliffe,Raging  Falcoholics,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,
+2018,10,Josh McAuliffe,Raging  Falcoholics,Josh Reynolds,3115306,ADD,WAIVER/ACQUISITION,
+2018,10,Josh McAuliffe,Raging  Falcoholics,Gus Edwards,3051926,ADD,WAIVER/ACQUISITION,
+2018,10,Josh McAuliffe,Raging  Falcoholics,Harrison Butker,3055899,ADD,WAIVER/ACQUISITION,
+2019,1,Chris H,Password Is Taco,Todd Gurley II,2977644,DRAFT,DRAFTED,219.4
+2019,1,Chris H,Password Is Taco,James Conner,3045147,DRAFT,DRAFTED,145.5
+2019,1,Chris H,Password Is Taco,Leonard Fournette,3115364,DRAFT,DRAFTED,259.4
+2019,1,Chris H,Password Is Taco,Evan Engram,3051876,DRAFT,DRAFTED,109.4
+2019,1,Chris H,Password Is Taco,Emmanuel Sanders,13295,DRAFT,DRAFTED,190.3
+2019,1,Chris H,Password Is Taco,Russell Wilson,14881,DRAFT,DRAFTED,328.6
+2019,1,Chris H,Password Is Taco,Lamar Jackson,3916387,ADD,WAIVER/ACQUISITION,415.68
+2019,1,Chris H,Password Is Taco,Saquon Barkley,3929630,TRADE,WAIVER/ACQUISITION,244.1
+2019,1,Chris H,Password Is Taco,Odell Beckham Jr.,16733,TRADE,WAIVER/ACQUISITION,215.9
+2019,1,Chris H,Password Is Taco,Jamaal Williams,2980453,ADD,WAIVER/ACQUISITION,
+2019,1,Chris H,Password Is Taco,DK Metcalf,4047650,ADD,WAIVER/ACQUISITION,187.1
+2019,1,Chris H,Password Is Taco,Jaylen Samuels,3116721,TRADE,WAIVER/ACQUISITION,104.4
+2019,1,Chris H,Password Is Taco,Kyle Rudolph,14054,ADD,WAIVER/ACQUISITION,113.7
+2019,1,Chris H,Password Is Taco,Saints D/ST,-16018,ADD,WAIVER/ACQUISITION,
+2019,1,Chris H,Password Is Taco,Dan Bailey,14322,ADD,WAIVER/ACQUISITION,
+2019,1,Chris H,Password Is Taco,Raheem Mostert,2576414,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Alvin Kamara,3054850,DRAFT,DRAFTED,248.52
+2019,2,Garrett Schoudt,Chip Diamond,Devonta Freeman,16944,DRAFT,DRAFTED,197.6
+2019,2,Garrett Schoudt,Chip Diamond,Mike Evans,16737,DRAFT,DRAFTED,232.7
+2019,2,Garrett Schoudt,Chip Diamond,Kenny Golladay,2974858,DRAFT,DRAFTED,248.0
+2019,2,Garrett Schoudt,Chip Diamond,Matt Ryan,11237,DRAFT,DRAFTED,267.34
+2019,2,Garrett Schoudt,Chip Diamond,DJ Moore,3915416,DRAFT,DRAFTED,230.5
+2019,2,Garrett Schoudt,Chip Diamond,Royce Freeman,3122672,DRAFT,DRAFTED,142.2
+2019,2,Garrett Schoudt,Chip Diamond,Jamison Crowder,2576716,DRAFT,DRAFTED,197.7
+2019,2,Garrett Schoudt,Chip Diamond,Kyler Murray,3917315,DRAFT,DRAFTED,285.98
+2019,2,Garrett Schoudt,Chip Diamond,Patriots D/ST,-16017,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Adrian Peterson,10452,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Chris Conley,2578533,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Zane Gonzalez,3043234,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Josh Lambo,2998120,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Bo Scarbrough,3126367,ADD,WAIVER/ACQUISITION,
+2019,2,Garrett Schoudt,Chip Diamond,Jack Doyle,16504,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Le'Veon Bell,15825,DRAFT,DRAFTED,215.0
+2019,3,Mike Hart,I Got One!,Chris Carson,3919596,DRAFT,DRAFTED,232.6
+2019,3,Mike Hart,I Got One!,Stefon Diggs,2976212,DRAFT,DRAFTED,212.1
+2019,3,Mike Hart,I Got One!,Tyler Boyd,3045144,DRAFT,DRAFTED,222.9
+2019,3,Mike Hart,I Got One!,Derrius Guice,3843750,DRAFT,DRAFTED,57.4
+2019,3,Mike Hart,I Got One!,Marvin Jones Jr.,15072,DRAFT,DRAFTED,193.9
+2019,3,Mike Hart,I Got One!,Kareem Hunt,3059915,DRAFT,DRAFTED,101.4
+2019,3,Mike Hart,I Got One!,Marquise Brown,4241372,DRAFT,DRAFTED,146.4
+2019,3,Mike Hart,I Got One!,Terry McLaurin,3121422,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Eagles D/ST,-16021,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Marlon Mack,3139605,TRADE,WAIVER/ACQUISITION,181.3
+2019,3,Mike Hart,I Got One!,Bears D/ST,-16003,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Matt Prater,11122,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Noah Fant,4036131,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Marcus Johnson,2971718,ADD,WAIVER/ACQUISITION,
+2019,3,Mike Hart,I Got One!,Ryan Fitzpatrick,8664,ADD,WAIVER/ACQUISITION,
+2019,4,Matt Hollingsworth,Ron Mexico,Tyreek Hill,3116406,DRAFT,DRAFTED,188.3
+2019,4,Matt Hollingsworth,Ron Mexico,Davante Adams,16800,DRAFT,DRAFTED,212.7
+2019,4,Matt Hollingsworth,Ron Mexico,Derrick Henry,3043078,DRAFT,DRAFTED,294.6
+2019,4,Matt Hollingsworth,Ron Mexico,Zach Ertz,15835,DRAFT,DRAFTED,215.6
+2019,4,Matt Hollingsworth,Ron Mexico,Aaron Jones,3042519,DRAFT,DRAFTED,314.8
+2019,4,Matt Hollingsworth,Ron Mexico,Chris Godwin,3116165,DRAFT,DRAFTED,276.1
+2019,4,Matt Hollingsworth,Ron Mexico,Aaron Rodgers,8439,DRAFT,DRAFTED,278.38
+2019,4,Matt Hollingsworth,Ron Mexico,Allen Robinson II,16799,DRAFT,DRAFTED,254.9
+2019,4,Matt Hollingsworth,Ron Mexico,Tarik Cohen,3066158,DRAFT,DRAFTED,163.9
+2019,4,Matt Hollingsworth,Ron Mexico,Latavius Murray,15920,DRAFT,DRAFTED,157.2
+2019,4,Matt Hollingsworth,Ron Mexico,Colts D/ST,-16011,ADD,WAIVER/ACQUISITION,
+2019,4,Matt Hollingsworth,Ron Mexico,Jared Cook,12537,ADD,WAIVER/ACQUISITION,167.5
+2019,4,Matt Hollingsworth,Ron Mexico,Michael Badgley,3123052,ADD,WAIVER/ACQUISITION,
+2019,4,Matt Hollingsworth,Ron Mexico,Jacoby Brissett,2578570,ADD,WAIVER/ACQUISITION,
+2019,4,Matt Hollingsworth,Ron Mexico,Ka'imi Fairbairn,2971573,ADD,WAIVER/ACQUISITION,
+2019,4,Matt Hollingsworth,Ron Mexico,Buccaneers D/ST,-16027,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,Travis Kelce,15847,DRAFT,DRAFTED,254.3
+2019,5,Dustin Hodges,Team Hodges,Julio Jones,13982,DRAFT,DRAFTED,274.1
+2019,5,Dustin Hodges,Team Hodges,Patrick Mahomes,3139477,DRAFT,DRAFTED,287.04
+2019,5,Dustin Hodges,Team Hodges,George Kittle,3040151,DRAFT,DRAFTED,222.5
+2019,5,Dustin Hodges,Team Hodges,Mark Ingram II,13981,DRAFT,DRAFTED,242.5
+2019,5,Dustin Hodges,Team Hodges,Melvin Gordon,2576434,DRAFT,DRAFTED,180.8
+2019,5,Dustin Hodges,Team Hodges,Jarvis Landry,16790,DRAFT,DRAFTED,237.4
+2019,5,Dustin Hodges,Team Hodges,DJ Chark Jr.,3115394,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,49ers D/ST,-16025,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,Drew Brees,2580,ADD,WAIVER/ACQUISITION,224.76
+2019,5,Dustin Hodges,Team Hodges,Ravens D/ST,-16033,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,Robert Woods,15880,TRADE,WAIVER/ACQUISITION,232.9
+2019,5,Dustin Hodges,Team Hodges,Breshad Perriman,2972460,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,Kai Forbath,14816,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,Gus Edwards,3051926,ADD,WAIVER/ACQUISITION,
+2019,5,Dustin Hodges,Team Hodges,Kerryon Johnson,3916925,ADD,WAIVER/ACQUISITION,85.0
+2019,5,Dustin Hodges,Team Hodges,Packers D/ST,-16009,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Michael Thomas,2976316,DRAFT,DRAFTED,374.6
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Josh Jacobs,4047365,DRAFT,DRAFTED,191.6
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Deshaun Watson,3122840,DRAFT,DRAFTED,320.98
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Sammy Watkins,16725,DRAFT,DRAFTED,138.5
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Courtland Sutton,3128429,DRAFT,DRAFTED,222.42
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Jameis Winston,2969939,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Mark Andrews,3116365,ADD,WAIVER/ACQUISITION,207.2
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Greg Olsen,10475,ADD,WAIVER/ACQUISITION,123.7
+2019,6,Zack Brower,Fuxin  Ruxins x 2,DeVante Parker,2576623,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Mike Boone,3139033,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,DeAndre Washington,2577654,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Travis Homer,4037457,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Mike Gesicki,3116164,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Vikings D/ST,-16016,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Dustin Hopkins,15965,ADD,WAIVER/ACQUISITION,
+2019,6,Zack Brower,Fuxin  Ruxins x 2,Drew Lock,3924327,ADD,WAIVER/ACQUISITION,
+2019,7,Ben Miller,28 - 3,DeAndre Hopkins,15795,DRAFT,DRAFTED,268.54
+2019,7,Ben Miller,28 - 3,Nick Chubb,3128720,DRAFT,DRAFTED,257.1
+2019,7,Ben Miller,28 - 3,Julian Edelman,12649,DRAFT,DRAFTED,256.28
+2019,7,Ben Miller,28 - 3,Amari Cooper,2976499,DRAFT,DRAFTED,246.5
+2019,7,Ben Miller,28 - 3,Sony Michel,3128721,DRAFT,DRAFTED,152.6
+2019,7,Ben Miller,28 - 3,Mike Williams,3045138,DRAFT,DRAFTED,161.3
+2019,7,Ben Miller,28 - 3,Miles Sanders,4045163,DRAFT,DRAFTED,218.7
+2019,7,Ben Miller,28 - 3,Curtis Samuel,3121427,DRAFT,DRAFTED,171.7
+2019,7,Ben Miller,28 - 3,Austin Hooper,3043275,DRAFT,DRAFTED,191.7
+2019,7,Ben Miller,28 - 3,Tom Brady,2330,DRAFT,DRAFTED,263.68
+2019,7,Ben Miller,28 - 3,Darren Waller,2576925,ADD,WAIVER/ACQUISITION,
+2019,7,Ben Miller,28 - 3,Danny Amendola,11674,ADD,WAIVER/ACQUISITION,
+2019,7,Ben Miller,28 - 3,Kenyan Drake,2979843,ADD,WAIVER/ACQUISITION,217.0
+2019,7,Ben Miller,28 - 3,Daniel Jones,3917792,ADD,WAIVER/ACQUISITION,
+2019,7,Ben Miller,28 - 3,Brett Maher,16486,ADD,WAIVER/ACQUISITION,
+2019,7,Ben Miller,28 - 3,Browns D/ST,-16005,ADD,WAIVER/ACQUISITION,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Christian McCaffrey,3117251,DRAFT,DRAFTED,471.2
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Joe Mixon,3116385,DRAFT,DRAFTED,225.4
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,T.Y. Hilton,14924,DRAFT,DRAFTED,125.1
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,David Montgomery,4035538,DRAFT,DRAFTED,170.4
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Josh Gordon,15705,DRAFT,DRAFTED,73.7
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,James White,16913,DRAFT,DRAFTED,202.2
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,David Njoku,3123076,DRAFT,DRAFTED,15.1
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Michael Gallup,4036348,DRAFT,DRAFTED,212.7
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Jaguars D/ST,-16030,DRAFT,DRAFTED,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Wil Lutz,2985659,DRAFT,DRAFTED,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Seahawks D/ST,-16026,ADD,WAIVER/ACQUISITION,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Jason Witten,4527,ADD,WAIVER/ACQUISITION,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Randall Cobb,14053,ADD,WAIVER/ACQUISITION,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Cole Beasley,15349,ADD,WAIVER/ACQUISITION,184.8
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Jimmy Garoppolo,16760,ADD,WAIVER/ACQUISITION,
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,LeSean McCoy,12514,ADD,WAIVER/ACQUISITION,118.6
+2019,8,Nick Chipchase,Bend it like Beckham Jr.,Carson Wentz,2573079,ADD,WAIVER/ACQUISITION,275.86
+2019,9,Stewart Helton,Scary Larry,Keenan Allen,15818,DRAFT,DRAFTED,261.5
+2019,9,Stewart Helton,Scary Larry,Dalvin Cook,3116593,DRAFT,DRAFTED,292.4
+2019,9,Stewart Helton,Scary Larry,Tyler Lockett,2577327,DRAFT,DRAFTED,235.2
+2019,9,Stewart Helton,Scary Larry,Dak Prescott,2577417,DRAFT,DRAFTED,337.78
+2019,9,Stewart Helton,Scary Larry,Justin Tucker,15683,DRAFT,DRAFTED,
+2019,9,Stewart Helton,Scary Larry,Christian Kirk,3895856,DRAFT,DRAFTED,167.1
+2019,9,Stewart Helton,Scary Larry,John Brown,16804,DRAFT,DRAFTED,219.82
+2019,9,Stewart Helton,Scary Larry,Carlos Hyde,16777,TRADE,WAIVER/ACQUISITION,153.2
+2019,9,Stewart Helton,Scary Larry,Duke Johnson,2969962,ADD,WAIVER/ACQUISITION,154.0
+2019,9,Stewart Helton,Scary Larry,Steelers D/ST,-16023,ADD,WAIVER/ACQUISITION,
+2019,9,Stewart Helton,Scary Larry,Ronald Jones II,3912550,ADD,WAIVER/ACQUISITION,166.3
+2019,9,Stewart Helton,Scary Larry,Damien Williams,17359,ADD,WAIVER/ACQUISITION,141.1
+2019,9,Stewart Helton,Scary Larry,Sterling Shepard,2976592,ADD,WAIVER/ACQUISITION,141.8
+2019,9,Stewart Helton,Scary Larry,Dallas Goedert,3121023,ADD,WAIVER/ACQUISITION,
+2019,9,Stewart Helton,Scary Larry,Darius Slayton,3916945,ADD,WAIVER/ACQUISITION,
+2019,9,Stewart Helton,Scary Larry,A.J. Brown,4047646,ADD,WAIVER/ACQUISITION,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Ezekiel Elliott,3051392,DRAFT,DRAFTED,311.7
+2019,10,Josh McAuliffe,Raging  Falcoholics,JuJu Smith-Schuster,3120348,DRAFT,DRAFTED,113.2
+2019,10,Josh McAuliffe,Raging  Falcoholics,Adam Thielen,16460,DRAFT,DRAFTED,114.4
+2019,10,Josh McAuliffe,Raging  Falcoholics,Phillip Lindsay,3052117,DRAFT,DRAFTED,197.7
+2019,10,Josh McAuliffe,Raging  Falcoholics,Cooper Kupp,2977187,DRAFT,DRAFTED,270.5
+2019,10,Josh McAuliffe,Raging  Falcoholics,Austin Ekeler,3068267,DRAFT,DRAFTED,311.0
+2019,10,Josh McAuliffe,Raging  Falcoholics,Golden Tate,13217,DRAFT,DRAFTED,152.2
+2019,10,Josh McAuliffe,Raging  Falcoholics,Stephen Gostkowski,9704,DRAFT,DRAFTED,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Tyrell Williams,2587819,ADD,WAIVER/ACQUISITION,143.1
+2019,10,Josh McAuliffe,Raging  Falcoholics,Jared Goff,3046779,ADD,WAIVER/ACQUISITION,247.52
+2019,10,Josh McAuliffe,Raging  Falcoholics,Harrison Butker,3055899,ADD,WAIVER/ACQUISITION,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Rams D/ST,-16014,ADD,WAIVER/ACQUISITION,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Younghoe Koo,3049899,ADD,WAIVER/ACQUISITION,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Devin Singletary,4040761,ADD,WAIVER/ACQUISITION,147.9
+2019,10,Josh McAuliffe,Raging  Falcoholics,Tyler Higbee,2573401,ADD,WAIVER/ACQUISITION,
+2019,10,Josh McAuliffe,Raging  Falcoholics,Ryan Tannehill,14876,ADD,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Aaron Jones,3042519,DRAFT,DRAFTED,258.9
+2020,1,Chris H,Password Is Taco,Julio Jones,13982,DRAFT,DRAFTED,146.1
+2020,1,Chris H,Password Is Taco,Le'Veon Bell,15825,DRAFT,DRAFTED,74.6
+2020,1,Chris H,Password Is Taco,Zach Ertz,15835,DRAFT,DRAFTED,77.5
+2020,1,Chris H,Password Is Taco,Chase Edmonds,3119195,ADD,WAIVER/ACQUISITION,168.0
+2020,1,Chris H,Password Is Taco,Tee Higgins,4239993,ADD,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Brandin Cooks,16731,ADD,WAIVER/ACQUISITION,232.0
+2020,1,Chris H,Password Is Taco,Colts D/ST,-16011,ADD,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Emmanuel Sanders,13295,ADD,WAIVER/ACQUISITION,164.8
+2020,1,Chris H,Password Is Taco,Dallas Goedert,3121023,ADD,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Jason Sanders,3124679,ADD,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Cam Newton,13994,ADD,WAIVER/ACQUISITION,260.98
+2020,1,Chris H,Password Is Taco,Calvin Ridley,3925357,TRADE,WAIVER/ACQUISITION,281.5
+2020,1,Chris H,Password Is Taco,Jimmy Graham,13232,TRADE,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Wayne Gallman,3045127,ADD,WAIVER/ACQUISITION,
+2020,1,Chris H,Password Is Taco,Matthew Stafford,12483,ADD,WAIVER/ACQUISITION,260.56
+2020,2,Garrett Schoudt,Chip Diamond,Christian McCaffrey,3117251,DRAFT,DRAFTED,90.4
+2020,2,Garrett Schoudt,Chip Diamond,Todd Gurley II,2977644,DRAFT,DRAFTED,163.2
+2020,2,Garrett Schoudt,Chip Diamond,Jonathan Taylor,4242335,DRAFT,DRAFTED,252.8
+2020,2,Garrett Schoudt,Chip Diamond,DJ Chark Jr.,3115394,DRAFT,DRAFTED,153.6
+2020,2,Garrett Schoudt,Chip Diamond,Matt Ryan,11237,DRAFT,DRAFTED,282.44
+2020,2,Garrett Schoudt,Chip Diamond,Michael Gallup,4036348,DRAFT,DRAFTED,173.3
+2020,2,Garrett Schoudt,Chip Diamond,Evan Engram,3051876,DRAFT,DRAFTED,141.0
+2020,2,Garrett Schoudt,Chip Diamond,Hayden Hurst,3924365,DRAFT,DRAFTED,149.1
+2020,2,Garrett Schoudt,Chip Diamond,Josh Allen,3918298,DRAFT,DRAFTED,396.06
+2020,2,Garrett Schoudt,Chip Diamond,Justin Jefferson,4262921,ADD,WAIVER/ACQUISITION,274.2
+2020,2,Garrett Schoudt,Chip Diamond,Rodrigo Blankenship,3915165,ADD,WAIVER/ACQUISITION,
+2020,2,Garrett Schoudt,Chip Diamond,Seahawks D/ST,-16026,ADD,WAIVER/ACQUISITION,
+2020,2,Garrett Schoudt,Chip Diamond,Matt Prater,11122,ADD,WAIVER/ACQUISITION,
+2020,2,Garrett Schoudt,Chip Diamond,Dez Bryant,13215,ADD,WAIVER/ACQUISITION,
+2020,2,Garrett Schoudt,Chip Diamond,Carlos Hyde,16777,ADD,WAIVER/ACQUISITION,
+2020,2,Garrett Schoudt,Chip Diamond,Frank Gore,8479,ADD,WAIVER/ACQUISITION,
+2020,3,Mike Hart,Bless me Lord Shiva,Josh Jacobs,4047365,DRAFT,DRAFTED,231.3
+2020,3,Mike Hart,Bless me Lord Shiva,DeAndre Hopkins,15795,DRAFT,DRAFTED,287.8
+2020,3,Mike Hart,Bless me Lord Shiva,Cooper Kupp,2977187,DRAFT,DRAFTED,210.7
+2020,3,Mike Hart,Bless me Lord Shiva,Jarvis Landry,16790,DRAFT,DRAFTED,187.96
+2020,3,Mike Hart,Bless me Lord Shiva,Antonio Gibson,4360294,DRAFT,DRAFTED,202.2
+2020,3,Mike Hart,Bless me Lord Shiva,Tyler Boyd,3045144,DRAFT,DRAFTED,192.64
+2020,3,Mike Hart,Bless me Lord Shiva,Kyler Murray,3917315,DRAFT,DRAFTED,378.74
+2020,3,Mike Hart,Bless me Lord Shiva,Hunter Henry,3046439,DRAFT,DRAFTED,145.3
+2020,3,Mike Hart,Bless me Lord Shiva,Chase Claypool,4046692,ADD,WAIVER/ACQUISITION,
+2020,3,Mike Hart,Bless me Lord Shiva,Eric Ebron,16732,ADD,WAIVER/ACQUISITION,
+2020,3,Mike Hart,Bless me Lord Shiva,J.D. McKissic,2572861,ADD,WAIVER/ACQUISITION,
+2020,3,Mike Hart,Bless me Lord Shiva,Jason Myers,2473037,ADD,WAIVER/ACQUISITION,
+2020,3,Mike Hart,Bless me Lord Shiva,Zack Moss,4035676,ADD,WAIVER/ACQUISITION,101.6
+2020,3,Mike Hart,Bless me Lord Shiva,Adrian Peterson,10452,ADD,WAIVER/ACQUISITION,
+2020,3,Mike Hart,Bless me Lord Shiva,Cam Akers,4240021,ADD,WAIVER/ACQUISITION,101.8
+2020,3,Mike Hart,Bless me Lord Shiva,49ers D/ST,-16025,ADD,WAIVER/ACQUISITION,
+2020,4,Kyle Winterowd,Rollin with Mahomies,Clyde Edwards-Helaire,4242214,DRAFT,DRAFTED,176.0
+2020,4,Kyle Winterowd,Rollin with Mahomies,Nick Chubb,3128720,DRAFT,DRAFTED,207.7
+2020,4,Kyle Winterowd,Rollin with Mahomies,Adam Thielen,16460,DRAFT,DRAFTED,254.0
+2020,4,Kyle Winterowd,Rollin with Mahomies,DK Metcalf,4047650,DRAFT,DRAFTED,271.3
+2020,4,Kyle Winterowd,Rollin with Mahomies,Russell Wilson,14881,DRAFT,DRAFTED,359.78
+2020,4,Kyle Winterowd,Rollin with Mahomies,Raheem Mostert,2576414,DRAFT,DRAFTED,99.7
+2020,4,Kyle Winterowd,Rollin with Mahomies,Marquise Brown,4241372,DRAFT,DRAFTED,183.0
+2020,4,Kyle Winterowd,Rollin with Mahomies,CeeDee Lamb,4241389,DRAFT,DRAFTED,217.7
+2020,4,Kyle Winterowd,Rollin with Mahomies,Wil Lutz,2985659,DRAFT,DRAFTED,
+2020,4,Kyle Winterowd,Rollin with Mahomies,Ronald Jones II,3912550,TRADE,WAIVER/ACQUISITION,186.3
+2020,4,Kyle Winterowd,Rollin with Mahomies,Corey Davis,3042778,ADD,WAIVER/ACQUISITION,
+2020,4,Kyle Winterowd,Rollin with Mahomies,Mecole Hardman,4035004,ADD,WAIVER/ACQUISITION,130.1
+2020,4,Kyle Winterowd,Rollin with Mahomies,Duke Johnson,2969962,ADD,WAIVER/ACQUISITION,84.4
+2020,4,Kyle Winterowd,Rollin with Mahomies,Robert Tonyan,2975674,ADD,WAIVER/ACQUISITION,
+2020,4,Kyle Winterowd,Rollin with Mahomies,Deebo Samuel,3126486,ADD,WAIVER/ACQUISITION,80.7
+2020,4,Kyle Winterowd,Rollin with Mahomies,Saints D/ST,-16018,ADD,WAIVER/ACQUISITION,
+2020,5,Dustin Hodges,everybody was kungflu fightin,Michael Thomas,2976316,DRAFT,DRAFTED,83.9
+2020,5,Dustin Hodges,everybody was kungflu fightin,Travis Kelce,15847,DRAFT,DRAFTED,312.76
+2020,5,Dustin Hodges,everybody was kungflu fightin,Davante Adams,16800,DRAFT,DRAFTED,358.4
+2020,5,Dustin Hodges,everybody was kungflu fightin,David Johnson,2508176,DRAFT,DRAFTED,179.5
+2020,5,Dustin Hodges,everybody was kungflu fightin,Deshaun Watson,3122840,DRAFT,DRAFTED,369.32
+2020,5,Dustin Hodges,everybody was kungflu fightin,A.J. Brown,4047646,DRAFT,DRAFTED,247.5
+2020,5,Dustin Hodges,everybody was kungflu fightin,Leonard Fournette,3115364,DRAFT,DRAFTED,132.0
+2020,5,Dustin Hodges,everybody was kungflu fightin,Tom Brady,2330,DRAFT,DRAFTED,337.92
+2020,5,Dustin Hodges,everybody was kungflu fightin,Ravens D/ST,-16033,DRAFT,DRAFTED,
+2020,5,Dustin Hodges,everybody was kungflu fightin,James Robinson,4052042,ADD,WAIVER/ACQUISITION,
+2020,5,Dustin Hodges,everybody was kungflu fightin,Rob Gronkowski,13229,ADD,WAIVER/ACQUISITION,149.3
+2020,5,Dustin Hodges,everybody was kungflu fightin,Justin Herbert,4038941,ADD,WAIVER/ACQUISITION,
+2020,5,Dustin Hodges,everybody was kungflu fightin,Daniel Carlson,3051909,ADD,WAIVER/ACQUISITION,
+2020,5,Dustin Hodges,everybody was kungflu fightin,Logan Thomas,16813,ADD,WAIVER/ACQUISITION,
+2020,5,Dustin Hodges,everybody was kungflu fightin,Jeff Wilson Jr.,3122976,ADD,WAIVER/ACQUISITION,
+2020,5,Dustin Hodges,everybody was kungflu fightin,Jalen Hurts,4040715,ADD,WAIVER/ACQUISITION,
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Lamar Jackson,3916387,DRAFT,DRAFTED,332.78
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Kenyan Drake,2979843,DRAFT,DRAFTED,192.2
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Mike Evans,16737,DRAFT,DRAFTED,248.6
+2020,6,Zack Brower,Fuxin  Ruxins x 2,JuJu Smith-Schuster,3120348,DRAFT,DRAFTED,234.1
+2020,6,Zack Brower,Fuxin  Ruxins x 2,DJ Moore,3915416,DRAFT,DRAFTED,211.5
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Devin Singletary,4040761,DRAFT,DRAFTED,143.6
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Darren Waller,2576925,DRAFT,DRAFTED,278.6
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Cole Beasley,15349,ADD,WAIVER/ACQUISITION,
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Aaron Rodgers,8439,TRADE,WAIVER/ACQUISITION,383.26
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Melvin Gordon III,2576434,TRADE,WAIVER/ACQUISITION,198.4
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Darrell Henderson Jr.,4039359,TRADE,WAIVER/ACQUISITION,130.3
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Younghoe Koo,3049899,ADD,WAIVER/ACQUISITION,
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Sterling Shepard,2976592,ADD,WAIVER/ACQUISITION,162.5
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Marvin Jones Jr.,15072,ADD,WAIVER/ACQUISITION,227.8
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,
+2020,6,Zack Brower,Fuxin  Ruxins x 2,Giovani Bernard,15826,ADD,WAIVER/ACQUISITION,
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Alvin Kamara,3054850,DRAFT,DRAFTED,377.8
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Tyreek Hill,3116406,DRAFT,DRAFTED,328.9
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Chris Carson,3919596,DRAFT,DRAFTED,187.8
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Robert Woods,15880,DRAFT,DRAFTED,245.1
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Kareem Hunt,3059915,DRAFT,DRAFTED,218.5
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Jamison Crowder,2576716,DRAFT,DRAFTED,172.02
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Diontae Johnson,3932905,DRAFT,DRAFTED,223.8
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Latavius Murray,15920,DRAFT,DRAFTED,136.2
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,T.J. Hockenson,4036133,DRAFT,DRAFTED,175.3
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Robbie Gould,9354,DRAFT,DRAFTED,
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Nyheim Hines,3916430,DRAFT,DRAFTED,
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Curtis Samuel,3121427,DRAFT,DRAFTED,212.1
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Derek Carr,16757,ADD,WAIVER/ACQUISITION,
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Graham Gano,12460,ADD,WAIVER/ACQUISITION,
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Jared Goff,3046779,ADD,WAIVER/ACQUISITION,239.98
+2020,7,Jaqueline Bascino,FuxBe3nRuxin !,Browns D/ST,-16005,ADD,WAIVER/ACQUISITION,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Dalvin Cook,3116593,DRAFT,DRAFTED,337.8
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Miles Sanders,4045163,DRAFT,DRAFTED,170.4
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,George Kittle,3040151,DRAFT,DRAFTED,125.1
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Amari Cooper,2976499,DRAFT,DRAFTED,236.8
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Keenan Allen,15818,DRAFT,DRAFTED,245.1
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,DeVante Parker,2576623,DRAFT,DRAFTED,166.3
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,David Montgomery,4035538,DRAFT,DRAFTED,264.8
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Stefon Diggs,2976212,DRAFT,DRAFTED,328.6
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Robby Anderson,2574808,DRAFT,DRAFTED,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Darius Slayton,3916945,DRAFT,DRAFTED,141.0
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Rams D/ST,-16014,ADD,WAIVER/ACQUISITION,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Ryan Succop,12731,ADD,WAIVER/ACQUISITION,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Tyler Bass,3917232,ADD,WAIVER/ACQUISITION,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Ryan Tannehill,14876,ADD,WAIVER/ACQUISITION,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,Dalton Schultz,3117256,ADD,WAIVER/ACQUISITION,
+2020,8,Nick Chipchase,Bend it like Beckham Jr.,T.Y. Hilton,14924,ADD,WAIVER/ACQUISITION,164.2
+2020,9,Stewart Helton,Scary Larry,Ezekiel Elliott,3051392,DRAFT,DRAFTED,223.7
+2020,9,Stewart Helton,Scary Larry,Patrick Mahomes,3139477,DRAFT,DRAFTED,374.4
+2020,9,Stewart Helton,Scary Larry,Chris Godwin,3116165,DRAFT,DRAFTED,191.0
+2020,9,Stewart Helton,Scary Larry,Allen Robinson II,16799,DRAFT,DRAFTED,262.9
+2020,9,Stewart Helton,Scary Larry,Mark Andrews,3116365,DRAFT,DRAFTED,170.1
+2020,9,Stewart Helton,Scary Larry,D'Andre Swift,4259545,DRAFT,DRAFTED,189.8
+2020,9,Stewart Helton,Scary Larry,John Brown,16804,DRAFT,DRAFTED,96.8
+2020,9,Stewart Helton,Scary Larry,Justin Tucker,15683,DRAFT,DRAFTED,
+2020,9,Stewart Helton,Scary Larry,Mike Davis,3025433,ADD,WAIVER/ACQUISITION,
+2020,9,Stewart Helton,Scary Larry,Nelson Agholor,2971618,ADD,WAIVER/ACQUISITION,
+2020,9,Stewart Helton,Scary Larry,Washington D/ST,-16028,ADD,WAIVER/ACQUISITION,
+2020,9,Stewart Helton,Scary Larry,Michael Pittman Jr.,4035687,ADD,WAIVER/ACQUISITION,
+2020,9,Stewart Helton,Scary Larry,Jakobi Meyers,3916433,ADD,WAIVER/ACQUISITION,
+2020,9,Stewart Helton,Scary Larry,Mike Gesicki,3116164,ADD,WAIVER/ACQUISITION,159.3
+2020,9,Stewart Helton,Scary Larry,James White,16913,ADD,WAIVER/ACQUISITION,116.6
+2020,10,Josh McAuliffe,Raging  Falcoholics,Derrick Henry,3043078,DRAFT,DRAFTED,333.1
+2020,10,Josh McAuliffe,Raging  Falcoholics,Austin Ekeler,3068267,DRAFT,DRAFTED,165.3
+2020,10,Josh McAuliffe,Raging  Falcoholics,James Conner,3045147,DRAFT,DRAFTED,164.6
+2020,10,Josh McAuliffe,Raging  Falcoholics,Kenny Golladay,2974858,DRAFT,DRAFTED,65.8
+2020,10,Josh McAuliffe,Raging  Falcoholics,Tyler Lockett,2577327,DRAFT,DRAFTED,265.4
+2020,10,Josh McAuliffe,Raging  Falcoholics,Terry McLaurin,3121422,DRAFT,DRAFTED,223.8
+2020,10,Josh McAuliffe,Raging  Falcoholics,Steelers D/ST,-16023,DRAFT,DRAFTED,
+2020,10,Josh McAuliffe,Raging  Falcoholics,Noah Fant,4036131,ADD,WAIVER/ACQUISITION,149.3
+2020,10,Josh McAuliffe,Raging  Falcoholics,Antonio Brown,13934,ADD,WAIVER/ACQUISITION,
+2020,10,Josh McAuliffe,Raging  Falcoholics,Brandon Aiyuk,4360438,ADD,WAIVER/ACQUISITION,
+2020,10,Josh McAuliffe,Raging  Falcoholics,Austin Hooper,3043275,ADD,WAIVER/ACQUISITION,113.5
+2020,10,Josh McAuliffe,Raging  Falcoholics,Ben Roethlisberger,5536,ADD,WAIVER/ACQUISITION,267.22
+2020,10,Josh McAuliffe,Raging  Falcoholics,Myles Gaskin,3886818,ADD,WAIVER/ACQUISITION,
+2020,10,Josh McAuliffe,Raging  Falcoholics,Harrison Butker,3055899,ADD,WAIVER/ACQUISITION,
+2020,10,Josh McAuliffe,Raging  Falcoholics,J.K. Dobbins,4241985,ADD,WAIVER/ACQUISITION,168.5
+2020,10,Josh McAuliffe,Raging  Falcoholics,Cardinals D/ST,-16022,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Alvin Kamara,3054850,DRAFT,DRAFTED,234.7
+2021,1,Chris H,Password Is Taco,DK Metcalf,4047650,DRAFT,DRAFTED,244.3
+2021,1,Chris H,Password Is Taco,D'Andre Swift,4259545,DRAFT,DRAFTED,208.9
+2021,1,Chris H,Password Is Taco,Russell Wilson,14881,DRAFT,DRAFTED,242.82
+2021,1,Chris H,Password Is Taco,DeVonta Smith,4241478,DRAFT,DRAFTED,185.6
+2021,1,Chris H,Password Is Taco,Darrel Williams,3115375,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Jalen Hurts,4040715,TRADE,WAIVER/ACQUISITION,312.16
+2021,1,Chris H,Password Is Taco,Buccaneers D/ST,-16027,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,DeVante Parker,2576623,ADD,WAIVER/ACQUISITION,103.5
+2021,1,Chris H,Password Is Taco,D'Onta Foreman,3125116,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Evan McPherson,4360234,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Rashaad Penny,3139925,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Taysom Hill,2468609,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Elijah Moore,4372414,ADD,WAIVER/ACQUISITION,138.2
+2021,1,Chris H,Password Is Taco,C.J. Uzomah,2574576,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Brevin Jordan,4362504,ADD,WAIVER/ACQUISITION,
+2021,1,Chris H,Password Is Taco,Devonta Freeman,16944,ADD,WAIVER/ACQUISITION,
+2021,2,Garrett Schoudt,Chalupa Batman,Dalvin Cook,3116593,DRAFT,DRAFTED,206.3
+2021,2,Garrett Schoudt,Chalupa Batman,Stefon Diggs,2976212,DRAFT,DRAFTED,285.5
+2021,2,Garrett Schoudt,Chalupa Batman,Clyde Edwards-Helaire,4242214,DRAFT,DRAFTED,117.6
+2021,2,Garrett Schoudt,Chalupa Batman,Patrick Mahomes,3139477,DRAFT,DRAFTED,361.66
+2021,2,Garrett Schoudt,Chalupa Batman,Chris Godwin,3116165,DRAFT,DRAFTED,242.4
+2021,2,Garrett Schoudt,Chalupa Batman,Javonte Williams,4361579,DRAFT,DRAFTED,204.9
+2021,2,Garrett Schoudt,Chalupa Batman,Courtland Sutton,3128429,DRAFT,DRAFTED,150.24
+2021,2,Garrett Schoudt,Chalupa Batman,Damien Harris,3925347,DRAFT,DRAFTED,210.1
+2021,2,Garrett Schoudt,Chalupa Batman,Rob Gronkowski,13229,DRAFT,DRAFTED,171.2
+2021,2,Garrett Schoudt,Chalupa Batman,Marquise Brown,4241372,DRAFT,DRAFTED,226.3
+2021,2,Garrett Schoudt,Chalupa Batman,Marvin Jones Jr.,15072,DRAFT,DRAFTED,180.2
+2021,2,Garrett Schoudt,Chalupa Batman,Bills D/ST,-16002,DRAFT,DRAFTED,
+2021,2,Garrett Schoudt,Chalupa Batman,Justin Tucker,15683,DRAFT,DRAFTED,
+2021,2,Garrett Schoudt,Chalupa Batman,Patriots D/ST,-16017,ADD,WAIVER/ACQUISITION,
+2021,2,Garrett Schoudt,Chalupa Batman,Tyler Conklin,3915486,ADD,WAIVER/ACQUISITION,
+2021,2,Garrett Schoudt,Chalupa Batman,Kirk Cousins,14880,ADD,WAIVER/ACQUISITION,
+2021,3,Mike Hart,Bless me Lord Shiva,Derrick Henry,3043078,DRAFT,DRAFTED,193.3
+2021,3,Mike Hart,Bless me Lord Shiva,Najee Harris,4241457,DRAFT,DRAFTED,300.7
+2021,3,Mike Hart,Bless me Lord Shiva,CeeDee Lamb,4241389,DRAFT,DRAFTED,232.8
+2021,3,Mike Hart,Bless me Lord Shiva,Josh Jacobs,4047365,DRAFT,DRAFTED,226.0
+2021,3,Mike Hart,Bless me Lord Shiva,Brandon Aiyuk,4360438,DRAFT,DRAFTED,170.3
+2021,3,Mike Hart,Bless me Lord Shiva,Dak Prescott,2577417,DRAFT,DRAFTED,320.56
+2021,3,Mike Hart,Bless me Lord Shiva,Chase Claypool,4046692,DRAFT,DRAFTED,166.6
+2021,3,Mike Hart,Bless me Lord Shiva,Laviska Shenault Jr.,4243160,DRAFT,DRAFTED,127.0
+2021,3,Mike Hart,Bless me Lord Shiva,Michael Carter,4240657,DRAFT,DRAFTED,154.4
+2021,3,Mike Hart,Bless me Lord Shiva,Darnell Mooney,4040655,DRAFT,DRAFTED,219.7
+2021,3,Mike Hart,Bless me Lord Shiva,Mike Williams,3045138,DRAFT,DRAFTED,246.6
+2021,3,Mike Hart,Bless me Lord Shiva,Vikings D/ST,-16016,ADD,WAIVER/ACQUISITION,
+2021,3,Mike Hart,Bless me Lord Shiva,Bears D/ST,-16003,ADD,WAIVER/ACQUISITION,
+2021,3,Mike Hart,Bless me Lord Shiva,Pat Freiermuth,4361411,ADD,WAIVER/ACQUISITION,
+2021,3,Mike Hart,Bless me Lord Shiva,Daniel Carlson,3051909,ADD,WAIVER/ACQUISITION,
+2021,3,Mike Hart,Bless me Lord Shiva,Jeff Wilson Jr.,3122976,ADD,WAIVER/ACQUISITION,
+2021,3,Mike Hart,Bless me Lord Shiva,Emmanuel Sanders,13295,ADD,WAIVER/ACQUISITION,
+2021,4,Jacob Barton,Show me  The TDs,Saquon Barkley,3929630,DRAFT,DRAFTED,148.6
+2021,4,Jacob Barton,Show me  The TDs,Antonio Gibson,4360294,DRAFT,DRAFTED,229.1
+2021,4,Jacob Barton,Show me  The TDs,Kyle Pitts,4360248,DRAFT,DRAFTED,176.6
+2021,4,Jacob Barton,Show me  The TDs,Terry McLaurin,3121422,DRAFT,DRAFTED,213.5
+2021,4,Jacob Barton,Show me  The TDs,Adam Thielen,16460,DRAFT,DRAFTED,199.8
+2021,4,Jacob Barton,Show me  The TDs,Mike Davis,3025433,DRAFT,DRAFTED,138.2
+2021,4,Jacob Barton,Show me  The TDs,Aaron Rodgers,8439,DRAFT,DRAFTED,333.3
+2021,4,Jacob Barton,Show me  The TDs,Jerry Jeudy,4241463,DRAFT,DRAFTED,85.0
+2021,4,Jacob Barton,Show me  The TDs,Jamaal Williams,2980453,DRAFT,DRAFTED,119.8
+2021,4,Jacob Barton,Show me  The TDs,Cole Beasley,15349,DRAFT,DRAFTED,159.3
+2021,4,Jacob Barton,Show me  The TDs,Steelers D/ST,-16023,DRAFT,DRAFTED,
+2021,4,Jacob Barton,Show me  The TDs,Hunter Henry,3046439,DRAFT,DRAFTED,164.3
+2021,4,Jacob Barton,Show me  The TDs,Jason Sanders,3124679,DRAFT,DRAFTED,
+2021,4,Jacob Barton,Show me  The TDs,Michael Pittman Jr.,4035687,DRAFT,DRAFTED,238.6
+2021,4,Jacob Barton,Show me  The TDs,Salvon Ahmed,4243315,ADD,WAIVER/ACQUISITION,
+2021,4,Jacob Barton,Show me  The TDs,Mason Crosby,10636,ADD,WAIVER/ACQUISITION,
+2021,5,Dustin Hodges,l 0 fo fo ho,Travis Kelce,15847,DRAFT,DRAFTED,262.8
+2021,5,Dustin Hodges,l 0 fo fo ho,Darren Waller,2576925,DRAFT,DRAFTED,133.5
+2021,5,Dustin Hodges,l 0 fo fo ho,A.J. Brown,4047646,DRAFT,DRAFTED,180.9
+2021,5,Dustin Hodges,l 0 fo fo ho,Julio Jones,13982,DRAFT,DRAFTED,80.4
+2021,5,Dustin Hodges,l 0 fo fo ho,Kyler Murray,3917315,DRAFT,DRAFTED,300.48
+2021,5,Dustin Hodges,l 0 fo fo ho,Darrell Henderson Jr.,4039359,DRAFT,DRAFTED,163.4
+2021,5,Dustin Hodges,l 0 fo fo ho,Leonard Fournette,3115364,DRAFT,DRAFTED,255.6
+2021,5,Dustin Hodges,l 0 fo fo ho,Jaylen Waddle,4372016,DRAFT,DRAFTED,245.8
+2021,5,Dustin Hodges,l 0 fo fo ho,Dawson Knox,3930086,ADD,WAIVER/ACQUISITION,
+2021,5,Dustin Hodges,l 0 fo fo ho,Dolphins D/ST,-16015,ADD,WAIVER/ACQUISITION,
+2021,5,Dustin Hodges,l 0 fo fo ho,Michael Gallup,4036348,ADD,WAIVER/ACQUISITION,91.5
+2021,5,Dustin Hodges,l 0 fo fo ho,Matt Gay,4249087,ADD,WAIVER/ACQUISITION,
+2021,5,Dustin Hodges,l 0 fo fo ho,Cowboys D/ST,-16006,ADD,WAIVER/ACQUISITION,
+2021,5,Dustin Hodges,l 0 fo fo ho,Sony Michel,3128721,ADD,WAIVER/ACQUISITION,146.3
+2021,5,Dustin Hodges,l 0 fo fo ho,K.J. Osborn,3916566,ADD,WAIVER/ACQUISITION,
+2021,5,Dustin Hodges,l 0 fo fo ho,Kareem Hunt,3059915,ADD,WAIVER/ACQUISITION,110.0
+2021,5,Dustin Hodges,l 0 fo fo ho,Jaret Patterson,4362452,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Joe Mixon,3116385,DRAFT,DRAFTED,287.9
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Josh Allen,3918298,DRAFT,DRAFTED,402.58
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Amari Cooper,2976499,DRAFT,DRAFTED,202.5
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Chase Edmonds,3119195,DRAFT,DRAFTED,143.3
+2021,6,Zack Brower,Fuxin  Ruxins x 2,James Conner,3045147,ADD,WAIVER/ACQUISITION,257.7
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Dalton Schultz,3117256,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Greg Joseph,3975763,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Christian Kirk,3895856,TRADE,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Van Jefferson,3930066,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Jamison Crowder,2576716,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Rhamondre Stevenson,4569173,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Justin Jackson,3116136,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Rams D/ST,-16014,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Dare Ogunbowale,2983509,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Rex Burkhead,15971,ADD,WAIVER/ACQUISITION,
+2021,6,Zack Brower,Fuxin  Ruxins x 2,Robby Anderson,2574808,ADD,WAIVER/ACQUISITION,
+2021,7,Jaqueline Bascino,Scary Mary,Aaron Jones,3042519,DRAFT,DRAFTED,229.0
+2021,7,Jaqueline Bascino,Scary Mary,Austin Ekeler,3068267,DRAFT,DRAFTED,343.8
+2021,7,Jaqueline Bascino,Scary Mary,George Kittle,3040151,DRAFT,DRAFTED,198.0
+2021,7,Jaqueline Bascino,Scary Mary,Robert Woods,15880,DRAFT,DRAFTED,137.2
+2021,7,Jaqueline Bascino,Scary Mary,Tyler Lockett,2577327,DRAFT,DRAFTED,241.4
+2021,7,Jaqueline Bascino,Scary Mary,Myles Gaskin,3886818,DRAFT,DRAFTED,173.6
+2021,7,Jaqueline Bascino,Scary Mary,Justin Herbert,4038941,DRAFT,DRAFTED,380.76
+2021,7,Jaqueline Bascino,Scary Mary,Dallas Goedert,3121023,DRAFT,DRAFTED,165.0
+2021,7,Jaqueline Bascino,Scary Mary,Deebo Samuel,3126486,DRAFT,DRAFTED,338.96
+2021,7,Jaqueline Bascino,Scary Mary,Jakobi Meyers,3916433,DRAFT,DRAFTED,186.3
+2021,7,Jaqueline Bascino,Scary Mary,AJ Dillon,4239934,DRAFT,DRAFTED,185.6
+2021,7,Jaqueline Bascino,Scary Mary,Russell Gage,3115378,DRAFT,DRAFTED,163.0
+2021,7,Jaqueline Bascino,Scary Mary,Zach Ertz,15835,ADD,WAIVER/ACQUISITION,
+2021,7,Jaqueline Bascino,Scary Mary,Eagles D/ST,-16021,ADD,WAIVER/ACQUISITION,
+2021,7,Jaqueline Bascino,Scary Mary,Ronald Jones II,3912550,ADD,WAIVER/ACQUISITION,79.2
+2021,7,Jaqueline Bascino,Scary Mary,Greg Zuerlein,14993,ADD,WAIVER/ACQUISITION,
+2021,7,Jaqueline Bascino,Scary Mary,Alexander Mattison,4048244,ADD,WAIVER/ACQUISITION,
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Jonathan Taylor,4242335,DRAFT,DRAFTED,373.1
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Nick Chubb,3128720,DRAFT,DRAFTED,215.3
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Miles Sanders,4045163,DRAFT,DRAFTED,117.2
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Keenan Allen,15818,DRAFT,DRAFTED,257.8
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Cooper Kupp,2977187,DRAFT,DRAFTED,439.5
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Odell Beckham Jr.,16733,DRAFT,DRAFTED,129.1
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Tee Higgins,4239993,DRAFT,DRAFTED,219.1
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Melvin Gordon III,2576434,DRAFT,DRAFTED,195.1
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Noah Fant,4036131,DRAFT,DRAFTED,159.0
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Ja'Marr Chase,4362628,DRAFT,DRAFTED,304.6
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Matthew Stafford,12483,DRAFT,DRAFTED,329.74
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Joe Burrow,3915511,DRAFT,DRAFTED,314.24
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Elijah Mitchell,4241555,ADD,WAIVER/ACQUISITION,
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Colts D/ST,-16011,ADD,WAIVER/ACQUISITION,
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Packers D/ST,-16009,ADD,WAIVER/ACQUISITION,
+2021,8,Nick Chipchase,Bend it like Beckham Jr.,Nick Folk,10621,ADD,WAIVER/ACQUISITION,
+2021,9,Stewart Helton,Scary Larry,Davante Adams,16800,DRAFT,DRAFTED,344.3
+2021,9,Stewart Helton,Scary Larry,David Montgomery,4035538,DRAFT,DRAFTED,195.0
+2021,9,Stewart Helton,Scary Larry,Mark Andrews,3116365,DRAFT,DRAFTED,301.1
+2021,9,Stewart Helton,Scary Larry,DJ Moore,3915416,DRAFT,DRAFTED,237.5
+2021,9,Stewart Helton,Scary Larry,Tom Brady,2330,DRAFT,DRAFTED,374.74
+2021,9,Stewart Helton,Scary Larry,Brandin Cooks,16731,DRAFT,DRAFTED,231.8
+2021,9,Stewart Helton,Scary Larry,Devin Singletary,4040761,DRAFT,DRAFTED,197.8
+2021,9,Stewart Helton,Scary Larry,Chris Boswell,17372,ADD,WAIVER/ACQUISITION,
+2021,9,Stewart Helton,Scary Larry,49ers D/ST,-16025,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Ezekiel Elliott,3051392,DRAFT,DRAFTED,252.06
+2021,10,Josh McAuliffe,Raging  Falcoholics,Tyreek Hill,3116406,DRAFT,DRAFTED,296.5
+2021,10,Josh McAuliffe,Raging  Falcoholics,Justin Jefferson,4262921,DRAFT,DRAFTED,330.4
+2021,10,Josh McAuliffe,Raging  Falcoholics,James Robinson,4052042,DRAFT,DRAFTED,173.9
+2021,10,Josh McAuliffe,Raging  Falcoholics,Lamar Jackson,3916387,DRAFT,DRAFTED,239.98
+2021,10,Josh McAuliffe,Raging  Falcoholics,Diontae Johnson,3932905,DRAFT,DRAFTED,274.4
+2021,10,Josh McAuliffe,Raging  Falcoholics,Tyler Higbee,2573401,ADD,WAIVER/ACQUISITION,147.0
+2021,10,Josh McAuliffe,Raging  Falcoholics,Hunter Renfrow,3135321,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Matt Prater,11122,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Cardinals D/ST,-16022,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Jarvis Landry,16790,ADD,WAIVER/ACQUISITION,133.0
+2021,10,Josh McAuliffe,Raging  Falcoholics,Gerald Everett,3918639,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Amon-Ra St. Brown,4374302,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Antonio Brown,13934,ADD,WAIVER/ACQUISITION,121.1
+2021,10,Josh McAuliffe,Raging  Falcoholics,Saints D/ST,-16018,ADD,WAIVER/ACQUISITION,
+2021,10,Josh McAuliffe,Raging  Falcoholics,Ben Roethlisberger,5536,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Derrick Henry,3043078,DRAFT,DRAFTED,302.76
+2022,1,Chris H,Password Is Taco,Davante Adams,16800,DRAFT,DRAFTED,335.5
+2022,1,Chris H,Password Is Taco,Aaron Jones,3042519,DRAFT,DRAFTED,248.6
+2022,1,Chris H,Password Is Taco,Chris Godwin,3116165,DRAFT,DRAFTED,222.8
+2022,1,Chris H,Password Is Taco,David Montgomery,4035538,DRAFT,DRAFTED,177.7
+2022,1,Chris H,Password Is Taco,Justin Herbert,4038941,DRAFT,DRAFTED,281.26
+2022,1,Chris H,Password Is Taco,JuJu Smith-Schuster,3120348,DRAFT,DRAFTED,185.3
+2022,1,Chris H,Password Is Taco,T.J. Hockenson,4036133,DRAFT,DRAFTED,215.4
+2022,1,Chris H,Password Is Taco,Daniel Carlson,3051909,DRAFT,DRAFTED,
+2022,1,Chris H,Password Is Taco,Curtis Samuel,3121427,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Tua Tagovailoa,4241479,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Deshaun Watson,3122840,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Zay Jones,3059722,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Buccaneers D/ST,-16027,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Jerick McKinnon,16782,ADD,WAIVER/ACQUISITION,
+2022,1,Chris H,Password Is Taco,Brandin Cooks,16731,ADD,WAIVER/ACQUISITION,145.6
+2022,2,Robert Derrig,Team Derrig,Christian McCaffrey,3117251,DRAFT,DRAFTED,356.36
+2022,2,Robert Derrig,Team Derrig,Mike Evans,16737,DRAFT,DRAFTED,225.4
+2022,2,Robert Derrig,Team Derrig,Nick Chubb,3128720,DRAFT,DRAFTED,281.4
+2022,2,Robert Derrig,Team Derrig,Mike Williams,3045138,DRAFT,DRAFTED,176.5
+2022,2,Robert Derrig,Team Derrig,AJ Dillon,4239934,DRAFT,DRAFTED,167.6
+2022,2,Robert Derrig,Team Derrig,Gabe Davis,4243537,DRAFT,DRAFTED,
+2022,2,Robert Derrig,Team Derrig,Christian Kirk,3895856,DRAFT,DRAFTED,241.9
+2022,2,Robert Derrig,Team Derrig,Brian Robinson Jr.,4241474,DRAFT,DRAFTED,112.7
+2022,2,Robert Derrig,Team Derrig,Kirk Cousins,14880,ADD,WAIVER/ACQUISITION,291.58
+2022,2,Robert Derrig,Team Derrig,George Pickens,4426354,ADD,WAIVER/ACQUISITION,166.5
+2022,2,Robert Derrig,Team Derrig,Tyler Bass,3917232,ADD,WAIVER/ACQUISITION,
+2022,2,Robert Derrig,Team Derrig,Rachaad White,4697815,ADD,WAIVER/ACQUISITION,
+2022,2,Robert Derrig,Team Derrig,Parris Campbell,3121410,ADD,WAIVER/ACQUISITION,
+2022,2,Robert Derrig,Team Derrig,Ravens D/ST,-16033,ADD,WAIVER/ACQUISITION,
+2022,2,Robert Derrig,Team Derrig,Elijah Mitchell,4241555,ADD,WAIVER/ACQUISITION,43.6
+2022,2,Robert Derrig,Team Derrig,Greg Dulcich,4367209,ADD,WAIVER/ACQUISITION,
+2022,3,Mike Hart,Scary Jerry,Alvin Kamara,3054850,DRAFT,DRAFTED,211.7
+2022,3,Mike Hart,Scary Jerry,D'Andre Swift,4259545,DRAFT,DRAFTED,191.1
+2022,3,Mike Hart,Scary Jerry,Saquon Barkley,3929630,DRAFT,DRAFTED,284.0
+2022,3,Mike Hart,Scary Jerry,A.J. Brown,4047646,DRAFT,DRAFTED,299.6
+2022,3,Mike Hart,Scary Jerry,Darren Waller,2576925,DRAFT,DRAFTED,84.8
+2022,3,Mike Hart,Scary Jerry,Hunter Renfrow,3135321,DRAFT,DRAFTED,79.0
+2022,3,Mike Hart,Scary Jerry,Kareem Hunt,3059915,DRAFT,DRAFTED,126.8
+2022,3,Mike Hart,Scary Jerry,Tom Brady,2330,DRAFT,DRAFTED,271.66
+2022,3,Mike Hart,Scary Jerry,Tony Pollard,3916148,DRAFT,DRAFTED,248.8
+2022,3,Mike Hart,Scary Jerry,Tyler Boyd,3045144,DRAFT,DRAFTED,167.12
+2022,3,Mike Hart,Scary Jerry,Kenneth Walker III,4567048,DRAFT,DRAFTED,202.5
+2022,3,Mike Hart,Scary Jerry,Patriots D/ST,-16017,DRAFT,DRAFTED,
+2022,3,Mike Hart,Scary Jerry,Michael Gallup,4036348,ADD,WAIVER/ACQUISITION,105.4
+2022,3,Mike Hart,Scary Jerry,Robert Tonyan,2975674,ADD,WAIVER/ACQUISITION,
+2022,3,Mike Hart,Scary Jerry,Terrace Marshall Jr.,4362630,ADD,WAIVER/ACQUISITION,
+2022,3,Mike Hart,Scary Jerry,Noah Fant,4036131,ADD,WAIVER/ACQUISITION,
+2022,3,Mike Hart,Scary Jerry,Brandon McManus,16339,ADD,WAIVER/ACQUISITION,
+2022,4,Jacob Barton,Show me  the TDs,Austin Ekeler,3068267,DRAFT,DRAFTED,372.7
+2022,4,Jacob Barton,Show me  the TDs,CeeDee Lamb,4241389,DRAFT,DRAFTED,301.6
+2022,4,Jacob Barton,Show me  the TDs,Tee Higgins,4239993,DRAFT,DRAFTED,220.9
+2022,4,Jacob Barton,Show me  the TDs,Travis Etienne Jr.,4239996,DRAFT,DRAFTED,205.1
+2022,4,Jacob Barton,Show me  the TDs,Courtland Sutton,3128429,DRAFT,DRAFTED,159.4
+2022,4,Jacob Barton,Show me  the TDs,Amon-Ra St. Brown,4374302,DRAFT,DRAFTED,267.6
+2022,4,Jacob Barton,Show me  the TDs,Jalen Hurts,4040715,DRAFT,DRAFTED,378.04
+2022,4,Jacob Barton,Show me  the TDs,Rhamondre Stevenson,4569173,DRAFT,DRAFTED,249.1
+2022,4,Jacob Barton,Show me  the TDs,Michael Carter,4240657,DRAFT,DRAFTED,126.0
+2022,4,Jacob Barton,Show me  the TDs,Garrett Wilson,4569618,DRAFT,DRAFTED,215.7
+2022,4,Jacob Barton,Show me  the TDs,Jarvis Landry,16790,DRAFT,DRAFTED,60.2
+2022,4,Jacob Barton,Show me  the TDs,Bengals D/ST,-16004,ADD,WAIVER/ACQUISITION,
+2022,4,Jacob Barton,Show me  the TDs,Harrison Butker,3055899,ADD,WAIVER/ACQUISITION,
+2022,4,Jacob Barton,Show me  the TDs,Tyler Higbee,2573401,ADD,WAIVER/ACQUISITION,
+2022,4,Jacob Barton,Show me  the TDs,Titans D/ST,-16010,ADD,WAIVER/ACQUISITION,
+2022,4,Jacob Barton,Show me  the TDs,Gardner Minshew,4038524,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Ja'Marr Chase,4362628,DRAFT,DRAFTED,242.4
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Mark Andrews,3116365,DRAFT,DRAFTED,190.5
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Josh Allen,3918298,DRAFT,DRAFTED,395.52
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Jaylen Waddle,4372016,DRAFT,DRAFTED,259.2
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Dameon Pierce,4360238,DRAFT,DRAFTED,166.4
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Latavius Murray,15920,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Christian Watson,4248528,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Aaron Rodgers,8439,ADD,WAIVER/ACQUISITION,239.2
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,49ers D/ST,-16025,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Tyler Allgeier,4373626,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Jahan Dotson,4361409,ADD,WAIVER/ACQUISITION,130.6
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Jaguars D/ST,-16030,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,DeVante Parker,2576623,ADD,WAIVER/ACQUISITION,102.9
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Isaiah Likely,4361050,ADD,WAIVER/ACQUISITION,
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Alexander Mattison,4048244,ADD,WAIVER/ACQUISITION,88.4
+2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Younghoe Koo,3049899,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Dalvin Cook,3116593,DRAFT,DRAFTED,237.8
+2022,6,Zack Brower,Try the Veal,Stefon Diggs,2976212,DRAFT,DRAFTED,316.6
+2022,6,Zack Brower,Try the Veal,DJ Moore,3915416,DRAFT,DRAFTED,199.1
+2022,6,Zack Brower,Try the Veal,Patrick Mahomes,3139477,DRAFT,DRAFTED,417.4
+2022,6,Zack Brower,Try the Veal,Dalton Schultz,3117256,DRAFT,DRAFTED,142.7
+2022,6,Zack Brower,Try the Veal,Chris Olave,4361370,DRAFT,DRAFTED,198.2
+2022,6,Zack Brower,Try the Veal,Jamaal Williams,2980453,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Raheem Mostert,2576414,ADD,WAIVER/ACQUISITION,168.3
+2022,6,Zack Brower,Try the Veal,Daniel Jones,3917792,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Jerry Jeudy,4241463,ADD,WAIVER/ACQUISITION,204.2
+2022,6,Zack Brower,Try the Veal,Jason Myers,2473037,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Darius Slayton,3916945,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Juwan Johnson,3929645,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Dawson Knox,3930086,ADD,WAIVER/ACQUISITION,135.7
+2022,6,Zack Brower,Try the Veal,Dolphins D/ST,-16015,ADD,WAIVER/ACQUISITION,
+2022,6,Zack Brower,Try the Veal,Chris Moore,2576581,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Cooper Kupp,2977187,DRAFT,DRAFTED,201.4
+2022,7,Jaqueline Bascino,Scary Mary,Leonard Fournette,3115364,DRAFT,DRAFTED,226.1
+2022,7,Jaqueline Bascino,Scary Mary,Travis Kelce,15847,DRAFT,DRAFTED,316.3
+2022,7,Jaqueline Bascino,Scary Mary,DK Metcalf,4047650,DRAFT,DRAFTED,226.8
+2022,7,Jaqueline Bascino,Scary Mary,Brandon Aiyuk,4360438,DRAFT,DRAFTED,227.8
+2022,7,Jaqueline Bascino,Scary Mary,Joe Burrow,3915511,DRAFT,DRAFTED,350.7
+2022,7,Jaqueline Bascino,Scary Mary,Jakobi Meyers,3916433,DRAFT,DRAFTED,180.3
+2022,7,Jaqueline Bascino,Scary Mary,Justin Fields,4362887,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Isiah Pacheco,4361529,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Evan McPherson,4360234,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Gerald Everett,3918639,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Zonovan Knight,4427728,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Broncos D/ST,-16007,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Zack Moss,4035676,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Chris Boswell,17372,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Chargers D/ST,-16024,ADD,WAIVER/ACQUISITION,
+2022,7,Jaqueline Bascino,Scary Mary,Cordarrelle Patterson,15807,ADD,WAIVER/ACQUISITION,154.7
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Najee Harris,4241457,DRAFT,DRAFTED,223.46
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Deebo Samuel,3126486,DRAFT,DRAFTED,168.4
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Michael Pittman Jr.,4035687,DRAFT,DRAFTED,216.5
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Ezekiel Elliott,3051392,DRAFT,DRAFTED,185.8
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Terry McLaurin,3121422,DRAFT,DRAFTED,229.0
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Marquise Brown,4241372,DRAFT,DRAFTED,156.0
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Kyler Murray,3917315,DRAFT,DRAFTED,200.52
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Miles Sanders,4045163,DRAFT,DRAFTED,216.7
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Antonio Gibson,4360294,DRAFT,DRAFTED,165.9
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,DeVonta Smith,4241478,DRAFT,DRAFTED,254.6
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,James Robinson,4052042,DRAFT,DRAFTED,88.6
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Pat Freiermuth,4361411,DRAFT,DRAFTED,148.2
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Eagles D/ST,-16021,ADD,WAIVER/ACQUISITION,
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Ryan Succop,12731,ADD,WAIVER/ACQUISITION,
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Robert Woods,15880,ADD,WAIVER/ACQUISITION,115.7
+2022,8,Nick Chipchase,Bend it like Beckham Jr.,Jimmy Garoppolo,16760,ADD,WAIVER/ACQUISITION,
+2022,9,Stewart Helton,Scary Larry,Justin Jefferson,4262921,DRAFT,DRAFTED,368.66
+2022,9,Stewart Helton,Scary Larry,Joe Mixon,3116385,DRAFT,DRAFTED,239.5
+2022,9,Stewart Helton,Scary Larry,Keenan Allen,15818,DRAFT,DRAFTED,164.0
+2022,9,Stewart Helton,Scary Larry,Josh Jacobs,4047365,DRAFT,DRAFTED,328.3
+2022,9,Stewart Helton,Scary Larry,George Kittle,3040151,DRAFT,DRAFTED,200.5
+2022,9,Stewart Helton,Scary Larry,Lamar Jackson,3916387,DRAFT,DRAFTED,236.08
+2022,9,Stewart Helton,Scary Larry,Tyler Lockett,2577327,DRAFT,DRAFTED,237.3
+2022,9,Stewart Helton,Scary Larry,Dallas Goedert,3121023,DRAFT,DRAFTED,141.2
+2022,9,Stewart Helton,Scary Larry,Drake London,4426502,DRAFT,DRAFTED,178.6
+2022,9,Stewart Helton,Scary Larry,Justin Tucker,15683,DRAFT,DRAFTED,
+2022,9,Stewart Helton,Scary Larry,Trevor Lawrence,4360310,ADD,WAIVER/ACQUISITION,
+2022,9,Stewart Helton,Scary Larry,Donovan Peoples-Jones,4258195,ADD,WAIVER/ACQUISITION,
+2022,9,Stewart Helton,Scary Larry,Commanders D/ST,-16028,ADD,WAIVER/ACQUISITION,
+2022,9,Stewart Helton,Scary Larry,Jared Goff,3046779,ADD,WAIVER/ACQUISITION,
+2022,9,Stewart Helton,Scary Larry,Cam Akers,4240021,ADD,WAIVER/ACQUISITION,141.3
+2022,9,Stewart Helton,Scary Larry,Chuba Hubbard,4241416,ADD,WAIVER/ACQUISITION,
+2022,9,Stewart Helton,Scary Larry,Cole Kmet,4258595,ADD,WAIVER/ACQUISITION,147.3
+2022,10,Josh McAuliffe,Raging  Falcoholics,Jonathan Taylor,4242335,DRAFT,DRAFTED,146.4
+2022,10,Josh McAuliffe,Raging  Falcoholics,Tyreek Hill,3116406,DRAFT,DRAFTED,347.2
+2022,10,Josh McAuliffe,Raging  Falcoholics,James Conner,3045147,DRAFT,DRAFTED,200.2
+2022,10,Josh McAuliffe,Raging  Falcoholics,DeAndre Hopkins,15795,DRAFT,DRAFTED,151.7
+2022,10,Josh McAuliffe,Raging  Falcoholics,Adam Thielen,16460,DRAFT,DRAFTED,180.0
+2022,10,Josh McAuliffe,Raging  Falcoholics,Amari Cooper,2976499,DRAFT,DRAFTED,246.0
+2022,10,Josh McAuliffe,Raging  Falcoholics,Allen Lazard,3128390,DRAFT,DRAFTED,174.8
+2022,10,Josh McAuliffe,Raging  Falcoholics,Devin Singletary,4040761,ADD,WAIVER/ACQUISITION,177.9
+2022,10,Josh McAuliffe,Raging  Falcoholics,Geno Smith,15864,ADD,WAIVER/ACQUISITION,
+2022,10,Josh McAuliffe,Raging  Falcoholics,Dak Prescott,2577417,ADD,WAIVER/ACQUISITION,198.6
+2022,10,Josh McAuliffe,Raging  Falcoholics,Cowboys D/ST,-16006,ADD,WAIVER/ACQUISITION,
+2022,10,Josh McAuliffe,Raging  Falcoholics,Jeff Wilson Jr.,3122976,ADD,WAIVER/ACQUISITION,
+2022,10,Josh McAuliffe,Raging  Falcoholics,David Njoku,3123076,ADD,WAIVER/ACQUISITION,
+2022,10,Josh McAuliffe,Raging  Falcoholics,Nick Folk,10621,ADD,WAIVER/ACQUISITION,
+2022,10,Josh McAuliffe,Raging  Falcoholics,Evan Engram,3051876,ADD,WAIVER/ACQUISITION,
+2022,10,Josh McAuliffe,Raging  Falcoholics,Treylon Burks,4567156,ADD,WAIVER/ACQUISITION,94.1
+2023,1,Chris H,Password Is Taco,Christian McCaffrey,3117251,DRAFT,DRAFTED,391.3
+2023,1,Chris H,Password Is Taco,CeeDee Lamb,4241389,DRAFT,DRAFTED,403.2
+2023,1,Chris H,Password Is Taco,Jalen Hurts,4040715,DRAFT,DRAFTED,356.82
+2023,1,Chris H,Password Is Taco,Keenan Allen,15818,DRAFT,DRAFTED,278.86
+2023,1,Chris H,Password Is Taco,Calvin Ridley,3925357,DRAFT,DRAFTED,229.9
+2023,1,Chris H,Password Is Taco,Diontae Johnson,3932905,DRAFT,DRAFTED,152.7
+2023,1,Chris H,Password Is Taco,Javonte Williams,4361579,DRAFT,DRAFTED,179.2
+2023,1,Chris H,Password Is Taco,Michael Pittman Jr.,4035687,DRAFT,DRAFTED,250.2
+2023,1,Chris H,Password Is Taco,Raheem Mostert,2576414,DRAFT,DRAFTED,267.7
+2023,1,Chris H,Password Is Taco,Cole Kmet,4258595,DRAFT,DRAFTED,181.1
+2023,1,Chris H,Password Is Taco,Ezekiel Elliott,3051392,ADD,WAIVER/ACQUISITION,174.5
+2023,1,Chris H,Password Is Taco,Jason Sanders,3124679,ADD,WAIVER/ACQUISITION,
+2023,1,Chris H,Password Is Taco,Raiders D/ST,-16013,ADD,WAIVER/ACQUISITION,
+2023,1,Chris H,Password Is Taco,Demarcus Robinson,3043116,ADD,WAIVER/ACQUISITION,
+2023,1,Chris H,Password Is Taco,Khalil Herbert,4035886,ADD,WAIVER/ACQUISITION,112.5
+2023,1,Chris H,Password Is Taco,Zamir White,4361777,ADD,WAIVER/ACQUISITION,
+2023,1,Chris H,Password Is Taco,Jeff Wilson Jr.,3122976,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Tyreek Hill,3116406,DRAFT,DRAFTED,376.4
+2023,2,Rob Derrig,Olave Asians,Amon-Ra St. Brown,4374302,DRAFT,DRAFTED,330.9
+2023,2,Rob Derrig,Olave Asians,Chris Olave,4361370,DRAFT,DRAFTED,231.3
+2023,2,Rob Derrig,Olave Asians,Alexander Mattison,4048244,DRAFT,DRAFTED,133.2
+2023,2,Rob Derrig,Olave Asians,Breece Hall,4427366,DRAFT,DRAFTED,290.5
+2023,2,Rob Derrig,Olave Asians,Tua Tagovailoa,4241479,DRAFT,DRAFTED,270.36
+2023,2,Rob Derrig,Olave Asians,Ravens D/ST,-16033,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Gus Edwards,3051926,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Romeo Doubs,4361432,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,David Njoku,3123076,ADD,WAIVER/ACQUISITION,201.2
+2023,2,Rob Derrig,Olave Asians,Harrison Butker,3055899,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Texans D/ST,-16034,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Clyde Edwards-Helaire,4242214,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Matthew Stafford,12483,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Tyjae Spears,4428557,ADD,WAIVER/ACQUISITION,
+2023,2,Rob Derrig,Olave Asians,Quentin Johnston,4429025,ADD,WAIVER/ACQUISITION,94.0
+2023,3,Mike Hart,Scary Jerry,Davante Adams,16800,DRAFT,DRAFTED,265.4
+2023,3,Mike Hart,Scary Jerry,Tony Pollard,3916148,DRAFT,DRAFTED,222.6
+2023,3,Mike Hart,Scary Jerry,Najee Harris,4241457,DRAFT,DRAFTED,195.5
+2023,3,Mike Hart,Scary Jerry,Josh Allen,3918298,DRAFT,DRAFTED,392.64
+2023,3,Mike Hart,Scary Jerry,DeAndre Hopkins,15795,DRAFT,DRAFTED,223.6
+2023,3,Mike Hart,Scary Jerry,Kenneth Walker III,4567048,DRAFT,DRAFTED,199.4
+2023,3,Mike Hart,Scary Jerry,David Montgomery,4035538,DRAFT,DRAFTED,207.2
+2023,3,Mike Hart,Scary Jerry,Terry McLaurin,3121422,DRAFT,DRAFTED,209.2
+2023,3,Mike Hart,Scary Jerry,AJ Dillon,4239934,DRAFT,DRAFTED,117.6
+2023,3,Mike Hart,Scary Jerry,Pat Freiermuth,4361411,DRAFT,DRAFTED,76.8
+2023,3,Mike Hart,Scary Jerry,Adam Thielen,16460,DRAFT,DRAFTED,231.0
+2023,3,Mike Hart,Scary Jerry,C.J. Stroud,4432577,ADD,WAIVER/ACQUISITION,
+2023,3,Mike Hart,Scary Jerry,Kareem Hunt,3059915,ADD,WAIVER/ACQUISITION,
+2023,3,Mike Hart,Scary Jerry,Jaguars D/ST,-16030,ADD,WAIVER/ACQUISITION,
+2023,3,Mike Hart,Scary Jerry,Falcons D/ST,-16001,ADD,WAIVER/ACQUISITION,
+2023,3,Mike Hart,Scary Jerry,Cameron Dicker,4362081,ADD,WAIVER/ACQUISITION,
+2023,3,Mike Hart,Scary Jerry,Cade Otton,4243331,ADD,WAIVER/ACQUISITION,
+2023,4,Jacob Barton,Show me  the TDs,Justin Jefferson,4262921,DRAFT,DRAFTED,202.2
+2023,4,Jacob Barton,Show me  the TDs,Joe Mixon,3116385,DRAFT,DRAFTED,267.0
+2023,4,Jacob Barton,Show me  the TDs,Patrick Mahomes,3139477,DRAFT,DRAFTED,280.22
+2023,4,Jacob Barton,Show me  the TDs,Alvin Kamara,3054850,DRAFT,DRAFTED,233.0
+2023,4,Jacob Barton,Show me  the TDs,Deebo Samuel,3126486,DRAFT,DRAFTED,243.7
+2023,4,Jacob Barton,Show me  the TDs,Dallas Goedert,3121023,DRAFT,DRAFTED,136.3
+2023,4,Jacob Barton,Show me  the TDs,Chris Godwin,3116165,DRAFT,DRAFTED,209.2
+2023,4,Jacob Barton,Show me  the TDs,Jerry Jeudy,4241463,DRAFT,DRAFTED,141.8
+2023,4,Jacob Barton,Show me  the TDs,Jaxon Smith-Njigba,4430878,DRAFT,DRAFTED,149.8
+2023,4,Jacob Barton,Show me  the TDs,Skyy Moore,4430191,DRAFT,DRAFTED,53.7
+2023,4,Jacob Barton,Show me  the TDs,Daniel Carlson,3051909,DRAFT,DRAFTED,
+2023,4,Jacob Barton,Show me  the TDs,Dolphins D/ST,-16015,DRAFT,DRAFTED,
+2023,4,Jacob Barton,Show me  the TDs,Dalton Schultz,3117256,ADD,WAIVER/ACQUISITION,150.5
+2023,4,Jacob Barton,Show me  the TDs,Ty Chandler,4242431,ADD,WAIVER/ACQUISITION,
+2023,4,Jacob Barton,Show me  the TDs,Nick Folk,10621,ADD,WAIVER/ACQUISITION,
+2023,4,Jacob Barton,Show me  the TDs,DeMario Douglas,4427095,ADD,WAIVER/ACQUISITION,
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Ja'Marr Chase,4362628,DRAFT,DRAFTED,262.72
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Cooper Kupp,2977187,DRAFT,DRAFTED,164.4
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,DK Metcalf,4047650,DRAFT,DRAFTED,225.4
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Darren Waller,2576925,DRAFT,DRAFTED,113.2
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Isiah Pacheco,4361529,DRAFT,DRAFTED,213.9
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Courtland Sutton,3128429,DRAFT,DRAFTED,190.2
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Kyren Williams,4430737,ADD,WAIVER/ACQUISITION,
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Jerome Ford,4372019,ADD,WAIVER/ACQUISITION,
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Dalton Kincaid,4385690,ADD,WAIVER/ACQUISITION,150.3
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Rachaad White,4697815,ADD,WAIVER/ACQUISITION,267.9
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Kyler Murray,3917315,ADD,WAIVER/ACQUISITION,146.36
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Colts D/ST,-16011,ADD,WAIVER/ACQUISITION,
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Justin Tucker,15683,ADD,WAIVER/ACQUISITION,
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Isaiah Likely,4361050,ADD,WAIVER/ACQUISITION,
+2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,Joe Flacco,11252,ADD,WAIVER/ACQUISITION,
+2023,6,Zack Brower,Tyrannosaurus Rux,Austin Ekeler,3068267,DRAFT,DRAFTED,185.4
+2023,6,Zack Brower,Tyrannosaurus Rux,A.J. Brown,4047646,DRAFT,DRAFTED,289.6
+2023,6,Zack Brower,Tyrannosaurus Rux,Tee Higgins,4239993,DRAFT,DRAFTED,137.6
+2023,6,Zack Brower,Tyrannosaurus Rux,Lamar Jackson,3916387,DRAFT,DRAFTED,331.22
+2023,6,Zack Brower,Tyrannosaurus Rux,Kyle Pitts,4360248,DRAFT,DRAFTED,137.3
+2023,6,Zack Brower,Tyrannosaurus Rux,Brandon Aiyuk,4360438,DRAFT,DRAFTED,249.2
+2023,6,Zack Brower,Tyrannosaurus Rux,Sam LaPorta,4430027,ADD,WAIVER/ACQUISITION,239.3
+2023,6,Zack Brower,Tyrannosaurus Rux,Jared Goff,3046779,ADD,WAIVER/ACQUISITION,289.1
+2023,6,Zack Brower,Tyrannosaurus Rux,49ers D/ST,-16025,ADD,WAIVER/ACQUISITION,
+2023,6,Zack Brower,Tyrannosaurus Rux,Chuba Hubbard,4241416,ADD,WAIVER/ACQUISITION,
+2023,6,Zack Brower,Tyrannosaurus Rux,Rashee Rice,4428331,ADD,WAIVER/ACQUISITION,
+2023,6,Zack Brower,Tyrannosaurus Rux,Brandin Cooks,16731,ADD,WAIVER/ACQUISITION,173.2
+2023,6,Zack Brower,Tyrannosaurus Rux,D'Onta Foreman,3125116,ADD,WAIVER/ACQUISITION,
+2023,6,Zack Brower,Tyrannosaurus Rux,Miles Sanders,4045163,ADD,WAIVER/ACQUISITION,87.6
+2023,6,Zack Brower,Tyrannosaurus Rux,Rams D/ST,-16014,ADD,WAIVER/ACQUISITION,
+2023,6,Zack Brower,Tyrannosaurus Rux,Jake Elliott,3050478,ADD,WAIVER/ACQUISITION,
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Saquon Barkley,3929630,DRAFT,DRAFTED,223.2
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Garrett Wilson,4569618,DRAFT,DRAFTED,213.2
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Mark Andrews,3116365,DRAFT,DRAFTED,135.4
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Justin Fields,4362887,DRAFT,DRAFTED,230.18
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Mike Evans,16737,DRAFT,DRAFTED,282.5
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,James Conner,3045147,DRAFT,DRAFTED,201.5
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Evan Engram,3051876,DRAFT,DRAFTED,230.3
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Jonathan Taylor,4242335,DRAFT,DRAFTED,156.4
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Jakobi Meyers,3916433,DRAFT,DRAFTED,218.58
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Brian Robinson Jr.,4241474,DRAFT,DRAFTED,198.1
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Nico Collins,4258173,DRAFT,DRAFTED,260.4
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,De'Von Achane,4429160,ADD,WAIVER/ACQUISITION,
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Tyler Boyd,3045144,ADD,WAIVER/ACQUISITION,144.8
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Evan McPherson,4360234,ADD,WAIVER/ACQUISITION,
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Baker Mayfield,3052587,ADD,WAIVER/ACQUISITION,
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Browns D/ST,-16005,ADD,WAIVER/ACQUISITION,
+2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,Amari Cooper,2976499,ADD,WAIVER/ACQUISITION,227.0
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Travis Kelce,15847,DRAFT,DRAFTED,219.4
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Jaylen Waddle,4372016,DRAFT,DRAFTED,198.6
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Travis Etienne Jr.,4239996,DRAFT,DRAFTED,282.4
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,DJ Moore,3915416,DRAFT,DRAFTED,286.5
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,D'Andre Swift,4259545,DRAFT,DRAFTED,199.3
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,George Pickens,4426354,DRAFT,DRAFTED,208.8
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Jordan Addison,4429205,DRAFT,DRAFTED,221.3
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Zack Moss,4035676,ADD,WAIVER/ACQUISITION,
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Jayden Reed,4362249,ADD,WAIVER/ACQUISITION,
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Brock Purdy,4361741,ADD,WAIVER/ACQUISITION,
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Curtis Samuel,3121427,ADD,WAIVER/ACQUISITION,
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Vikings D/ST,-16016,ADD,WAIVER/ACQUISITION,
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Devin Singletary,4040761,ADD,WAIVER/ACQUISITION,167.34
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Russell Wilson,14881,ADD,WAIVER/ACQUISITION,256.9
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Saints D/ST,-16018,ADD,WAIVER/ACQUISITION,
+2023,8,Nick Chipchase,Bend it like Beckham Jr.,Blake Grupe,4259619,ADD,WAIVER/ACQUISITION,
+2023,9,Stewart Helton,Scary Larry,Bijan Robinson,4430807,DRAFT,DRAFTED,246.3
+2023,9,Stewart Helton,Scary Larry,Josh Jacobs,4047365,DRAFT,DRAFTED,181.1
+2023,9,Stewart Helton,Scary Larry,DeVonta Smith,4241478,DRAFT,DRAFTED,227.6
+2023,9,Stewart Helton,Scary Larry,T.J. Hockenson,4036133,DRAFT,DRAFTED,219.0
+2023,9,Stewart Helton,Scary Larry,Justin Herbert,4038941,DRAFT,DRAFTED,234.16
+2023,9,Stewart Helton,Scary Larry,Drake London,4426502,DRAFT,DRAFTED,174.38
+2023,9,Stewart Helton,Scary Larry,Tyler Lockett,2577327,DRAFT,DRAFTED,202.4
+2023,9,Stewart Helton,Scary Larry,Christian Kirk,3895856,DRAFT,DRAFTED,150.26
+2023,9,Stewart Helton,Scary Larry,Gabe Davis,4243537,DRAFT,DRAFTED,
+2023,9,Stewart Helton,Scary Larry,Dak Prescott,2577417,DRAFT,DRAFTED,342.84
+2023,9,Stewart Helton,Scary Larry,Younghoe Koo,3049899,DRAFT,DRAFTED,
+2023,9,Stewart Helton,Scary Larry,Chiefs D/ST,-16012,DRAFT,DRAFTED,
+2023,9,Stewart Helton,Scary Larry,Jake Ferguson,4242355,ADD,WAIVER/ACQUISITION,
+2023,9,Stewart Helton,Scary Larry,Jaylen Warren,4569987,ADD,WAIVER/ACQUISITION,196.4
+2023,9,Stewart Helton,Scary Larry,Tank Dell,4366031,ADD,WAIVER/ACQUISITION,
+2023,9,Stewart Helton,Scary Larry,Jake Moody,4372066,ADD,WAIVER/ACQUISITION,
+2023,9,Stewart Helton,Scary Larry,Roschon Johnson,4426386,ADD,WAIVER/ACQUISITION,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Stefon Diggs,2976212,DRAFT,DRAFTED,273.8
+2023,10,Josh McAuliffe,Raging  Falcoholics,Derrick Henry,3043078,DRAFT,DRAFTED,246.66
+2023,10,Josh McAuliffe,Raging  Falcoholics,Jahmyr Gibbs,4429795,DRAFT,DRAFTED,242.1
+2023,10,Josh McAuliffe,Raging  Falcoholics,Aaron Jones,3042519,DRAFT,DRAFTED,134.9
+2023,10,Josh McAuliffe,Raging  Falcoholics,George Kittle,3040151,DRAFT,DRAFTED,203.2
+2023,10,Josh McAuliffe,Raging  Falcoholics,Trevor Lawrence,4360310,DRAFT,DRAFTED,262.54
+2023,10,Josh McAuliffe,Raging  Falcoholics,James Cook,4379399,DRAFT,DRAFTED,232.7
+2023,10,Josh McAuliffe,Raging  Falcoholics,Michael Thomas,2976316,DRAFT,DRAFTED,89.8
+2023,10,Josh McAuliffe,Raging  Falcoholics,Zay Flowers,4429615,DRAFT,DRAFTED,206.4
+2023,10,Josh McAuliffe,Raging  Falcoholics,Cowboys D/ST,-16006,DRAFT,DRAFTED,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Puka Nacua,4426515,ADD,WAIVER/ACQUISITION,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Brandon Aubrey,3953687,ADD,WAIVER/ACQUISITION,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Jordan Love,4036378,ADD,WAIVER/ACQUISITION,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Trey McBride,4361307,ADD,WAIVER/ACQUISITION,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Marquise Brown,4241372,ADD,WAIVER/ACQUISITION,134.7
+2023,10,Josh McAuliffe,Raging  Falcoholics,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,
+2023,10,Josh McAuliffe,Raging  Falcoholics,Bears D/ST,-16003,ADD,WAIVER/ACQUISITION,
+2024,1,Chris H,Password Is Taco,Tyreek Hill,3116406,DRAFT,DRAFTED,218.2
+2024,1,Chris H,Password Is Taco,Jahmyr Gibbs,4429795,DRAFT,DRAFTED,362.9
+2024,1,Chris H,Password Is Taco,Alvin Kamara,3054850,DRAFT,DRAFTED,265.3
+2024,1,Chris H,Password Is Taco,De'Von Achane,4429160,DRAFT,DRAFTED,299.9
+2024,1,Chris H,Password Is Taco,DJ Moore,3915416,DRAFT,DRAFTED,238.1
+2024,1,Chris H,Password Is Taco,Lamar Jackson,3916387,DRAFT,DRAFTED,430.38
+2024,1,Chris H,Password Is Taco,Bucky Irving,4596448,ADD,WAIVER/ACQUISITION,
+2024,1,Chris H,Password Is Taco,Brian Thomas Jr.,4432773,ADD,WAIVER/ACQUISITION,284.0
+2024,1,Chris H,Password Is Taco,Chase Brown,4362238,ADD,WAIVER/ACQUISITION,255.0
+2024,1,Chris H,Password Is Taco,Zay Flowers,4429615,TRADE,WAIVER/ACQUISITION,209.5
+2024,1,Chris H,Password Is Taco,Tua Tagovailoa,4241479,ADD,WAIVER/ACQUISITION,181.58
+2024,1,Chris H,Password Is Taco,Jalen McMillan,4430834,ADD,WAIVER/ACQUISITION,
+2024,1,Chris H,Password Is Taco,Falcons D/ST,-16001,ADD,WAIVER/ACQUISITION,
+2024,1,Chris H,Password Is Taco,Jason Sanders,3124679,ADD,WAIVER/ACQUISITION,
+2024,1,Chris H,Password Is Taco,Chig Okonkwo,4360635,ADD,WAIVER/ACQUISITION,
+2024,2,Rob Derrig,Olave Asians,Christian McCaffrey,3117251,DRAFT,DRAFTED,47.8
+2024,2,Rob Derrig,Olave Asians,Marvin Harrison Jr.,4432708,DRAFT,DRAFTED,196.5
+2024,2,Rob Derrig,Olave Asians,Davante Adams,16800,DRAFT,DRAFTED,241.3
+2024,2,Rob Derrig,Olave Asians,Cooper Kupp,2977187,DRAFT,DRAFTED,175.0
+2024,2,Rob Derrig,Olave Asians,Jalen Hurts,4040715,DRAFT,DRAFTED,315.12
+2024,2,Rob Derrig,Olave Asians,Dalton Kincaid,4385690,DRAFT,DRAFTED,100.8
+2024,2,Rob Derrig,Olave Asians,David Montgomery,4035538,DRAFT,DRAFTED,221.72
+2024,2,Rob Derrig,Olave Asians,Tony Pollard,3916148,DRAFT,DRAFTED,200.7
+2024,2,Rob Derrig,Olave Asians,DeAndre Hopkins,15795,DRAFT,DRAFTED,147.0
+2024,2,Rob Derrig,Olave Asians,Jameson Williams,4426388,DRAFT,DRAFTED,212.2
+2024,2,Rob Derrig,Olave Asians,Tank Bigsby,4429013,ADD,WAIVER/ACQUISITION,
+2024,2,Rob Derrig,Olave Asians,Justin Tucker,15683,ADD,WAIVER/ACQUISITION,
+2024,2,Rob Derrig,Olave Asians,Chiefs D/ST,-16012,ADD,WAIVER/ACQUISITION,
+2024,2,Rob Derrig,Olave Asians,Xavier Legette,4430034,ADD,WAIVER/ACQUISITION,
+2024,2,Rob Derrig,Olave Asians,Russell Wilson,14881,ADD,WAIVER/ACQUISITION,
+2024,2,Rob Derrig,Olave Asians,Pat Freiermuth,4361411,ADD,WAIVER/ACQUISITION,168.3
+2024,3,Mike Hart,Scary Jerry,Justin Jefferson,4262921,DRAFT,DRAFTED,317.48
+2024,3,Mike Hart,Scary Jerry,Garrett Wilson,4569618,DRAFT,DRAFTED,251.9
+2024,3,Mike Hart,Scary Jerry,Drake London,4426502,DRAFT,DRAFTED,280.8
+2024,3,Mike Hart,Scary Jerry,Josh Allen,3918298,DRAFT,DRAFTED,379.04
+2024,3,Mike Hart,Scary Jerry,Trey McBride,4361307,DRAFT,DRAFTED,249.8
+2024,3,Mike Hart,Scary Jerry,Rhamondre Stevenson,4569173,DRAFT,DRAFTED,175.9
+2024,3,Mike Hart,Scary Jerry,Najee Harris,4241457,DRAFT,DRAFTED,204.6
+2024,3,Mike Hart,Scary Jerry,George Pickens,4426354,DRAFT,DRAFTED,164.4
+2024,3,Mike Hart,Scary Jerry,Jaxon Smith-Njigba,4430878,DRAFT,DRAFTED,253.0
+2024,3,Mike Hart,Scary Jerry,Rome Odunze,4431299,DRAFT,DRAFTED,144.9
+2024,3,Mike Hart,Scary Jerry,Packers D/ST,-16009,ADD,WAIVER/ACQUISITION,
+2024,3,Mike Hart,Scary Jerry,Hunter Henry,3046439,ADD,WAIVER/ACQUISITION,
+2024,3,Mike Hart,Scary Jerry,Jared Goff,3046779,ADD,WAIVER/ACQUISITION,324.46
+2024,3,Mike Hart,Scary Jerry,Chase McLaughlin,3150744,ADD,WAIVER/ACQUISITION,
+2024,3,Mike Hart,Scary Jerry,Zach Charbonnet,4426385,ADD,WAIVER/ACQUISITION,186.9
+2024,3,Mike Hart,Scary Jerry,Patrick Taylor Jr.,4039358,ADD,WAIVER/ACQUISITION,
+2024,4,Jacob Barton,Show me  the TDs,Ja'Marr Chase,4362628,DRAFT,DRAFTED,403.0
+2024,4,Jacob Barton,Show me  the TDs,James Cook,4379399,DRAFT,DRAFTED,266.7
+2024,4,Jacob Barton,Show me  the TDs,Mark Andrews,3116365,DRAFT,DRAFTED,188.8
+2024,4,Jacob Barton,Show me  the TDs,Patrick Mahomes,3139477,DRAFT,DRAFTED,283.02
+2024,4,Jacob Barton,Show me  the TDs,Calvin Ridley,3925357,DRAFT,DRAFTED,199.2
+2024,4,Jacob Barton,Show me  the TDs,Javonte Williams,4361579,DRAFT,DRAFTED,157.9
+2024,4,Jacob Barton,Show me  the TDs,Terry McLaurin,3121422,DRAFT,DRAFTED,267.8
+2024,4,Jacob Barton,Show me  the TDs,Courtland Sutton,3128429,DRAFT,DRAFTED,240.3
+2024,4,Jacob Barton,Show me  the TDs,Tyjae Spears,4428557,DRAFT,DRAFTED,113.6
+2024,4,Jacob Barton,Show me  the TDs,Jerry Jeudy,4241463,DRAFT,DRAFTED,240.9
+2024,4,Jacob Barton,Show me  the TDs,49ers D/ST,-16025,DRAFT,DRAFTED,
+2024,4,Jacob Barton,Show me  the TDs,Younghoe Koo,3049899,ADD,WAIVER/ACQUISITION,
+2024,4,Jacob Barton,Show me  the TDs,Cade Otton,4243331,ADD,WAIVER/ACQUISITION,
+2024,4,Jacob Barton,Show me  the TDs,Will Dissly,3127292,ADD,WAIVER/ACQUISITION,
+2024,4,Jacob Barton,Show me  the TDs,Ameer Abdullah,2576336,ADD,WAIVER/ACQUISITION,
+2024,4,Jacob Barton,Show me  the TDs,Chad Ryland,4363538,ADD,WAIVER/ACQUISITION,
+2024,5,Dustin Hodges,Scary Perry,Breece Hall,4427366,DRAFT,DRAFTED,240.9
+2024,5,Dustin Hodges,Scary Perry,Kyren Williams,4430737,DRAFT,DRAFTED,272.1
+2024,5,Dustin Hodges,Scary Perry,Josh Jacobs,4047365,DRAFT,DRAFTED,293.1
+2024,5,Dustin Hodges,Scary Perry,Malik Nabers,4595348,DRAFT,DRAFTED,273.6
+2024,5,Dustin Hodges,Scary Perry,DK Metcalf,4047650,DRAFT,DRAFTED,191.2
+2024,5,Dustin Hodges,Scary Perry,Brock Bowers,4432665,DRAFT,DRAFTED,262.7
+2024,5,Dustin Hodges,Scary Perry,T.J. Hockenson,4036133,DRAFT,DRAFTED,86.5
+2024,5,Dustin Hodges,Scary Perry,J.K. Dobbins,4241985,TRADE,WAIVER/ACQUISITION,191.8
+2024,5,Dustin Hodges,Scary Perry,Jakobi Meyers,3916433,ADD,WAIVER/ACQUISITION,218.0
+2024,5,Dustin Hodges,Scary Perry,Jauan Jennings,3886598,ADD,WAIVER/ACQUISITION,
+2024,5,Dustin Hodges,Scary Perry,Jayden Reed,4362249,ADD,WAIVER/ACQUISITION,197.0
+2024,5,Dustin Hodges,Scary Perry,Kyler Murray,3917315,ADD,WAIVER/ACQUISITION,297.24
+2024,5,Dustin Hodges,Scary Perry,Jordan Love,4036378,ADD,WAIVER/ACQUISITION,233.86
+2024,5,Dustin Hodges,Scary Perry,Texans D/ST,-16034,ADD,WAIVER/ACQUISITION,
+2024,5,Dustin Hodges,Scary Perry,Will Reichard,4567104,ADD,WAIVER/ACQUISITION,
+2024,5,Dustin Hodges,Scary Perry,Jerome Ford,4372019,ADD,WAIVER/ACQUISITION,134.0
+2024,6,Zack Brower,Tyrannosaurus Rux,Amon-Ra St. Brown,4374302,DRAFT,DRAFTED,316.18
+2024,6,Zack Brower,Tyrannosaurus Rux,Derrick Henry,3043078,DRAFT,DRAFTED,336.4
+2024,6,Zack Brower,Tyrannosaurus Rux,Mike Evans,16737,DRAFT,DRAFTED,240.4
+2024,6,Zack Brower,Tyrannosaurus Rux,Deebo Samuel Sr.,3126486,DRAFT,DRAFTED,153.6
+2024,6,Zack Brower,Tyrannosaurus Rux,Aaron Jones,3042519,DRAFT,DRAFTED,241.6
+2024,6,Zack Brower,Tyrannosaurus Rux,DeVonta Smith,4241478,DRAFT,DRAFTED,199.4
+2024,6,Zack Brower,Tyrannosaurus Rux,Brian Robinson Jr.,4241474,DRAFT,DRAFTED,159.8
+2024,6,Zack Brower,Tyrannosaurus Rux,Jayden Daniels,4426348,DRAFT,DRAFTED,355.82
+2024,6,Zack Brower,Tyrannosaurus Rux,Brandon Aubrey,3953687,DRAFT,DRAFTED,
+2024,6,Zack Brower,Tyrannosaurus Rux,Dallas Goedert,3121023,ADD,WAIVER/ACQUISITION,103.6
+2024,6,Zack Brower,Tyrannosaurus Rux,Jonnu Smith,3054212,ADD,WAIVER/ACQUISITION,
+2024,6,Zack Brower,Tyrannosaurus Rux,Justin Herbert,4038941,ADD,WAIVER/ACQUISITION,285.4
+2024,6,Zack Brower,Tyrannosaurus Rux,Rashod Bateman,4360939,ADD,WAIVER/ACQUISITION,
+2024,6,Zack Brower,Tyrannosaurus Rux,Michael Pittman Jr.,4035687,ADD,WAIVER/ACQUISITION,165.8
+2024,6,Zack Brower,Tyrannosaurus Rux,Isaac Guerendo,4372561,ADD,WAIVER/ACQUISITION,
+2024,6,Zack Brower,Tyrannosaurus Rux,Dolphins D/ST,-16015,ADD,WAIVER/ACQUISITION,
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Jonathan Taylor,4242335,DRAFT,DRAFTED,244.7
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Puka Nacua,4426515,DRAFT,DRAFTED,206.6
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Nico Collins,4258173,DRAFT,DRAFTED,210.6
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Sam LaPorta,4430027,DRAFT,DRAFTED,174.6
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,James Conner,3045147,DRAFT,DRAFTED,253.8
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,George Kittle,3040151,DRAFT,DRAFTED,236.6
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Joe Burrow,3915511,DRAFT,DRAFTED,372.82
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Tank Dell,4366031,DRAFT,DRAFTED,140.0
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Brock Purdy,4361741,DRAFT,DRAFTED,266.86
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Tyler Lockett,2577327,DRAFT,DRAFTED,121.0
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Chuba Hubbard,4241416,DRAFT,DRAFTED,241.6
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Jake Bates,4689936,ADD,WAIVER/ACQUISITION,
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Jaylen Warren,4569987,ADD,WAIVER/ACQUISITION,124.1
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Buccaneers D/ST,-16027,ADD,WAIVER/ACQUISITION,
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Tommy DeVito,4240391,ADD,WAIVER/ACQUISITION,
+2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,Adam Thielen,16460,ADD,WAIVER/ACQUISITION,139.5
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Saquon Barkley,3929630,DRAFT,DRAFTED,355.3
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Joe Mixon,3116385,DRAFT,DRAFTED,240.5
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Jaylen Waddle,4372016,DRAFT,DRAFTED,149.6
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Tee Higgins,4239993,DRAFT,DRAFTED,222.1
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Xavier Worthy,4683062,DRAFT,DRAFTED,187.2
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Darnell Mooney,4040655,DRAFT,DRAFTED,193.2
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Baker Mayfield,3052587,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Chris Boswell,17372,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Broncos D/ST,-16007,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Rico Dowdle,4038815,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Zach Ertz,15835,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Bo Nix,4426338,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Michael Carter,4240657,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Ravens D/ST,-16033,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Kayshon Boutte,4429022,ADD,WAIVER/ACQUISITION,
+2024,8,Nick Chipchase,Bend it like Beckham Jr.,Marvin Mims Jr.,4686472,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Bijan Robinson,4430807,DRAFT,DRAFTED,341.7
+2024,9,Stewart Helton,Scary Larry,Chris Olave,4361370,DRAFT,DRAFTED,76.7
+2024,9,Stewart Helton,Scary Larry,D'Andre Swift,4259545,DRAFT,DRAFTED,214.5
+2024,9,Stewart Helton,Scary Larry,Jake Ferguson,4242355,DRAFT,DRAFTED,104.4
+2024,9,Stewart Helton,Scary Larry,Jordan Addison,4429205,DRAFT,DRAFTED,212.5
+2024,9,Stewart Helton,Scary Larry,Kirk Cousins,14880,DRAFT,DRAFTED,176.32
+2024,9,Stewart Helton,Scary Larry,Quentin Johnston,4429025,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Alexander Mattison,4048244,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Lions D/ST,-16008,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Cole Kmet,4258595,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Khalil Shakir,4373678,ADD,WAIVER/ACQUISITION,182.5
+2024,9,Stewart Helton,Scary Larry,Keenan Allen,15818,ADD,WAIVER/ACQUISITION,184.4
+2024,9,Stewart Helton,Scary Larry,Tyler Allgeier,4373626,ADD,WAIVER/ACQUISITION,106.2
+2024,9,Stewart Helton,Scary Larry,Raheem Mostert,2576414,ADD,WAIVER/ACQUISITION,70.9
+2024,9,Stewart Helton,Scary Larry,Jake Moody,4372066,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Romeo Doubs,4361432,ADD,WAIVER/ACQUISITION,
+2024,9,Stewart Helton,Scary Larry,Geno Smith,15864,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,CeeDee Lamb,4241389,DRAFT,DRAFTED,263.4
+2024,10,Josh McAuliffe,Raging  Falcoholics,Travis Etienne Jr.,4239996,DRAFT,DRAFTED,130.2
+2024,10,Josh McAuliffe,Raging  Falcoholics,Rachaad White,4697815,DRAFT,DRAFTED,199.6
+2024,10,Josh McAuliffe,Raging  Falcoholics,Kenneth Walker III,4567048,DRAFT,DRAFTED,181.2
+2024,10,Josh McAuliffe,Raging  Falcoholics,Amari Cooper,2976499,DRAFT,DRAFTED,122.7
+2024,10,Josh McAuliffe,Raging  Falcoholics,Evan Engram,3051876,ADD,WAIVER/ACQUISITION,89.5
+2024,10,Josh McAuliffe,Raging  Falcoholics,Josh Downs,4688813,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Ladd McConkey,4612826,ADD,WAIVER/ACQUISITION,240.9
+2024,10,Josh McAuliffe,Raging  Falcoholics,David Njoku,3123076,ADD,WAIVER/ACQUISITION,148.5
+2024,10,Josh McAuliffe,Raging  Falcoholics,Tyrone Tracy Jr.,4360516,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Cedric Tillman,4369863,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Cameron Dicker,4362081,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Sam Darnold,3912547,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Cardinals D/ST,-16022,ADD,WAIVER/ACQUISITION,
+2024,10,Josh McAuliffe,Raging  Falcoholics,Brandin Cooks,16731,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Christian McCaffrey,3117251,DRAFT,DRAFTED,416.6
+2025,1,Chris H,Password Is Taco,Chase Brown,4362238,DRAFT,DRAFTED,282.6
+2025,1,Chris H,Password Is Taco,Josh Allen,3918298,DRAFT,DRAFTED,364.62
+2025,1,Chris H,Password Is Taco,Stefon Diggs,2976212,DRAFT,DRAFTED,210.3
+2025,1,Chris H,Password Is Taco,Chris Olave,4361370,TRADE,WAIVER/ACQUISITION,268.0
+2025,1,Chris H,Password Is Taco,Jaxson Dart,4689114,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,George Kittle,3040151,TRADE,WAIVER/ACQUISITION,161.5
+2025,1,Chris H,Password Is Taco,Puka Nacua,4426515,TRADE,WAIVER/ACQUISITION,375.0
+2025,1,Chris H,Password Is Taco,Luther Burden III,4685278,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Cam Little,4686361,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Tyler Shough,4360689,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Vikings D/ST,-16016,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Jaylen Wright,4682745,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Tank Bigsby,4429013,ADD,WAIVER/ACQUISITION,53.8
+2025,1,Chris H,Password Is Taco,Kimani Vidal,4430968,ADD,WAIVER/ACQUISITION,
+2025,1,Chris H,Password Is Taco,Jaydon Blue,4685279,ADD,WAIVER/ACQUISITION,20.4
+2025,2,Rob Derrig,Olave Asians,CeeDee Lamb,4241389,DRAFT,DRAFTED,200.9
+2025,2,Rob Derrig,Olave Asians,Nico Collins,4258173,DRAFT,DRAFTED,226.2
+2025,2,Rob Derrig,Olave Asians,Drake London,4426502,DRAFT,DRAFTED,201.9
+2025,2,Rob Derrig,Olave Asians,Tee Higgins,4239993,DRAFT,DRAFTED,211.6
+2025,2,Rob Derrig,Olave Asians,Breece Hall,4427366,DRAFT,DRAFTED,207.66
+2025,2,Rob Derrig,Olave Asians,Tony Pollard,3916148,DRAFT,DRAFTED,185.8
+2025,2,Rob Derrig,Olave Asians,Travis Kelce,15847,DRAFT,DRAFTED,193.2
+2025,2,Rob Derrig,Olave Asians,Jordan Addison,4429205,DRAFT,DRAFTED,135.1
+2025,2,Rob Derrig,Olave Asians,Brian Robinson Jr.,4241474,DRAFT,DRAFTED,62.5
+2025,2,Rob Derrig,Olave Asians,Dak Prescott,2577417,ADD,WAIVER/ACQUISITION,313.78
+2025,2,Rob Derrig,Olave Asians,Matthew Stafford,12483,ADD,WAIVER/ACQUISITION,
+2025,2,Rob Derrig,Olave Asians,Theo Johnson,4429148,ADD,WAIVER/ACQUISITION,
+2025,2,Rob Derrig,Olave Asians,Rams D/ST,-16014,ADD,WAIVER/ACQUISITION,
+2025,2,Rob Derrig,Olave Asians,Tyler Allgeier,4373626,ADD,WAIVER/ACQUISITION,123.0
+2025,2,Rob Derrig,Olave Asians,Matt Prater,11122,ADD,WAIVER/ACQUISITION,
+2025,2,Rob Derrig,Olave Asians,Chris Rodriguez Jr.,4362619,ADD,WAIVER/ACQUISITION,
+2025,3,Mike Hart,Scary Jerry,Justin Jefferson,4262921,DRAFT,DRAFTED,201.5
+2025,3,Mike Hart,Scary Jerry,Kyren Williams,4430737,DRAFT,DRAFTED,263.3
+2025,3,Mike Hart,Scary Jerry,Chuba Hubbard,4241416,DRAFT,DRAFTED,125.4
+2025,3,Mike Hart,Scary Jerry,DK Metcalf,4047650,DRAFT,DRAFTED,187.2
+2025,3,Mike Hart,Scary Jerry,David Montgomery,4035538,DRAFT,DRAFTED,166.92
+2025,3,Mike Hart,Scary Jerry,Isiah Pacheco,4361529,DRAFT,DRAFTED,87.3
+2025,3,Mike Hart,Scary Jerry,Khalil Shakir,4373678,DRAFT,DRAFTED,166.4
+2025,3,Mike Hart,Scary Jerry,Chris Godwin Jr.,3116165,DRAFT,DRAFTED,83.0
+2025,3,Mike Hart,Scary Jerry,Josh Downs,4688813,DRAFT,DRAFTED,136.4
+2025,3,Mike Hart,Scary Jerry,Seahawks D/ST,-16026,DRAFT,DRAFTED,
+2025,3,Mike Hart,Scary Jerry,Harrison Butker,3055899,DRAFT,DRAFTED,
+2025,3,Mike Hart,Scary Jerry,Kyle Pitts Sr.,4360248,ADD,WAIVER/ACQUISITION,210.8
+2025,3,Mike Hart,Scary Jerry,Brock Purdy,4361741,ADD,WAIVER/ACQUISITION,177.38
+2025,3,Mike Hart,Scary Jerry,Joe Burrow,3915511,TRADE,WAIVER/ACQUISITION,134.46
+2025,3,Mike Hart,Scary Jerry,Rico Dowdle,4038815,TRADE,WAIVER/ACQUISITION,
+2025,3,Mike Hart,Scary Jerry,Emeka Egbuka,4567750,TRADE,WAIVER/ACQUISITION,195.7
+2025,4,Jacob Barton,Show me  the TDs,Ashton Jeanty,4890973,DRAFT,DRAFTED,245.1
+2025,4,Jacob Barton,Show me  the TDs,Jonathan Taylor,4242335,DRAFT,DRAFTED,362.3
+2025,4,Jacob Barton,Show me  the TDs,Davante Adams,16800,DRAFT,DRAFTED,222.9
+2025,4,Jacob Barton,Show me  the TDs,Garrett Wilson,4569618,DRAFT,DRAFTED,99.5
+2025,4,Jacob Barton,Show me  the TDs,Marvin Harrison Jr.,4432708,DRAFT,DRAFTED,127.8
+2025,4,Jacob Barton,Show me  the TDs,Patrick Mahomes,3139477,DRAFT,DRAFTED,285.68
+2025,4,Jacob Barton,Show me  the TDs,Aaron Jones Sr.,3042519,DRAFT,DRAFTED,118.7
+2025,4,Jacob Barton,Show me  the TDs,T.J. Hockenson,4036133,DRAFT,DRAFTED,112.8
+2025,4,Jacob Barton,Show me  the TDs,Michael Pittman Jr.,4035687,DRAFT,DRAFTED,202.4
+2025,4,Jacob Barton,Show me  the TDs,Nick Chubb,3128720,DRAFT,DRAFTED,88.3
+2025,4,Jacob Barton,Show me  the TDs,Keon Coleman,4635008,DRAFT,DRAFTED,102.4
+2025,4,Jacob Barton,Show me  the TDs,Travis Etienne Jr.,4239996,TRADE,WAIVER/ACQUISITION,253.9
+2025,4,Jacob Barton,Show me  the TDs,Bears D/ST,-16003,ADD,WAIVER/ACQUISITION,
+2025,4,Jacob Barton,Show me  the TDs,Jake Bates,4689936,ADD,WAIVER/ACQUISITION,
+2025,4,Jacob Barton,Show me  the TDs,Jerry Jeudy,4241463,ADD,WAIVER/ACQUISITION,120.7
+2025,4,Jacob Barton,Show me  the TDs,Philip Rivers,5529,ADD,WAIVER/ACQUISITION,
+2025,4,Jacob Barton,Show me  the TDs,C.J. Stroud,4432577,ADD,WAIVER/ACQUISITION,208.54
+2025,5,Dustin Hodges,Dichur til it Hurts,Bijan Robinson,4430807,DRAFT,DRAFTED,370.8
+2025,5,Dustin Hodges,Dichur til it Hurts,Bucky Irving,4596448,DRAFT,DRAFTED,138.5
+2025,5,Dustin Hodges,Dichur til it Hurts,Trey McBride,4361307,DRAFT,DRAFTED,315.9
+2025,5,Dustin Hodges,Dichur til it Hurts,Jalen Hurts,4040715,DRAFT,DRAFTED,299.06
+2025,5,Dustin Hodges,Dichur til it Hurts,Zay Flowers,4429615,DRAFT,DRAFTED,243.3
+2025,5,Dustin Hodges,Dichur til it Hurts,Jauan Jennings,3886598,ADD,WAIVER/ACQUISITION,173.3
+2025,5,Dustin Hodges,Dichur til it Hurts,Texans D/ST,-16034,ADD,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,Ka'imi Fairbairn,2971573,ADD,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,TreVeyon Henderson,4432710,TRADE,WAIVER/ACQUISITION,206.2
+2025,5,Dustin Hodges,Dichur til it Hurts,Jacoby Brissett,2578570,TRADE,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,Mike Evans,16737,ADD,WAIVER/ACQUISITION,84.8
+2025,5,Dustin Hodges,Dichur til it Hurts,Parker Washington,4432620,ADD,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,Audric Estime,4569682,ADD,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,Dylan Sampson,5081397,ADD,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,Jaguars D/ST,-16030,ADD,WAIVER/ACQUISITION,
+2025,5,Dustin Hodges,Dichur til it Hurts,Colston Loveland,4723086,ADD,WAIVER/ACQUISITION,165.1
+2025,6,Zack Brower,"Keefe D, Get Em",Ja'Marr Chase,4362628,DRAFT,DRAFTED,313.6
+2025,6,Zack Brower,"Keefe D, Get Em",Brock Bowers,4432665,DRAFT,DRAFTED,176.2
+2025,6,Zack Brower,"Keefe D, Get Em",Josh Jacobs,4047365,DRAFT,DRAFTED,237.1
+2025,6,Zack Brower,"Keefe D, Get Em",Kenneth Walker III,4567048,DRAFT,DRAFTED,191.9
+2025,6,Zack Brower,"Keefe D, Get Em",Rhamondre Stevenson,4569173,DRAFT,DRAFTED,178.8
+2025,6,Zack Brower,"Keefe D, Get Em",Trey Benson,4429275,DRAFT,DRAFTED,35.4
+2025,6,Zack Brower,"Keefe D, Get Em",Caleb Williams,4431611,ADD,WAIVER/ACQUISITION,318.18
+2025,6,Zack Brower,"Keefe D, Get Em",Oronde Gadsden,4595342,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Troy Franklin,4431280,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Kareem Hunt,3059915,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Michael Wilson,4360761,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",DJ Moore,3915416,ADD,WAIVER/ACQUISITION,170.18
+2025,6,Zack Brower,"Keefe D, Get Em",Trevor Lawrence,4360310,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Buccaneers D/ST,-16027,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Evan McPherson,4360234,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Woody Marks,4429059,ADD,WAIVER/ACQUISITION,
+2025,6,Zack Brower,"Keefe D, Get Em",Adonai Mitchell,4597500,ADD,WAIVER/ACQUISITION,
+2025,7,Jaqueline Bascino,Scary AND Hairy,Jahmyr Gibbs,4429795,DRAFT,DRAFTED,366.9
+2025,7,Jaqueline Bascino,Scary AND Hairy,A.J. Brown,4047646,DRAFT,DRAFTED,220.3
+2025,7,Jaqueline Bascino,Scary AND Hairy,Ladd McConkey,4612826,DRAFT,DRAFTED,180.9
+2025,7,Jaqueline Bascino,Scary AND Hairy,Sam LaPorta,4430027,DRAFT,DRAFTED,106.9
+2025,7,Jaqueline Bascino,Scary AND Hairy,Baker Mayfield,3052587,DRAFT,DRAFTED,271.92
+2025,7,Jaqueline Bascino,Scary AND Hairy,Jaylen Waddle,4372016,DRAFT,DRAFTED,194.12
+2025,7,Jaqueline Bascino,Scary AND Hairy,Jaylen Warren,4569987,DRAFT,DRAFTED,217.1
+2025,7,Jaqueline Bascino,Scary AND Hairy,Rome Odunze,4431299,DRAFT,DRAFTED,146.1
+2025,7,Jaqueline Bascino,Scary AND Hairy,Jordan Mason,4360569,DRAFT,DRAFTED,128.9
+2025,7,Jaqueline Bascino,Scary AND Hairy,Tucker Kraft,4572680,DRAFT,DRAFTED,117.2
+2025,7,Jaqueline Bascino,Scary AND Hairy,Darnell Mooney,4040655,DRAFT,DRAFTED,82.3
+2025,7,Jaqueline Bascino,Scary AND Hairy,Rashod Bateman,4360939,DRAFT,DRAFTED,55.4
+2025,7,Jaqueline Bascino,Scary AND Hairy,Tyler Loop,4697745,ADD,WAIVER/ACQUISITION,
+2025,7,Jaqueline Bascino,Scary AND Hairy,Kenneth Gainwell,4371733,ADD,WAIVER/ACQUISITION,
+2025,7,Jaqueline Bascino,Scary AND Hairy,Justin Herbert,4038941,TRADE,WAIVER/ACQUISITION,286.88
+2025,7,Jaqueline Bascino,Scary AND Hairy,Jake Ferguson,4242355,TRADE,WAIVER/ACQUISITION,188.1
+2025,7,Jaqueline Bascino,Scary AND Hairy,Dolphins D/ST,-16015,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,De'Von Achane,4429160,DRAFT,DRAFTED,322.8
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,James Cook III,4379399,DRAFT,DRAFTED,302.2
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,D'Andre Swift,4259545,DRAFT,DRAFTED,228.6
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Xavier Worthy,4683062,DRAFT,DRAFTED,109.9
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,George Pickens,4426354,DRAFT,DRAFTED,291.9
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Keenan Allen,15818,DRAFT,DRAFTED,182.7
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Dalton Kincaid,4385690,ADD,WAIVER/ACQUISITION,126.1
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Romeo Doubs,4361432,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Jason Myers,2473037,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Lions D/ST,-16008,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Christian Watson,4248528,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Jared Goff,3046779,ADD,WAIVER/ACQUISITION,297.06
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Devin Singletary,4040761,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Zach Ertz,15835,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Steelers D/ST,-16023,ADD,WAIVER/ACQUISITION,
+2025,8,Nick Chipchase,Bend it like Beckham Jr.,Jayden Daniels,4426348,ADD,WAIVER/ACQUISITION,114.28
+2025,9,Stewart Helton,Scary Larry,Amon-Ra St. Brown,4374302,DRAFT,DRAFTED,324.0
+2025,9,Stewart Helton,Scary Larry,Derrick Henry,3043078,DRAFT,DRAFTED,279.5
+2025,9,Stewart Helton,Scary Larry,Jameson Williams,4426388,DRAFT,DRAFTED,219.9
+2025,9,Stewart Helton,Scary Larry,J.K. Dobbins,4241985,DRAFT,DRAFTED,115.9
+2025,9,Stewart Helton,Scary Larry,Javonte Williams,4361579,DRAFT,DRAFTED,242.8
+2025,9,Stewart Helton,Scary Larry,Dallas Goedert,3121023,DRAFT,DRAFTED,185.1
+2025,9,Stewart Helton,Scary Larry,Broncos D/ST,-16007,DRAFT,DRAFTED,
+2025,9,Stewart Helton,Scary Larry,Brandon Aubrey,3953687,DRAFT,DRAFTED,
+2025,9,Stewart Helton,Scary Larry,Jordan Love,4036378,DRAFT,DRAFTED,235.14
+2025,9,Stewart Helton,Scary Larry,Quentin Johnston,4429025,ADD,WAIVER/ACQUISITION,
+2025,9,Stewart Helton,Scary Larry,Wan'Dale Robinson,4569587,ADD,WAIVER/ACQUISITION,
+2025,9,Stewart Helton,Scary Larry,Drake Maye,4431452,TRADE,WAIVER/ACQUISITION,351.96
+2025,9,Stewart Helton,Scary Larry,Elic Ayomanor,4883647,ADD,WAIVER/ACQUISITION,
+2025,9,Stewart Helton,Scary Larry,Hunter Henry,3046439,ADD,WAIVER/ACQUISITION,
+2025,9,Stewart Helton,Scary Larry,Kyle Monangai,4608686,ADD,WAIVER/ACQUISITION,
+2025,9,Stewart Helton,Scary Larry,Ricky Pearsall,4428209,ADD,WAIVER/ACQUISITION,88.6
+2025,9,Stewart Helton,Scary Larry,Devin Neal,4682652,ADD,WAIVER/ACQUISITION,
+2025,10,Josh McAuliffe,Raging  Falcoholics,Saquon Barkley,3929630,DRAFT,DRAFTED,232.3
+2025,10,Josh McAuliffe,Raging  Falcoholics,Brian Thomas Jr.,4432773,DRAFT,DRAFTED,138.8
+2025,10,Josh McAuliffe,Raging  Falcoholics,Lamar Jackson,3916387,DRAFT,DRAFTED,214.86
+2025,10,Josh McAuliffe,Raging  Falcoholics,Terry McLaurin,3121422,DRAFT,DRAFTED,114.2
+2025,10,Josh McAuliffe,Raging  Falcoholics,Jaxon Smith-Njigba,4430878,DRAFT,DRAFTED,359.9
+2025,10,Josh McAuliffe,Raging  Falcoholics,Courtland Sutton,3128429,DRAFT,DRAFTED,219.7
+2025,10,Josh McAuliffe,Raging  Falcoholics,Mark Andrews,3116365,DRAFT,DRAFTED,131.0
+2025,10,Josh McAuliffe,Raging  Falcoholics,Zach Charbonnet,4426385,DRAFT,DRAFTED,181.4
+2025,10,Josh McAuliffe,Raging  Falcoholics,Quinshon Judkins,4685702,ADD,WAIVER/ACQUISITION,169.8
+2025,10,Josh McAuliffe,Raging  Falcoholics,Bo Nix,4426338,ADD,WAIVER/ACQUISITION,304.84
+2025,10,Josh McAuliffe,Raging  Falcoholics,Chris Boswell,17372,ADD,WAIVER/ACQUISITION,
+2025,10,Josh McAuliffe,Raging  Falcoholics,Tyrone Tracy Jr.,4360516,ADD,WAIVER/ACQUISITION,160.8
+2025,10,Josh McAuliffe,Raging  Falcoholics,RJ Harvey,4568490,ADD,WAIVER/ACQUISITION,206.6
+2025,10,Josh McAuliffe,Raging  Falcoholics,Patriots D/ST,-16017,ADD,WAIVER/ACQUISITION,
+2025,10,Josh McAuliffe,Raging  Falcoholics,Jakobi Meyers,3916433,ADD,WAIVER/ACQUISITION,175.8
+2025,10,Josh McAuliffe,Raging  Falcoholics,Bills D/ST,-16002,ADD,WAIVER/ACQUISITION,

@@ -1,0 +1,144 @@
+{
+  "method": "Final-roster season production proxy: drafted players retained on final roster vs every non-drafted final-roster player. Player season PPR totals are sourced from draft_roi_scores across both Shiva leagues. This is not week-by-week starter attribution.",
+  "coverage": "Shiva 2018-2025 end-roster/standings data present in shiva_draft_roi.sqlite (80 team-seasons).",
+  "all_team_seasons": {
+    "team_seasons": 80,
+    "weighted_drafted_share_pct": 80.02,
+    "weighted_waiver_acquisition_share_pct": 19.98,
+    "average_team_drafted_share_pct": 79.52,
+    "median_team_drafted_share_pct": 79.41,
+    "average_known_player_coverage_pct": 63.6,
+    "drafted_points": 138123.7,
+    "waiver_acquisition_points": 34481.1
+  },
+  "top4_scoring_teams": {
+    "team_seasons": 32,
+    "weighted_drafted_share_pct": 80.12,
+    "weighted_waiver_acquisition_share_pct": 19.88,
+    "average_team_drafted_share_pct": 80.09,
+    "median_team_drafted_share_pct": 80.59,
+    "average_known_player_coverage_pct": 63.78,
+    "drafted_points": 58910.0,
+    "waiver_acquisition_points": 14619.7
+  },
+  "non_top4_scoring_teams": {
+    "team_seasons": 48,
+    "weighted_drafted_share_pct": 79.95,
+    "weighted_waiver_acquisition_share_pct": 20.05,
+    "average_team_drafted_share_pct": 79.15,
+    "median_team_drafted_share_pct": 79.41,
+    "average_known_player_coverage_pct": 63.49,
+    "drafted_points": 79213.8,
+    "waiver_acquisition_points": 19861.4
+  },
+  "champions": {
+    "team_seasons": 8,
+    "weighted_drafted_share_pct": 76.49,
+    "weighted_waiver_acquisition_share_pct": 23.51,
+    "average_team_drafted_share_pct": 77.56,
+    "median_team_drafted_share_pct": 80.24,
+    "average_known_player_coverage_pct": 62.13,
+    "drafted_points": 13936.7,
+    "waiver_acquisition_points": 4283.0
+  },
+  "final_top4_teams": {
+    "team_seasons": 32,
+    "weighted_drafted_share_pct": 78.67,
+    "weighted_waiver_acquisition_share_pct": 21.33,
+    "average_team_drafted_share_pct": 78.61,
+    "median_team_drafted_share_pct": 78.93,
+    "average_known_player_coverage_pct": 62.93,
+    "drafted_points": 57243.8,
+    "waiver_acquisition_points": 15516.2
+  },
+  "by_season": [
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 68.96,
+      "weighted_waiver_acquisition_share_pct": 31.04,
+      "average_team_drafted_share_pct": 68.1,
+      "median_team_drafted_share_pct": 70.86,
+      "average_known_player_coverage_pct": 61.9,
+      "drafted_points": 13991.0,
+      "waiver_acquisition_points": 6296.2,
+      "season": 2018
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 78.38,
+      "weighted_waiver_acquisition_share_pct": 21.62,
+      "average_team_drafted_share_pct": 78.9,
+      "median_team_drafted_share_pct": 77.42,
+      "average_known_player_coverage_pct": 61.98,
+      "drafted_points": 16656.5,
+      "waiver_acquisition_points": 4594.4,
+      "season": 2019
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 77.06,
+      "weighted_waiver_acquisition_share_pct": 22.94,
+      "average_team_drafted_share_pct": 76.83,
+      "median_team_drafted_share_pct": 85.67,
+      "average_known_player_coverage_pct": 64.75,
+      "drafted_points": 16647.6,
+      "waiver_acquisition_points": 4957.1,
+      "season": 2020
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 92.4,
+      "weighted_waiver_acquisition_share_pct": 7.6,
+      "average_team_drafted_share_pct": 90.61,
+      "median_team_drafted_share_pct": 98.59,
+      "average_known_player_coverage_pct": 63.7,
+      "drafted_points": 19941.8,
+      "waiver_acquisition_points": 1639.7,
+      "season": 2021
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 86.67,
+      "weighted_waiver_acquisition_share_pct": 13.33,
+      "average_team_drafted_share_pct": 85.84,
+      "median_team_drafted_share_pct": 89.84,
+      "average_known_player_coverage_pct": 62.28,
+      "drafted_points": 18543.9,
+      "waiver_acquisition_points": 2851.6,
+      "season": 2022
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 85.48,
+      "weighted_waiver_acquisition_share_pct": 14.52,
+      "average_team_drafted_share_pct": 84.79,
+      "median_team_drafted_share_pct": 88.35,
+      "average_known_player_coverage_pct": 62.69,
+      "drafted_points": 18917.8,
+      "waiver_acquisition_points": 3213.6,
+      "season": 2023
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 79.14,
+      "weighted_waiver_acquisition_share_pct": 20.86,
+      "average_team_drafted_share_pct": 79.77,
+      "median_team_drafted_share_pct": 80.44,
+      "average_known_player_coverage_pct": 65.05,
+      "drafted_points": 17919.6,
+      "waiver_acquisition_points": 4722.9,
+      "season": 2024
+    },
+    {
+      "team_seasons": 10,
+      "weighted_drafted_share_pct": 71.42,
+      "weighted_waiver_acquisition_share_pct": 28.58,
+      "average_team_drafted_share_pct": 71.36,
+      "median_team_drafted_share_pct": 71.34,
+      "average_known_player_coverage_pct": 66.47,
+      "drafted_points": 15505.5,
+      "waiver_acquisition_points": 6205.5,
+      "season": 2025
+    }
+  ]
+}
