@@ -1,0 +1,52 @@
+name: Analyze Shiva database
+
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze-shiva.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect SQLite database
+        run: |
+          python - <<'PY'
+          import sqlite3, json, pathlib
+          db='shiva_draft_roi.sqlite'
+          con=sqlite3.connect(db)
+          cur=con.cursor()
+          tables=[r[0] for r in cur.execute("select name from sqlite_master where type='table' order by name")]
+          out=[]
+          inventory={}
+          for t in tables:
+              cols=[{'name':r[1],'type':r[2]} for r in cur.execute(f'pragma table_info("{t}")')]
+              count=cur.execute(f'select count(*) from "{t}"').fetchone()[0]
+              inventory[t]={'count':count,'columns':cols}
+              out.append(f'[{t}] rows={count}')
+              out.append(', '.join(f"{c['name']}:{c['type']}" for c in cols))
+              try:
+                  rows=cur.execute(f'select * from "{t}" limit 3').fetchall()
+                  out.append('samples='+repr(rows))
+              except Exception as e:
+                  out.append('sample_error='+repr(e))
+              out.append('')
+          pathlib.Path('analysis').mkdir(exist_ok=True)
+          pathlib.Path('analysis/db_inventory.txt').write_text('\n'.join(out), encoding='utf-8')
+          pathlib.Path('analysis/db_inventory.json').write_text(json.dumps(inventory,indent=2), encoding='utf-8')
+          PY
+      - name: Commit inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/db_inventory.txt analysis/db_inventory.json
+          git diff --cached --quiet || git commit -m "Generate Shiva database inventory"
+          git push
