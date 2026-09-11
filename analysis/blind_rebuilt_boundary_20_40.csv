@@ -1,0 +1,22 @@
+rank,league_id,league,season,team_id,manager,team,score,portfolio_pct,efficiency_pct,construction_pct,sensitivity_median_rank,sensitivity_best_rank,sensitivity_worst_rank,top25_frequency
+20,1506903,Shiva 2.0,2022,2,Pascual Rodarte,Team Rodarte,95.56,100.0,100.0,11.11,20,19,22,100.0
+21,1465338,Shiva,2020,5,Dustin Hodges,everybody was kungflu fightin,95.0,100.0,100.0,0.0,21,20,35,80.0
+22,1506903,Shiva 2.0,2017,9,Dustin Hodges,Team Hodges,95.0,100.0,100.0,0.0,22,21,36,80.0
+23,1506903,Shiva 2.0,2016,7,Ben Miller,Team Miller,88.89,88.89,88.89,88.89,23,19,23,100.0
+24,1465338,Shiva,2024,6,Zack Brower,Tyrannosaurus Rux,88.06,88.89,88.89,72.22,24,4,24,100.0
+25,1506903,Shiva 2.0,2020,8,Mike Hart,No sacko no sacko ,88.06,88.89,88.89,72.22,26,24,27,31.1
+26,1506903,Shiva 2.0,2022,10,Rob Derrig,"Rock, Flag  and Eagle...",88.06,88.89,88.89,72.22,28,25,69,6.7
+27,1506903,Shiva 2.0,2023,10,Rob Derrig,"Rock, Flag  and Eagle...",88.06,88.89,88.89,72.22,27,7,29,33.3
+28,1465338,Shiva,2017,10,Josh McAuliffe,Raging  Falcoholics,87.78,88.89,88.89,66.67,30,28,30,0.0
+29,1465338,Shiva,2023,2,Rob Derrig,Olave Asians,87.78,88.89,88.89,66.67,31,29,32,0.0
+30,1465338,Shiva,2025,4,Jacob Barton,Show me  the TDs,87.78,88.89,88.89,66.67,32,30,51,0.0
+31,1506903,Shiva 2.0,2018,6,Jacob Barton,Show me the TDs,87.78,88.89,88.89,66.67,33,31,34,0.0
+32,1506903,Shiva 2.0,2021,4,Jaqueline Bascino,❄☃️ ☄🌊,87.78,88.89,88.89,66.67,34,32,35,0.0
+33,1506903,Shiva 2.0,2025,3,Dustin Hodges,A'Chane n da membrane,87.5,88.89,88.89,61.11,56,33,78,0.0
+34,1465338,Shiva,2019,4,Matt Hollingsworth,Ron Mexico,86.11,88.89,88.89,33.33,37,19,41,33.3
+35,1465338,Shiva,2014,8,Sean Ahlenius,Team Ahlenius,86.07,85.71,85.71,92.86,35,20,39,20.0
+36,1465338,Shiva,2015,8,Sean Ahlenius,Team Ahlenius,85.71,85.71,85.71,85.71,37,27,40,0.0
+37,1465338,Shiva,2022,9,Stewart Helton,Scary Larry,85.56,88.89,88.89,22.22,39,37,43,0.0
+38,1465338,Shiva,2020,7,Jaqueline Bascino,FuxBe3nRuxin !,85.0,88.89,88.89,11.11,40,38,44,0.0
+39,1465338,Shiva,2021,7,Jaqueline Bascino,Scary Mary,85.0,88.89,88.89,11.11,41,39,62,0.0
+40,1506903,Shiva 2.0,2017,3,David Huffman,No Problem Man  Happy With It,85.0,88.89,88.89,11.11,63,40,66,0.0

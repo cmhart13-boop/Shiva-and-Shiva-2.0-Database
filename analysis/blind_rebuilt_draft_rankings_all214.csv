@@ -1,0 +1,215 @@
+rank,league_id,league,season,team_id,manager,team,score,portfolio_pct,efficiency_pct,construction_pct,sensitivity_median_rank,sensitivity_best_rank,sensitivity_worst_rank,top25_frequency
+1,1465338,Shiva,2014,3,luke ahlenius,.. Stay Yucky,99.64,100.0,100.0,92.86,1,1,1,100.0
+2,1465338,Shiva,2015,1,Chris H,Password Is Taco,99.29,100.0,100.0,85.71,2,2,2,100.0
+3,1465338,Shiva,2022,4,Jacob Barton,Show me  the TDs,98.89,100.0,100.0,77.78,3,3,3,100.0
+4,1465338,Shiva,2019,8,Nick Chipchase,Bend it like Beckham Jr.,98.61,100.0,100.0,72.22,4,4,24,100.0
+5,1465338,Shiva,2024,1,Chris H,Password Is Taco,98.61,100.0,100.0,72.22,5,5,25,100.0
+6,1506903,Shiva 2.0,2020,10,Rob Derrig,"Rock, Flag  and Eagle...",98.61,100.0,100.0,72.22,6,5,6,100.0
+7,1506903,Shiva 2.0,2023,7,Nick Chipchase,Wentz Upon A Time,98.61,100.0,100.0,72.22,7,6,28,66.7
+8,1506903,Shiva 2.0,2024,10,Rob Derrig,"Rock, Flag  and Eagle...",98.61,100.0,100.0,72.22,8,7,29,66.7
+9,1465338,Shiva,2017,2,Jason Hewitt,Team Hewitt,98.33,100.0,100.0,66.67,8,8,9,100.0
+10,1465338,Shiva,2018,10,Josh McAuliffe,Raging  Falcoholics,98.33,100.0,100.0,66.67,9,9,10,100.0
+11,1465338,Shiva,2021,8,Nick Chipchase,Bend it like Beckham Jr.,98.33,100.0,100.0,66.67,10,10,11,100.0
+12,1465338,Shiva,2023,1,Chris H,Password Is Taco,98.33,100.0,100.0,66.67,11,11,12,100.0
+13,1465338,Shiva,2025,1,Chris H,Password Is Taco,98.33,100.0,100.0,66.67,12,12,13,100.0
+14,1506903,Shiva 2.0,2018,10,Rob Derrig,"Rock, Flag  and Eagle...",98.33,100.0,100.0,66.67,13,13,14,100.0
+15,1506903,Shiva 2.0,2021,10,Rob Derrig,"Rock, Flag  and Eagle...",98.33,100.0,100.0,66.67,14,14,15,100.0
+16,1465338,Shiva,2016,1,Chris H,Password Is Taco,98.21,100.0,100.0,64.29,15,15,16,100.0
+17,1506903,Shiva 2.0,2019,4,Matt Hollingsworth,Full Chubb,98.06,100.0,100.0,61.11,16,16,17,100.0
+18,1506903,Shiva 2.0,2025,4,Jaqueline Bascino,JackedOff,98.06,100.0,100.0,61.11,17,17,18,100.0
+19,1506903,Shiva 2.0,2016,2,Matt Hollingsworth,Team Hollingsworth,97.22,100.0,100.0,44.44,18,18,19,100.0
+20,1506903,Shiva 2.0,2022,2,Pascual Rodarte,Team Rodarte,95.56,100.0,100.0,11.11,20,19,22,100.0
+21,1465338,Shiva,2020,5,Dustin Hodges,everybody was kungflu fightin,95.0,100.0,100.0,0.0,21,20,35,80.0
+22,1506903,Shiva 2.0,2017,9,Dustin Hodges,Team Hodges,95.0,100.0,100.0,0.0,22,21,36,80.0
+23,1506903,Shiva 2.0,2016,7,Ben Miller,Team Miller,88.89,88.89,88.89,88.89,23,19,23,100.0
+24,1465338,Shiva,2024,6,Zack Brower,Tyrannosaurus Rux,88.06,88.89,88.89,72.22,24,4,24,100.0
+25,1506903,Shiva 2.0,2020,8,Mike Hart,No sacko no sacko ,88.06,88.89,88.89,72.22,26,24,27,31.1
+26,1506903,Shiva 2.0,2022,10,Rob Derrig,"Rock, Flag  and Eagle...",88.06,88.89,88.89,72.22,28,25,69,6.7
+27,1506903,Shiva 2.0,2023,10,Rob Derrig,"Rock, Flag  and Eagle...",88.06,88.89,88.89,72.22,27,7,29,33.3
+28,1465338,Shiva,2017,10,Josh McAuliffe,Raging  Falcoholics,87.78,88.89,88.89,66.67,30,28,30,0.0
+29,1465338,Shiva,2023,2,Rob Derrig,Olave Asians,87.78,88.89,88.89,66.67,31,29,32,0.0
+30,1465338,Shiva,2025,4,Jacob Barton,Show me  the TDs,87.78,88.89,88.89,66.67,32,30,51,0.0
+31,1506903,Shiva 2.0,2018,6,Jacob Barton,Show me the TDs,87.78,88.89,88.89,66.67,33,31,34,0.0
+32,1506903,Shiva 2.0,2021,4,Jaqueline Bascino,❄☃️ ☄🌊,87.78,88.89,88.89,66.67,34,32,35,0.0
+33,1506903,Shiva 2.0,2025,3,Dustin Hodges,A'Chane n da membrane,87.5,88.89,88.89,61.11,56,33,78,0.0
+34,1465338,Shiva,2019,4,Matt Hollingsworth,Ron Mexico,86.11,88.89,88.89,33.33,37,19,41,33.3
+35,1465338,Shiva,2014,8,Sean Ahlenius,Team Ahlenius,86.07,85.71,85.71,92.86,35,20,39,20.0
+36,1465338,Shiva,2015,8,Sean Ahlenius,Team Ahlenius,85.71,85.71,85.71,85.71,37,27,40,0.0
+37,1465338,Shiva,2022,9,Stewart Helton,Scary Larry,85.56,88.89,88.89,22.22,39,37,43,0.0
+38,1465338,Shiva,2020,7,Jaqueline Bascino,FuxBe3nRuxin !,85.0,88.89,88.89,11.11,40,38,44,0.0
+39,1465338,Shiva,2021,7,Jaqueline Bascino,Scary Mary,85.0,88.89,88.89,11.11,41,39,62,0.0
+40,1506903,Shiva 2.0,2017,3,David Huffman,No Problem Man  Happy With It,85.0,88.89,88.89,11.11,63,40,66,0.0
+41,1465338,Shiva,2016,8,Kyle Winterowd,Gotta Catch  Jamaal,84.64,85.71,85.71,64.29,38,36,44,0.0
+42,1465338,Shiva,2018,5,Dustin Hodges,Team Hodges,84.44,88.89,88.89,0.0,43,42,77,0.0
+43,1506903,Shiva 2.0,2019,5,Stewart Helton,opponent  .,84.44,88.89,88.89,0.0,43,43,75,0.0
+44,1506903,Shiva 2.0,2024,6,Zack Brower,The Comeback Kid,84.44,88.89,88.89,0.0,44,22,55,26.7
+45,1465338,Shiva,2024,3,Mike Hart,Scary Jerry,77.5,77.78,77.78,72.22,45,42,67,0.0
+46,1506903,Shiva 2.0,2017,10,Rob Derrig,Kennan and Mel ,77.5,77.78,77.78,72.22,25,23,46,51.1
+47,1506903,Shiva 2.0,2020,7,Nick Chipchase,Wentz Upon A Time,77.5,77.78,77.78,72.22,47,44,68,0.0
+48,1506903,Shiva 2.0,2022,8,Mike Hart,No sacko no sacko ,77.5,77.78,77.78,72.22,48,25,71,4.4
+49,1506903,Shiva 2.0,2023,3,Dustin Hodges,Cee Deez Nutz,77.5,77.78,77.78,72.22,48,44,49,0.0
+50,1506903,Shiva 2.0,2024,9,Bruce Self,Joe Buck Yourself,77.5,77.78,77.78,72.22,49,45,50,0.0
+51,1465338,Shiva,2018,4,David Huffman,Flavor-est Dave of ALL,77.22,77.78,77.78,66.67,50,30,51,0.0
+52,1465338,Shiva,2025,5,Dustin Hodges,Dichur til it Hurts,77.22,77.78,77.78,66.67,52,47,76,0.0
+53,1506903,Shiva 2.0,2016,9,Dustin Hodges,Team Hodges,77.22,77.78,77.78,66.67,53,48,77,0.0
+54,1506903,Shiva 2.0,2018,7,Ben Miller,Team Miller,77.22,77.78,77.78,66.67,53,49,76,0.0
+55,1506903,Shiva 2.0,2021,8,Mike Hart,No sacko no sacko ,77.22,77.78,77.78,66.67,54,50,55,0.0
+56,1465338,Shiva,2020,8,Nick Chipchase,Bend it like Beckham Jr.,76.94,77.78,77.78,61.11,56,53,76,0.0
+57,1506903,Shiva 2.0,2019,7,Nick Chipchase,Wentz Upon A Time,76.94,77.78,77.78,61.11,57,35,77,0.0
+58,1506903,Shiva 2.0,2025,1,Chris H,Rafi Bombs ,76.94,77.78,77.78,61.11,77,33,81,0.0
+59,1465338,Shiva,2022,1,Chris H,Password Is Taco,76.11,77.78,77.78,44.44,59,57,103,0.0
+60,1465338,Shiva,2017,6,Zack Brower,Fuxin  Ruxins x 2,75.0,77.78,77.78,22.22,60,57,63,0.0
+61,1465338,Shiva,2021,9,Stewart Helton,Scary Larry,75.0,77.78,77.78,22.22,61,41,64,0.0
+62,1465338,Shiva,2023,7,Jaqueline Bascino,Calvin Ridleys Bookie,74.44,77.78,77.78,11.11,63,60,65,0.0
+63,1465338,Shiva,2019,9,Stewart Helton,Scary Larry,73.89,77.78,77.78,0.0,66,62,92,0.0
+64,1465338,Shiva,2015,7,Ben Miller,Team Miller,72.14,71.43,71.43,85.71,59,57,64,0.0
+65,1465338,Shiva,2014,7,Ben Miller,Team Miller,71.43,71.43,71.43,71.43,62,58,65,0.0
+66,1465338,Shiva,2016,5,Dustin Hodges,Team Hodges,71.07,71.43,71.43,64.29,84,60,86,0.0
+67,1465338,Shiva,2019,10,Josh McAuliffe,Raging  Falcoholics,66.94,66.67,66.67,72.22,67,43,87,0.0
+68,1506903,Shiva 2.0,2017,8,Mike Hart,The Shitman  Sharts,66.94,66.67,66.67,72.22,68,65,110,0.0
+69,1506903,Shiva 2.0,2020,9,Bruce Self,Cum So Hard I  Philip Rivers,66.94,66.67,66.67,72.22,69,42,132,0.0
+70,1506903,Shiva 2.0,2022,7,Nick Chipchase,Wentz Upon A Time,66.94,66.67,66.67,72.22,48,43,70,0.0
+71,1506903,Shiva 2.0,2024,1,Chris H,Rafi Bombs,66.94,66.67,66.67,72.22,70,67,72,0.0
+72,1465338,Shiva,2018,1,Chris H,Password Is Taco,66.67,66.67,66.67,66.67,71,68,73,0.0
+73,1465338,Shiva,2021,3,Mike Hart,Bless me Lord Shiva,66.67,66.67,66.67,66.67,72,70,91,0.0
+74,1465338,Shiva,2023,3,Mike Hart,Scary Jerry,66.67,66.67,66.67,66.67,74,71,117,0.0
+75,1465338,Shiva,2025,8,Nick Chipchase,Bend it like Beckham Jr.,66.67,66.67,66.67,66.67,73,32,75,0.0
+76,1506903,Shiva 2.0,2018,4,Matt Hollingsworth,moneys_ worth,66.67,66.67,66.67,66.67,74,49,78,0.0
+77,1465338,Shiva,2020,4,Kyle Winterowd,Rollin with Mahomies,66.39,66.67,66.67,61.11,76,54,79,0.0
+78,1506903,Shiva 2.0,2019,1,Chris H,Rafi Bombs,66.39,66.67,66.67,61.11,78,55,121,0.0
+79,1506903,Shiva 2.0,2025,2,Pascual Rodarte,Team Rodarte,66.39,66.67,66.67,61.11,79,35,102,0.0
+80,1506903,Shiva 2.0,2016,4,Andrew Miller,Omygod its in.. ..The endzone,66.11,66.67,66.67,55.56,78,56,80,0.0
+81,1506903,Shiva 2.0,2021,6,Jacob Barton,Show me the TDs,64.44,66.67,66.67,22.22,81,79,82,0.0
+82,1465338,Shiva,2022,7,Jaqueline Bascino,Scary Mary,63.89,66.67,66.67,11.11,80,59,106,0.0
+83,1506903,Shiva 2.0,2023,6,Zack Brower,Herdsman ,63.89,66.67,66.67,11.11,83,81,84,0.0
+84,1465338,Shiva,2017,5,Dustin Hodges,Team Hodges,63.33,66.67,66.67,0.0,85,82,138,0.0
+85,1465338,Shiva,2024,7,Jaqueline Bascino,Calvin Ridleys Bookie,63.33,66.67,66.67,0.0,94,63,138,0.0
+86,1465338,Shiva,2016,7,Ben Miller,Yo Belichick Yo Self,57.5,57.14,57.14,64.29,66,59,86,0.0
+87,1465338,Shiva,2024,4,Jacob Barton,Show me  the TDs,56.39,55.56,55.56,72.22,87,66,111,0.0
+88,1506903,Shiva 2.0,2023,1,Chris H,Rafi Bombs,56.39,55.56,55.56,72.22,90,86,134,0.0
+89,1506903,Shiva 2.0,2024,2,Pascual Rodarte,Team Rodarte,56.39,55.56,55.56,72.22,89,84,91,0.0
+90,1465338,Shiva,2018,8,Kyle Winterowd,Game Of Mahomes,56.11,55.56,55.56,66.67,90,85,93,0.0
+91,1465338,Shiva,2021,2,Garrett Schoudt,Chalupa Batman,56.11,55.56,55.56,66.67,92,72,115,0.0
+92,1465338,Shiva,2023,10,Josh McAuliffe,Raging  Falcoholics,56.11,55.56,55.56,66.67,92,70,95,0.0
+93,1465338,Shiva,2025,10,Josh McAuliffe,Raging  Falcoholics,56.11,55.56,55.56,66.67,96,91,139,0.0
+94,1506903,Shiva 2.0,2018,1,Chris H,Rafi Bombs,56.11,55.56,55.56,66.67,93,88,97,0.0
+95,1506903,Shiva 2.0,2021,1,Chris H,Rafi Bombs,56.11,55.56,55.56,66.67,98,92,119,0.0
+96,1465338,Shiva,2015,6,Zack Brower,Fuxin  Ruxins x 2,56.07,57.14,57.14,35.71,101,94,128,0.0
+97,1465338,Shiva,2020,6,Zack Brower,Fuxin  Ruxins x 2,55.83,55.56,55.56,61.11,95,93,100,0.0
+98,1506903,Shiva 2.0,2019,6,Jacob Barton,Show me the TDs,55.83,55.56,55.56,61.11,96,76,101,0.0
+99,1506903,Shiva 2.0,2025,9,Bruce Self,Joe Buck Yourself,55.83,55.56,55.56,61.11,97,35,122,0.0
+100,1465338,Shiva,2014,1,Chris H,Password Is Taco,55.71,57.14,57.14,28.57,99,94,103,0.0
+101,1506903,Shiva 2.0,2017,4,Andrew Miller,Omygod its in.. ..The endzone,54.44,55.56,55.56,33.33,96,79,101,0.0
+102,1506903,Shiva 2.0,2016,6,Jacob Barton,Show me the TDs,53.89,55.56,55.56,22.22,101,97,104,0.0
+103,1465338,Shiva,2017,9,Stewart Helton,Scary Larry,53.33,55.56,55.56,11.11,100,81,105,0.0
+104,1465338,Shiva,2019,5,Dustin Hodges,Team Hodges,53.33,55.56,55.56,11.11,101,82,106,0.0
+105,1506903,Shiva 2.0,2020,4,Jaqueline Bascino,Nic3 On3,53.33,55.56,55.56,11.11,105,103,107,0.0
+106,1465338,Shiva,2022,6,Zack Brower,Try the Veal,52.78,55.56,55.56,0.0,105,84,117,0.0
+107,1506903,Shiva 2.0,2022,3,Dustin Hodges,My Ball Zach Ertz,52.78,55.56,55.56,0.0,107,107,119,0.0
+108,1465338,Shiva,2022,3,Mike Hart,Scary Jerry,46.11,44.44,44.44,77.78,108,102,131,0.0
+109,1506903,Shiva 2.0,2016,10,Mark Speir,Marky Mark and The Funky Bunch,46.11,44.44,44.44,77.78,131,100,152,0.0
+110,1465338,Shiva,2019,7,Ben Miller,28 - 3,45.83,44.44,44.44,72.22,110,107,110,0.0
+111,1506903,Shiva 2.0,2017,5,Stewart Helton,opponent  .,45.83,44.44,44.44,72.22,111,87,112,0.0
+112,1506903,Shiva 2.0,2020,6,Jacob Barton,Show me the TDs,45.83,44.44,44.44,72.22,131,109,134,0.0
+113,1506903,Shiva 2.0,2022,1,Chris H,Rafi Bombs,45.83,44.44,44.44,72.22,112,109,114,0.0
+114,1506903,Shiva 2.0,2023,2,Pascual Rodarte,Team Rodarte,45.83,44.44,44.44,72.22,111,83,114,0.0
+115,1465338,Shiva,2017,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,45.56,44.44,44.44,66.67,114,90,135,0.0
+116,1465338,Shiva,2021,10,Josh McAuliffe,Raging  Falcoholics,45.56,44.44,44.44,66.67,114,69,116,0.0
+117,1465338,Shiva,2023,8,Nick Chipchase,Bend it like Beckham Jr.,45.56,44.44,44.44,66.67,114,87,139,0.0
+118,1506903,Shiva 2.0,2018,8,Mike Hart,Heal Tyreek Heel,45.56,44.44,44.44,66.67,118,113,139,0.0
+119,1465338,Shiva,2020,3,Mike Hart,Bless me Lord Shiva,45.28,44.44,44.44,61.11,119,117,141,0.0
+120,1465338,Shiva,2016,3,Mike Hart,beats  by Ray,43.93,42.86,42.86,64.29,120,119,149,0.0
+121,1506903,Shiva 2.0,2024,3,Dustin Hodges,McCaff Strain,43.61,44.44,44.44,27.78,125,121,187,0.0
+122,1465338,Shiva,2018,9,Stewart Helton,Scary Larry,43.33,44.44,44.44,22.22,123,121,128,0.0
+123,1465338,Shiva,2025,9,Stewart Helton,Scary Larry,43.06,44.44,44.44,16.67,124,98,147,0.0
+124,1465338,Shiva,2014,5,Dustin Hodges,Team Hodges,42.86,42.86,42.86,42.86,122,120,127,0.0
+125,1465338,Shiva,2024,5,Dustin Hodges,Scary Perry,42.78,44.44,44.44,11.11,124,81,128,0.0
+126,1506903,Shiva 2.0,2019,9,Bruce Self,Cum So Hard I  Philip Rivers,42.78,44.44,44.44,11.11,126,102,150,0.0
+127,1506903,Shiva 2.0,2025,5,Stewart Helton,Deja Koo,42.78,44.44,44.44,11.11,126,104,129,0.0
+128,1506903,Shiva 2.0,2021,5,Stewart Helton,◀  👾▶,42.22,44.44,44.44,0.0,128,106,181,0.0
+129,1465338,Shiva,2015,4,David Huffman,Flavor-est Dave of ALL,41.43,42.86,42.86,14.29,129,95,162,0.0
+130,1465338,Shiva,2022,2,Robert Derrig,Team Derrig,35.56,33.33,33.33,77.78,130,99,131,0.0
+131,1465338,Shiva,2019,2,Garrett Schoudt,Chip Diamond,35.28,33.33,33.33,72.22,132,129,175,0.0
+132,1506903,Shiva 2.0,2017,2,Andrew Hickey,Gay for Pey,35.28,33.33,33.33,72.22,133,130,176,0.0
+133,1465338,Shiva,2017,3,Mike Hart,SOYOURTELLINGME IHAVEACHANCE??,35.0,33.33,33.33,66.67,134,132,155,0.0
+134,1465338,Shiva,2018,2,Jason Hewitt,Team Hewitt,35.0,33.33,33.33,66.67,135,133,137,0.0
+135,1465338,Shiva,2021,6,Zack Brower,Fuxin  Ruxins x 2,35.0,33.33,33.33,66.67,136,134,138,0.0
+136,1506903,Shiva 2.0,2018,2,Garrett Schoudt,Deflate Gate,35.0,33.33,33.33,66.67,136,114,140,0.0
+137,1506903,Shiva 2.0,2021,9,Bruce Self,Joe Buck Yourself,35.0,33.33,33.33,66.67,138,114,159,0.0
+138,1465338,Shiva,2020,9,Stewart Helton,Scary Larry,34.72,33.33,33.33,61.11,140,138,160,0.0
+139,1506903,Shiva 2.0,2019,10,Rob Derrig,"Rock, Flag  and Eagle...",34.72,33.33,33.33,61.11,139,118,142,0.0
+140,1506903,Shiva 2.0,2025,8,Mike Hart,class act,34.72,33.33,33.33,61.11,142,140,162,0.0
+141,1506903,Shiva 2.0,2016,3,David Huffman,No Problem Man  Happy With It,33.33,33.33,33.33,33.33,141,120,163,0.0
+142,1506903,Shiva 2.0,2022,5,Stewart Helton,◀  👾▶,33.33,33.33,33.33,33.33,143,141,166,0.0
+143,1506903,Shiva 2.0,2023,4,Jaqueline Bascino,Coopers Mama,33.33,33.33,33.33,33.33,142,121,145,0.0
+144,1465338,Shiva,2023,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,32.78,33.33,33.33,22.22,144,123,185,0.0
+145,1465338,Shiva,2024,8,Nick Chipchase,Bend it like Beckham Jr.,32.78,33.33,33.33,22.22,145,143,148,0.0
+146,1465338,Shiva,2025,7,Jaqueline Bascino,Scary AND Hairy,32.5,33.33,33.33,16.67,127,122,147,0.0
+147,1506903,Shiva 2.0,2024,4,Jaqueline Bascino,Coopers Mama,32.22,33.33,33.33,11.11,148,125,169,0.0
+148,1506903,Shiva 2.0,2020,3,Dustin Hodges,stranger danger,31.67,33.33,33.33,0.0,128,85,157,0.0
+149,1465338,Shiva,2014,6,Zack Brower,Fuxin  Ruxins x 2,27.86,28.57,28.57,14.29,153,149,162,0.0
+150,1465338,Shiva,2015,5,Dustin Hodges,Team Hodges,27.14,28.57,28.57,0.0,160,129,187,0.0
+151,1465338,Shiva,2016,2,Jason Hewitt,Team Hewitt,27.14,28.57,28.57,0.0,160,129,163,0.0
+152,1506903,Shiva 2.0,2016,8,Mike Hart,beats by ray,26.11,22.22,22.22,100.0,129,96,152,0.0
+153,1465338,Shiva,2019,1,Chris H,Password Is Taco,24.72,22.22,22.22,72.22,150,149,175,0.0
+154,1465338,Shiva,2024,10,Josh McAuliffe,Raging  Falcoholics,24.72,22.22,22.22,72.22,151,150,175,0.0
+155,1506903,Shiva 2.0,2017,6,Jacob Barton,Show me the TDs,24.72,22.22,22.22,72.22,152,129,156,0.0
+156,1506903,Shiva 2.0,2023,8,Mike Hart,class act,24.72,22.22,22.22,72.22,154,151,177,0.0
+157,1465338,Shiva,2017,1,Chris H,Password Is Taco,24.44,22.22,22.22,66.67,155,112,179,0.0
+158,1465338,Shiva,2018,3,Mike Hart,Fear Boners,24.44,22.22,22.22,66.67,156,152,159,0.0
+159,1465338,Shiva,2023,9,Stewart Helton,Scary Larry,24.44,22.22,22.22,66.67,179,155,203,0.0
+160,1465338,Shiva,2025,3,Mike Hart,Scary Jerry,24.44,22.22,22.22,66.67,158,154,202,0.0
+161,1465338,Shiva,2020,10,Josh McAuliffe,Raging  Falcoholics,24.17,22.22,22.22,61.11,157,119,161,0.0
+162,1506903,Shiva 2.0,2019,2,Garrett Schoudt,Hawkins Demogorgons,24.17,22.22,22.22,61.11,159,156,162,0.0
+163,1506903,Shiva 2.0,2025,7,Nick Chipchase,Wentz Upon A Time,24.17,22.22,22.22,61.11,158,139,163,0.0
+164,1465338,Shiva,2022,5,Dustin Hodges,FARVES  VOLLEY FOLLEY,22.78,22.22,22.22,33.33,162,161,184,0.0
+165,1506903,Shiva 2.0,2024,5,Stewart Helton,Deja Koo,22.5,22.22,22.22,27.78,165,121,167,0.0
+166,1506903,Shiva 2.0,2020,5,Stewart Helton,opponent  .,22.22,22.22,22.22,22.22,186,163,189,0.0
+167,1506903,Shiva 2.0,2022,4,Jaqueline Bascino,Coopers Mama,22.22,22.22,22.22,22.22,165,144,167,0.0
+168,1506903,Shiva 2.0,2021,3,Dustin Hodges,stranger danger,21.67,22.22,22.22,11.11,148,125,171,0.0
+169,1465338,Shiva,2021,5,Dustin Hodges,l 0 fo fo ho,21.11,22.22,22.22,0.0,169,167,181,0.0
+170,1506903,Shiva 2.0,2018,3,David Huffman,MALLARDS BRO,21.11,22.22,22.22,0.0,170,169,204,0.0
+171,1465338,Shiva,2016,6,Zack Brower,Fuxin  Ruxins x 2,16.79,14.29,14.29,64.29,171,166,171,0.0
+172,1465338,Shiva,2014,2,Jason Hewitt,Team Hewitt,16.43,14.29,14.29,57.14,172,168,172,0.0
+173,1465338,Shiva,2015,2,Jason Hewitt,Team Hewitt,15.36,14.29,14.29,35.71,181,150,186,0.0
+174,1465338,Shiva,2022,10,Josh McAuliffe,Raging  Falcoholics,14.44,11.11,11.11,77.78,173,149,193,0.0
+175,1506903,Shiva 2.0,2022,9,Bruce Self,Joe Buck Yourself,14.17,11.11,11.11,72.22,174,169,177,0.0
+176,1506903,Shiva 2.0,2024,7,Nick Chipchase,Wentz Upon A Time,14.17,11.11,11.11,72.22,175,132,178,0.0
+177,1465338,Shiva,2017,4,David Huffman,Flavor-est Dave of ALL,13.89,11.11,11.11,66.67,176,151,179,0.0
+178,1465338,Shiva,2018,7,"Ben Miller, Ben Miller",Yo Belichick Yo Self,13.89,11.11,11.11,66.67,178,172,201,0.0
+179,1465338,Shiva,2021,4,Jacob Barton,Show me  The TDs,13.89,11.11,11.11,66.67,180,174,202,0.0
+180,1465338,Shiva,2023,4,Jacob Barton,Show me  the TDs,13.89,11.11,11.11,66.67,159,137,203,0.0
+181,1506903,Shiva 2.0,2021,2,Garrett Schoudt,Team Schoudt,13.89,11.11,11.11,66.67,181,176,184,0.0
+182,1465338,Shiva,2020,1,Chris H,Password Is Taco,13.61,11.11,11.11,61.11,182,181,185,0.0
+183,1506903,Shiva 2.0,2019,3,Josh McAuliffe,RaginFalcoholic BUTTSTUFF,13.61,11.11,11.11,61.11,183,182,186,0.0
+184,1465338,Shiva,2024,9,Stewart Helton,Scary Larry,12.22,11.11,11.11,33.33,184,162,185,0.0
+185,1506903,Shiva 2.0,2020,1,Chris H,Rafi Bombs,12.22,11.11,11.11,33.33,164,163,186,0.0
+186,1465338,Shiva,2019,6,Zack Brower,Fuxin  Ruxins x 2,11.67,11.11,11.11,22.22,186,142,188,0.0
+187,1506903,Shiva 2.0,2017,7,Ben Miller,Team Miller,11.67,11.11,11.11,22.22,187,166,189,0.0
+188,1506903,Shiva 2.0,2023,9,Bruce Self,Joe Buck Yourself,11.67,11.11,11.11,22.22,187,165,189,0.0
+189,1506903,Shiva 2.0,2018,5,Stewart Helton,opponent  .,11.11,11.11,11.11,11.11,189,168,191,0.0
+190,1465338,Shiva,2025,6,Zack Brower,"Keefe D, Get Em",10.56,11.11,11.11,0.0,189,168,202,0.0
+191,1506903,Shiva 2.0,2016,5,Blake Huffman,Team Huffman,10.56,11.11,11.11,0.0,191,190,203,0.0
+192,1506903,Shiva 2.0,2025,6,Zack Brower,N1pple Burners,10.56,11.11,11.11,0.0,192,192,205,0.0
+193,1465338,Shiva,2022,8,Nick Chipchase,Bend it like Beckham Jr.,3.89,0.0,0.0,77.78,193,167,193,0.0
+194,1465338,Shiva,2019,3,Mike Hart,I Got One!,3.61,0.0,0.0,72.22,194,190,194,0.0
+195,1465338,Shiva,2024,2,Rob Derrig,Olave Asians,3.61,0.0,0.0,72.22,195,191,195,0.0
+196,1506903,Shiva 2.0,2017,1,Chris H,Rafi Bombs,3.61,0.0,0.0,72.22,196,192,196,0.0
+197,1506903,Shiva 2.0,2020,2,Garrett Schoudt,Team Schoudt,3.61,0.0,0.0,72.22,197,193,197,0.0
+198,1506903,Shiva 2.0,2022,6,Jacob Barton,Show me the TDs,3.61,0.0,0.0,72.22,198,194,198,0.0
+199,1506903,Shiva 2.0,2024,8,Mike Hart,class act,3.61,0.0,0.0,72.22,199,195,199,0.0
+200,1465338,Shiva,2017,8,Kyle Winterowd,Game Of Jones,3.33,0.0,0.0,66.67,200,196,200,0.0
+201,1465338,Shiva,2021,1,Chris H,Password Is Taco,3.33,0.0,0.0,66.67,201,173,202,0.0
+202,1465338,Shiva,2025,2,Rob Derrig,Olave Asians,3.33,0.0,0.0,66.67,202,175,204,0.0
+203,1506903,Shiva 2.0,2021,7,Nick Chipchase,Wentz Upon A Time,3.33,0.0,0.0,66.67,203,200,205,0.0
+204,1465338,Shiva,2020,2,Garrett Schoudt,Chip Diamond,3.06,0.0,0.0,61.11,204,204,206,0.0
+205,1506903,Shiva 2.0,2019,8,Mike Hart,Andre cried during Jumanji,3.06,0.0,0.0,61.11,205,205,207,0.0
+206,1506903,Shiva 2.0,2025,10,Rob Derrig,"Rock, Flag  and Eagle...",3.06,0.0,0.0,61.11,206,206,208,0.0
+207,1465338,Shiva,2015,3,luke ahlenius,.. Stay Yucky,2.86,0.0,0.0,57.14,207,207,209,0.0
+208,1506903,Shiva 2.0,2018,9,Dustin Hodges,Team Hodges,1.11,0.0,0.0,22.22,208,208,210,0.0
+209,1465338,Shiva,2016,4,David Huffman,Flavor-est Dave of ALL,0.71,0.0,0.0,14.29,209,209,211,0.0
+210,1465338,Shiva,2018,6,Zack Brower,Fuxin  Ruxins x 2,0.56,0.0,0.0,11.11,210,188,211,0.0
+211,1506903,Shiva 2.0,2016,1,Chris H,Rafi Bombs,0.56,0.0,0.0,11.11,211,211,212,0.0
+212,1465338,Shiva,2014,4,David Huffman,Flavor-est Dave of ALL,0.0,0.0,0.0,0.0,212,212,213,0.0
+213,1465338,Shiva,2023,6,Zack Brower,Tyrannosaurus Rux,0.0,0.0,0.0,0.0,213,148,213,0.0
+214,1506903,Shiva 2.0,2023,5,Stewart Helton,👾,0.0,0.0,0.0,0.0,214,214,214,0.0

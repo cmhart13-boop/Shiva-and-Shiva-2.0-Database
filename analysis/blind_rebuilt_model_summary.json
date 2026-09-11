@@ -1,0 +1,82 @@
+{
+  "team_drafts": 214,
+  "graded_pick_rows": 2942,
+  "final_weights": {
+    "portfolio": 60,
+    "efficiency": 35,
+    "construction": 5
+  },
+  "validation_candidates": [
+    {
+      "weights": [
+        55,
+        35,
+        10
+      ],
+      "spearman_vs_better_pf_rank": 0.5678934518570972,
+      "top4_score_gap": 31.10532407407407
+    },
+    {
+      "weights": [
+        60,
+        30,
+        10
+      ],
+      "spearman_vs_better_pf_rank": 0.5678934518570972,
+      "top4_score_gap": 31.10532407407407
+    },
+    {
+      "weights": [
+        65,
+        25,
+        10
+      ],
+      "spearman_vs_better_pf_rank": 0.5678934518570972,
+      "top4_score_gap": 31.10532407407407
+    },
+    {
+      "weights": [
+        55,
+        30,
+        15
+      ],
+      "spearman_vs_better_pf_rank": 0.5546975874156045,
+      "top4_score_gap": 28.71817129629629
+    },
+    {
+      "weights": [
+        60,
+        35,
+        5
+      ],
+      "spearman_vs_better_pf_rank": 0.5678934518570972,
+      "top4_score_gap": 33.492476851851855
+    },
+    {
+      "weights": [
+        50,
+        40,
+        10
+      ],
+      "spearman_vs_better_pf_rank": 0.5678934518570972,
+      "top4_score_gap": 31.10532407407407
+    }
+  ],
+  "selected_validation": {
+    "weights": [
+      60,
+      35,
+      5
+    ],
+    "spearman_vs_better_pf_rank": 0.5678934518570972,
+    "top4_score_gap": 33.492476851851855
+  },
+  "draft_contribution_context": {
+    "all_team_final_roster_proxy_pct": 80.02,
+    "top4_scoring_proxy_pct": 80.12,
+    "champion_proxy_pct": 76.49,
+    "known_player_coverage_pct": 63.6
+  },
+  "method": "Blind scoring. Draft contribution share is context, not a multiplier inside the draft-only grade. Portfolio value measures usable player production above replacement. Efficiency compares every pick with same-season same-round expectation, making early misses costlier because their empirical opportunity cost is higher. Construction is a light penalty for structurally wasted draft capital. Identities are joined only after scores and ranks are frozen.",
+  "sensitivity_variants": 45
+}
