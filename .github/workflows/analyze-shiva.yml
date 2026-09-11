@@ -14,31 +14,134 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect database for report inputs
+      - name: Generate drafted vs acquisitions report
         run: |
           python - <<'PY'
-          import sqlite3, pathlib, json
+          import sqlite3, pathlib, csv, json, statistics
+          from collections import defaultdict
+
           con=sqlite3.connect('shiva_draft_roi.sqlite')
           cur=con.cursor()
-          out=[]
-          tables=[r[0] for r in cur.execute("select name from sqlite_master where type='table' order by name")]
-          for t in tables:
-              cols=[r[1] for r in cur.execute(f'pragma table_info("{t}")')]
-              n=cur.execute(f'select count(*) from "{t}"').fetchone()[0]
-              out.append(f'{t}\t{n}\t'+','.join(cols))
-          out.append('\nEND_ROSTER BY SEASON')
-          for r in cur.execute("select season,count(distinct team_id),count(*),group_concat(distinct coalesce(acquisition_type,'NULL')) from end_rosters group by season order by cast(season as integer)"):
-              out.append('\t'.join(map(str,r)))
-          out.append('\nEND_ROSTER TEAM NAMES 2018-2025')
-          for r in cur.execute("select season,team_id,team_name,manager_names,count(*) from end_rosters where cast(season as integer) between 2018 and 2025 group by season,team_id,team_name,manager_names order by cast(season as integer),cast(team_id as integer)"):
-              out.append('\t'.join(map(str,r)))
+
+          # Build a season/player PPR lookup from the full two-league draft-results table.
+          # The same NFL player has the same season total in either league, so median removes duplicates cleanly.
+          vals=defaultdict(list)
+          for season,pid,pts in cur.execute("select season,player_id,fantasy_points_ppr from draft_roi_scores where season between 2018 and 2025 and fantasy_points_ppr is not null"):
+              vals[(int(season),int(pid))].append(float(pts))
+          ppr={k:statistics.median(v) for k,v in vals.items()}
+
+          # Shiva end_rosters/standings in this DB cover 2018-2025, 10 teams each year.
+          standings={}
+          for r in cur.execute("select season,team_id,team_name,manager_names,wins,losses,points_for,final_rank,champion from teams_standings where cast(season as integer) between 2018 and 2025"):
+              season,tid,team,mgr,w,l,pf,fr,ch=r
+              standings[(int(season),int(tid))]={
+                  'team':team,'manager':mgr,'wins':int(w),'losses':int(l),'points_for':float(pf),'final_rank':int(fr),'champion':int(ch)
+              }
+
+          # PF rank within season
+          pf_rank={}
+          for season in range(2018,2026):
+              ss=[(v['points_for'],tid) for (s,tid),v in standings.items() if s==season]
+              for rank,(pf,tid) in enumerate(sorted(ss,reverse=True),1):
+                  pf_rank[(season,tid)]=rank
+
+          grouped=defaultdict(list)
+          for r in cur.execute("select season,team_id,team_name,manager_names,player_id,player_name,acquisition_type from end_rosters where cast(season as integer) between 2018 and 2025"):
+              season,tid,team,mgr,pid,pname,atype=r
+              grouped[(int(season),int(tid))].append((int(pid),pname,atype or 'UNKNOWN'))
+
+          rows=[]; player_rows=[]
+          for (season,tid), roster in sorted(grouped.items()):
+              st=standings.get((season,tid),{})
+              d=n=0.0; known=0; missing=0; d_players=n_players=0
+              for pid,pname,atype in roster:
+                  pts=ppr.get((season,pid))
+                  origin='DRAFTED' if atype=='DRAFT' else 'WAIVER/ACQUISITION'
+                  if origin=='DRAFTED': d_players+=1
+                  else: n_players+=1
+                  if pts is None:
+                      missing+=1
+                      player_rows.append([season,tid,st.get('manager',''),st.get('team',''),pname,pid,atype,origin,''])
+                      continue
+                  known+=1
+                  if origin=='DRAFTED': d+=pts
+                  else: n+=pts
+                  player_rows.append([season,tid,st.get('manager',''),st.get('team',''),pname,pid,atype,origin,round(pts,2)])
+              total=d+n
+              share=100*d/total if total else None
+              rows.append({
+                  'season':season,'team_id':tid,'manager':st.get('manager',''),'team':st.get('team',''),
+                  'wins':st.get('wins'),'losses':st.get('losses'),'regular_season_points_for':st.get('points_for'),
+                  'points_for_rank':pf_rank.get((season,tid)),'top4_scoring':1 if pf_rank.get((season,tid),99)<=4 else 0,
+                  'final_rank':st.get('final_rank'),'champion':st.get('champion',0),
+                  'drafted_final_roster_players':d_players,'waiver_acquisition_final_roster_players':n_players,
+                  'known_scoring_players':known,'missing_scoring_players':missing,
+                  'drafted_final_roster_season_points':round(d,2),'waiver_acquisition_final_roster_season_points':round(n,2),
+                  'known_final_roster_season_points':round(total,2),'drafted_share_pct':round(share,2) if share is not None else None,
+                  'known_player_coverage_pct':round(100*known/len(roster),2) if roster else None
+              })
+
+          def agg(group):
+              group=[r for r in group if r['drafted_share_pct'] is not None]
+              if not group: return {}
+              d=sum(r['drafted_final_roster_season_points'] for r in group)
+              n=sum(r['waiver_acquisition_final_roster_season_points'] for r in group)
+              return {
+                  'team_seasons':len(group),
+                  'weighted_drafted_share_pct':round(100*d/(d+n),2) if d+n else None,
+                  'weighted_waiver_acquisition_share_pct':round(100*n/(d+n),2) if d+n else None,
+                  'average_team_drafted_share_pct':round(statistics.mean(r['drafted_share_pct'] for r in group),2),
+                  'median_team_drafted_share_pct':round(statistics.median(r['drafted_share_pct'] for r in group),2),
+                  'average_known_player_coverage_pct':round(statistics.mean(r['known_player_coverage_pct'] for r in group),2),
+                  'drafted_points':round(d,1),'waiver_acquisition_points':round(n,1)
+              }
+
+          valid=[r for r in rows if r['drafted_share_pct'] is not None]
+          top4=[r for r in valid if r['top4_scoring']==1]
+          not_top4=[r for r in valid if r['top4_scoring']==0]
+          champs=[r for r in valid if r['champion']==1]
+          playoffish=[r for r in valid if r['final_rank'] is not None and r['final_rank']<=4]
+          summary={
+              'method':'Final-roster season production proxy: drafted players retained on final roster vs every non-drafted final-roster player. Player season PPR totals are sourced from draft_roi_scores across both Shiva leagues. This is not week-by-week starter attribution.',
+              'coverage':'Shiva 2018-2025 end-roster/standings data present in shiva_draft_roi.sqlite (80 team-seasons).',
+              'all_team_seasons':agg(valid),
+              'top4_scoring_teams':agg(top4),
+              'non_top4_scoring_teams':agg(not_top4),
+              'champions':agg(champs),
+              'final_top4_teams':agg(playoffish),
+          }
+          by_season=[]
+          for season in range(2018,2026):
+              g=[r for r in valid if r['season']==season]
+              a=agg(g); a['season']=season; by_season.append(a)
+          summary['by_season']=by_season
+
           pathlib.Path('analysis').mkdir(exist_ok=True)
-          pathlib.Path('analysis/report_input_catalog.txt').write_text('\n'.join(out),encoding='utf-8')
+          with open('analysis/drafted_vs_acquisitions_shiva_2018_2025.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+          with open('analysis/drafted_vs_acquisitions_shiva_players.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.writer(f); w.writerow(['season','team_id','manager','team','player','player_id','acquisition_type','bucket','season_ppr_points']); w.writerows(player_rows)
+          pathlib.Path('analysis/drafted_vs_acquisitions_shiva_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+
+          md=['# Drafted Players vs Waiver/Acquisitions — Shiva 2018–2025','',summary['method'],'',summary['coverage'],'']
+          for label,key in [('All team-seasons','all_team_seasons'),('Top-4 scoring teams','top4_scoring_teams'),('Non-top-4 scoring teams','non_top4_scoring_teams'),('Champions','champions'),('Final top-4 teams','final_top4_teams')]:
+              a=summary[key]
+              md += [f'## {label}',
+                     f"- Team-seasons: {a.get('team_seasons',0)}",
+                     f"- Drafted Players: {a.get('weighted_drafted_share_pct')}%",
+                     f"- Waiver/Acquisitions: {a.get('weighted_waiver_acquisition_share_pct')}%",
+                     f"- Average team drafted share: {a.get('average_team_drafted_share_pct')}%",
+                     f"- Median team drafted share: {a.get('median_team_drafted_share_pct')}%",
+                     f"- Player scoring coverage: {a.get('average_known_player_coverage_pct')}%",'']
+          md += ['## By season']
+          for a in by_season:
+              md.append(f"- {a['season']}: Drafted {a.get('weighted_drafted_share_pct')}% / Waiver-Acquisitions {a.get('weighted_waiver_acquisition_share_pct')}%")
+          pathlib.Path('analysis/drafted_vs_acquisitions_shiva_report.md').write_text('\n'.join(md),encoding='utf-8')
           PY
-      - name: Commit catalog
+      - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add analysis/report_input_catalog.txt
-          git diff --cached --quiet || git commit -m "Catalog Shiva report inputs"
+          git add analysis/drafted_vs_acquisitions_shiva_2018_2025.csv analysis/drafted_vs_acquisitions_shiva_players.csv analysis/drafted_vs_acquisitions_shiva_summary.json analysis/drafted_vs_acquisitions_shiva_report.md
+          git diff --cached --quiet || git commit -m "Generate drafted vs acquisitions Shiva report"
           git push
