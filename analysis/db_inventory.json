@@ -1,0 +1,726 @@
+{
+  "draft_picks": {
+    "count": 1984,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "overall_pick",
+        "type": "TEXT"
+      },
+      {
+        "name": "round",
+        "type": "TEXT"
+      },
+      {
+        "name": "round_pick",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_names",
+        "type": "TEXT"
+      },
+      {
+        "name": "player_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "player_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "lineup_slot_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "keeper",
+        "type": "TEXT"
+      },
+      {
+        "name": "autodraft_type",
+        "type": "TEXT"
+      },
+      {
+        "name": "bid_amount",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "draft_picks_full": {
+    "count": 3424,
+    "columns": [
+      {
+        "name": "league_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "league_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "season",
+        "type": "INTEGER"
+      },
+      {
+        "name": "overall_pick",
+        "type": "INTEGER"
+      },
+      {
+        "name": "round",
+        "type": "INTEGER"
+      },
+      {
+        "name": "round_pick",
+        "type": "INTEGER"
+      },
+      {
+        "name": "team_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "team_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "owner_ids",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_names",
+        "type": "TEXT"
+      },
+      {
+        "name": "player_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "player_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "position",
+        "type": "TEXT"
+      },
+      {
+        "name": "lineup_slot_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "keeper",
+        "type": "INTEGER"
+      }
+    ]
+  },
+  "draft_roi_scores": {
+    "count": 2942,
+    "columns": [
+      {
+        "name": "league_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "league_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "season",
+        "type": "INTEGER"
+      },
+      {
+        "name": "round",
+        "type": "INTEGER"
+      },
+      {
+        "name": "overall_pick",
+        "type": "INTEGER"
+      },
+      {
+        "name": "team_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "team_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "owner_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "player_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "player_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "position",
+        "type": "TEXT"
+      },
+      {
+        "name": "position_draft_rank",
+        "type": "INTEGER"
+      },
+      {
+        "name": "position_finish_total",
+        "type": "INTEGER"
+      },
+      {
+        "name": "position_finish_ppg",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_rank_difference",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ppg_rank_difference",
+        "type": "INTEGER"
+      },
+      {
+        "name": "near_hit_buffer",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_adjusted_difference",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ppg_adjusted_difference",
+        "type": "INTEGER"
+      },
+      {
+        "name": "draft_capital_weight",
+        "type": "REAL"
+      },
+      {
+        "name": "total_points_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "ppg_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "final_draft_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "classification",
+        "type": "TEXT"
+      },
+      {
+        "name": "total_late_cap_applied",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ppg_late_cap_applied",
+        "type": "INTEGER"
+      },
+      {
+        "name": "fantasy_points_ppr",
+        "type": "REAL"
+      },
+      {
+        "name": "ppg",
+        "type": "REAL"
+      },
+      {
+        "name": "games_played",
+        "type": "INTEGER"
+      }
+    ]
+  },
+  "end_rosters": {
+    "count": 1832,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_names",
+        "type": "TEXT"
+      },
+      {
+        "name": "player_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "player_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "position_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "lineup_slot_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "acquisition_type",
+        "type": "TEXT"
+      },
+      {
+        "name": "acquisition_date",
+        "type": "TEXT"
+      },
+      {
+        "name": "injury_status",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "league_settings": {
+    "count": 13,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "league_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_count",
+        "type": "TEXT"
+      },
+      {
+        "name": "draft_type",
+        "type": "TEXT"
+      },
+      {
+        "name": "seconds_per_pick",
+        "type": "TEXT"
+      },
+      {
+        "name": "lineup_slot_counts",
+        "type": "TEXT"
+      },
+      {
+        "name": "matchup_period_count",
+        "type": "TEXT"
+      },
+      {
+        "name": "playoff_matchup_length",
+        "type": "TEXT"
+      },
+      {
+        "name": "playoff_team_count",
+        "type": "TEXT"
+      },
+      {
+        "name": "scoring_type",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "manager_draft_roi_summary": {
+    "count": 27,
+    "columns": [
+      {
+        "name": "rank",
+        "type": "INTEGER"
+      },
+      {
+        "name": "owner_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "seasons",
+        "type": "INTEGER"
+      },
+      {
+        "name": "leagues",
+        "type": "TEXT"
+      },
+      {
+        "name": "graded_picks",
+        "type": "INTEGER"
+      },
+      {
+        "name": "average_final_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "average_total_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "average_ppg_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "median_final_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "total_final_roi",
+        "type": "REAL"
+      },
+      {
+        "name": "steal_rate",
+        "type": "REAL"
+      },
+      {
+        "name": "met_rate",
+        "type": "REAL"
+      },
+      {
+        "name": "bust_rate",
+        "type": "REAL"
+      }
+    ]
+  },
+  "manager_seasons": {
+    "count": 126,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "owner_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "wins",
+        "type": "TEXT"
+      },
+      {
+        "name": "losses",
+        "type": "TEXT"
+      },
+      {
+        "name": "ties",
+        "type": "TEXT"
+      },
+      {
+        "name": "points_for",
+        "type": "TEXT"
+      },
+      {
+        "name": "points_against",
+        "type": "TEXT"
+      },
+      {
+        "name": "playoff_seed",
+        "type": "TEXT"
+      },
+      {
+        "name": "final_rank",
+        "type": "TEXT"
+      },
+      {
+        "name": "champion",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "manager_summary": {
+    "count": 21,
+    "columns": [
+      {
+        "name": "manager",
+        "type": "TEXT"
+      },
+      {
+        "name": "owner_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "seasons",
+        "type": "TEXT"
+      },
+      {
+        "name": "wins",
+        "type": "TEXT"
+      },
+      {
+        "name": "losses",
+        "type": "TEXT"
+      },
+      {
+        "name": "ties",
+        "type": "TEXT"
+      },
+      {
+        "name": "win_pct",
+        "type": "TEXT"
+      },
+      {
+        "name": "points_for",
+        "type": "TEXT"
+      },
+      {
+        "name": "points_against",
+        "type": "TEXT"
+      },
+      {
+        "name": "titles",
+        "type": "TEXT"
+      },
+      {
+        "name": "runner_up",
+        "type": "TEXT"
+      },
+      {
+        "name": "top4_finishes",
+        "type": "TEXT"
+      },
+      {
+        "name": "best_finish",
+        "type": "TEXT"
+      },
+      {
+        "name": "latest_team",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "matchups": {
+    "count": 974,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "matchup_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "matchup_period",
+        "type": "TEXT"
+      },
+      {
+        "name": "playoff_tier",
+        "type": "TEXT"
+      },
+      {
+        "name": "winner",
+        "type": "TEXT"
+      },
+      {
+        "name": "home_team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "home_team",
+        "type": "TEXT"
+      },
+      {
+        "name": "home_manager",
+        "type": "TEXT"
+      },
+      {
+        "name": "home_points",
+        "type": "TEXT"
+      },
+      {
+        "name": "away_team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "away_team",
+        "type": "TEXT"
+      },
+      {
+        "name": "away_manager",
+        "type": "TEXT"
+      },
+      {
+        "name": "away_points",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "seasons": {
+    "count": 13,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "league_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_count",
+        "type": "TEXT"
+      },
+      {
+        "name": "draft_picks",
+        "type": "TEXT"
+      },
+      {
+        "name": "matchups",
+        "type": "TEXT"
+      },
+      {
+        "name": "first_scoring_period",
+        "type": "TEXT"
+      },
+      {
+        "name": "final_scoring_period",
+        "type": "TEXT"
+      },
+      {
+        "name": "is_active",
+        "type": "TEXT"
+      },
+      {
+        "name": "completed",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "teams_standings": {
+    "count": 124,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_name",
+        "type": "TEXT"
+      },
+      {
+        "name": "abbrev",
+        "type": "TEXT"
+      },
+      {
+        "name": "manager_names",
+        "type": "TEXT"
+      },
+      {
+        "name": "owner_ids",
+        "type": "TEXT"
+      },
+      {
+        "name": "division_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "wins",
+        "type": "TEXT"
+      },
+      {
+        "name": "losses",
+        "type": "TEXT"
+      },
+      {
+        "name": "ties",
+        "type": "TEXT"
+      },
+      {
+        "name": "points_for",
+        "type": "TEXT"
+      },
+      {
+        "name": "points_against",
+        "type": "TEXT"
+      },
+      {
+        "name": "playoff_seed",
+        "type": "TEXT"
+      },
+      {
+        "name": "final_rank",
+        "type": "TEXT"
+      },
+      {
+        "name": "champion",
+        "type": "TEXT"
+      }
+    ]
+  },
+  "transactions": {
+    "count": 5,
+    "columns": [
+      {
+        "name": "season",
+        "type": "TEXT"
+      },
+      {
+        "name": "transaction_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "type",
+        "type": "TEXT"
+      },
+      {
+        "name": "status",
+        "type": "TEXT"
+      },
+      {
+        "name": "proposed_date",
+        "type": "TEXT"
+      },
+      {
+        "name": "processed_date",
+        "type": "TEXT"
+      },
+      {
+        "name": "team_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "member_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "items_json",
+        "type": "TEXT"
+      }
+    ]
+  }
+}
