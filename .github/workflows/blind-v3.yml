@@ -1,0 +1,58 @@
+name: Blind Shiva v3
+on:
+  push:
+    paths:
+      - '.github/workflows/blind-v3.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run v3 normalization audit
+        run: |
+          python - <<'PY'
+          import pathlib
+          text=pathlib.Path('.github/workflows/analyze-shiva.yml').read_text()
+          src=text.split("python - <<'PY'",1)[1].split("\n          PY",1)[0]
+          lines=src.splitlines()
+          src='\n'.join(line[10:] if line.startswith('          ') else line for line in lines)
+          old="""def pct(d):
+    out={}
+    for ls in set(k[:2] for k in d):
+        a=sorted((v,k) for k,v in d.items() if k[:2]==ls); m=len(a); i=0
+        while i<m:
+            j=i
+            while j+1<m and a[j+1][0]==a[i][0]:j+=1
+            q=100*((i+j)/2)/(m-1) if m>1 else 50
+            for z in range(i,j+1):out[a[z][1]]=q
+            i=j+1
+    return out"""
+          new="""def pct(d):
+    # Standardize within each league-season, then percentile the standardized dominance across all 214 drafts.
+    zraw={}
+    for ls in set(k[:2] for k in d):
+        vals=[v for k,v in d.items() if k[:2]==ls]; mu=statistics.mean(vals); sd=statistics.pstdev(vals) or 1.0
+        for k,v in d.items():
+            if k[:2]==ls:zraw[k]=(v-mu)/sd
+    a=sorted((v,k) for k,v in zraw.items()); m=len(a); out={}; i=0
+    while i<m:
+        j=i
+        while j+1<m and a[j+1][0]==a[i][0]:j+=1
+        q=100*((i+j)/2)/(m-1) if m>1 else 50
+        for zz in range(i,j+1):out[a[zz][1]]=q
+        i=j+1
+    return out"""
+          if old not in src: raise SystemExit('pct block not found')
+          src=src.replace(old,new).replace('blind_v2_','blind_v3_').replace('Blind Shiva Draft Model v2','Blind Shiva Draft Model v3')
+          exec(compile(src,'blind_v3','exec'),{})
+          PY
+      - name: Commit v3 results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/blind_v3_*.csv analysis/blind_v3_*.json analysis/blind_v3_*.md
+          git diff --cached --quiet || git commit -m "Generate blind Shiva model v3"
+          git push
