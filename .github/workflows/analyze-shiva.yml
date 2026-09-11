@@ -17,36 +17,165 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Inspect SQLite database
+      - name: Run drafted vs acquisitions report
         run: |
           python - <<'PY'
-          import sqlite3, json, pathlib
-          db='shiva_draft_roi.sqlite'
-          con=sqlite3.connect(db)
+          import csv, json, pathlib, sqlite3, time, urllib.parse, urllib.request, statistics
+          from collections import defaultdict
+
+          LEAGUES = [(1465338,'Shiva'), (1506903,'Shiva 2.0')]
+          SEASONS = range(2018, 2026)
+          BASE='https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leagues/{league}'
+          STARTER_EXCLUDE={20,21}  # bench, IR
+
+          def get_json(url, tries=4):
+              err=None
+              for i in range(tries):
+                  try:
+                      req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+                      with urllib.request.urlopen(req,timeout=40) as r:
+                          return json.load(r)
+                  except Exception as e:
+                      err=e; time.sleep(1.2*(i+1))
+              raise err
+
+          con=sqlite3.connect('shiva_draft_roi.sqlite')
           cur=con.cursor()
-          tables=[r[0] for r in cur.execute("select name from sqlite_master where type='table' order by name")]
-          out=[]
-          inventory={}
-          for t in tables:
-              cols=[{'name':r[1],'type':r[2]} for r in cur.execute(f'pragma table_info("{t}")')]
-              count=cur.execute(f'select count(*) from "{t}"').fetchone()[0]
-              inventory[t]={'count':count,'columns':cols}
-              out.append(f'[{t}] rows={count}')
-              out.append(', '.join(f"{c['name']}:{c['type']}" for c in cols))
-              try:
-                  rows=cur.execute(f'select * from "{t}" limit 3').fetchall()
-                  out.append('samples='+repr(rows))
-              except Exception as e:
-                  out.append('sample_error='+repr(e))
-              out.append('')
+          drafted=defaultdict(set)
+          manager={}
+          for lg, season, tid, pid, mgr in cur.execute('select league_id,season,team_id,player_id,manager_names from draft_picks_full where season between 2018 and 2025'):
+              drafted[(int(lg),int(season),int(tid))].add(int(pid))
+              if mgr: manager[(int(lg),int(season),int(tid))]=mgr
+
+          rows=[]; audit=[]
+          player_rows=[]
+          for league_id, league_name in LEAGUES:
+              for season in SEASONS:
+                  qs=urllib.parse.urlencode([('view','mSettings'),('view','mTeam'),('view','mMatchup'),('view','mMatchupScore'),('view','mStatus')])
+                  base=get_json(BASE.format(season=season,league=league_id)+'?'+qs)
+                  teams={int(t['id']):t for t in base.get('teams',[])}
+                  if not teams:
+                      audit.append({'league':league_name,'season':season,'status':'NO_TEAMS'})
+                      continue
+
+                  # Regular-season matchup periods are those explicitly marked NONE.
+                  sched=base.get('schedule',[])
+                  reg_periods=sorted({int(m.get('matchupPeriodId',0)) for m in sched if m.get('playoffTierType','NONE')=='NONE' and int(m.get('matchupPeriodId',0))>0})
+                  if not reg_periods:
+                      # fallback: infer from schedule settings
+                      reg_count=int(base.get('settings',{}).get('scheduleSettings',{}).get('matchupPeriodCount',0) or 0)
+                      reg_periods=list(range(1,reg_count+1))
+
+                  drafted_pts=defaultdict(float); nondraft_pts=defaultdict(float); calc_pts=defaultdict(float)
+                  starter_games=defaultdict(int); drafted_starts=defaultdict(int); nondraft_starts=defaultdict(int)
+                  seen_team_week=set()
+                  debug_shape=None
+
+                  for week in reg_periods:
+                      qsw=urllib.parse.urlencode([('scoringPeriodId',week),('view','mMatchup'),('view','mMatchupScore')])
+                      wk=get_json(BASE.format(season=season,league=league_id)+'?'+qsw)
+                      for m in wk.get('schedule',[]):
+                          if int(m.get('matchupPeriodId',0) or 0) != week: continue
+                          if m.get('playoffTierType','NONE')!='NONE': continue
+                          for side in ('home','away'):
+                              s=m.get(side)
+                              if not s or 'teamId' not in s: continue
+                              tid=int(s['teamId'])
+                              key=(tid,week)
+                              if key in seen_team_week: continue
+                              seen_team_week.add(key)
+                              roster=s.get('rosterForCurrentScoringPeriod') or s.get('rosterForMatchupPeriod') or s.get('roster') or {}
+                              entries=roster.get('entries',[]) if isinstance(roster,dict) else []
+                              if debug_shape is None:
+                                  debug_shape={'week':week,'side_keys':sorted(s.keys()),'roster_keys':sorted(roster.keys()) if isinstance(roster,dict) else [],'entries':len(entries)}
+                              for e in entries:
+                                  slot=int(e.get('lineupSlotId',20) if e.get('lineupSlotId') is not None else 20)
+                                  if slot in STARTER_EXCLUDE: continue
+                                  ppe=e.get('playerPoolEntry') or {}
+                                  pid=int(e.get('playerId') or ppe.get('id') or 0)
+                                  pts=float(ppe.get('appliedStatTotal') or 0.0)
+                                  calc_pts[tid]+=pts
+                                  starter_games[tid]+=1
+                                  is_draft=pid in drafted.get((league_id,season,tid),set())
+                                  if is_draft:
+                                      drafted_pts[tid]+=pts; drafted_starts[tid]+=1
+                                  else:
+                                      nondraft_pts[tid]+=pts; nondraft_starts[tid]+=1
+                                  player=(ppe.get('player') or {}).get('fullName') or str(pid)
+                                  player_rows.append([league_name,league_id,season,week,tid,manager.get((league_id,season,tid),''),player,pid,slot,round(pts,2),'DRAFTED' if is_draft else 'WAIVER/ACQUISITION'])
+
+                  # rank teams by ESPN regular-season PF
+                  pf_pairs=[]
+                  for tid,t in teams.items():
+                      rec=(t.get('record') or {}).get('overall') or {}
+                      pf=float(rec.get('pointsFor') or 0.0)
+                      pf_pairs.append((pf,tid))
+                  pf_rank={tid:i+1 for i,(pf,tid) in enumerate(sorted(pf_pairs,reverse=True))}
+
+                  for tid,t in teams.items():
+                      rec=(t.get('record') or {}).get('overall') or {}
+                      espn_pf=float(rec.get('pointsFor') or 0.0)
+                      d=drafted_pts[tid]; n=nondraft_pts[tid]; c=calc_pts[tid]
+                      share=(d/c*100) if c else None
+                      champion=1 if int(t.get('rankCalculatedFinal') or 0)==1 else 0
+                      top4=1 if pf_rank.get(tid,99)<=4 else 0
+                      rows.append({
+                          'league':league_name,'league_id':league_id,'season':season,'team_id':tid,
+                          'manager':manager.get((league_id,season,tid),''),'team':t.get('name',''),
+                          'wins':int(rec.get('wins') or 0),'losses':int(rec.get('losses') or 0),
+                          'espn_regular_season_pf':round(espn_pf,2),'pf_rank':pf_rank.get(tid),
+                          'champion':champion,'top4_scoring':top4,
+                          'drafted_starter_points':round(d,2),'waiver_acquisition_starter_points':round(n,2),
+                          'calculated_starter_points':round(c,2),'drafted_point_share_pct':round(share,2) if share is not None else None,
+                          'drafted_starts':drafted_starts[tid],'waiver_acquisition_starts':nondraft_starts[tid],
+                          'starter_slots_counted':starter_games[tid],
+                          'pf_audit_diff':round(c-espn_pf,2)
+                      })
+                  audit.append({'league':league_name,'season':season,'status':'OK','teams':len(teams),'regular_periods':reg_periods,'debug_shape':debug_shape})
+
           pathlib.Path('analysis').mkdir(exist_ok=True)
-          pathlib.Path('analysis/db_inventory.txt').write_text('\n'.join(out), encoding='utf-8')
-          pathlib.Path('analysis/db_inventory.json').write_text(json.dumps(inventory,indent=2), encoding='utf-8')
+          fields=list(rows[0].keys()) if rows else []
+          with open('analysis/drafted_vs_acquisitions_2018_2025.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          with open('analysis/drafted_vs_acquisitions_player_weeks.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.writer(f); w.writerow(['league','league_id','season','week','team_id','manager','player','player_id','lineup_slot','points','origin']); w.writerows(player_rows)
+          pathlib.Path('analysis/drafted_vs_acquisitions_audit.json').write_text(json.dumps(audit,indent=2),encoding='utf-8')
+
+          valid=[r for r in rows if r['drafted_point_share_pct'] is not None]
+          top4=[r for r in valid if r['top4_scoring']==1]
+          champs=[r for r in valid if r['champion']==1]
+          others=[r for r in valid if r['top4_scoring']==0]
+          def agg(group):
+              if not group: return {}
+              td=sum(r['drafted_starter_points'] for r in group); tn=sum(r['waiver_acquisition_starter_points'] for r in group)
+              return {
+                  'team_seasons':len(group),
+                  'weighted_drafted_share_pct':round(100*td/(td+tn),2) if td+tn else None,
+                  'average_team_drafted_share_pct':round(statistics.mean(r['drafted_point_share_pct'] for r in group),2),
+                  'median_team_drafted_share_pct':round(statistics.median(r['drafted_point_share_pct'] for r in group),2),
+                  'drafted_points':round(td,1),'waiver_acquisition_points':round(tn,1)
+              }
+          summary={'all_team_seasons':agg(valid),'top4_scoring_teams':agg(top4),'non_top4_scoring_teams':agg(others),'champions':agg(champs)}
+          # season-level averages to control for scoring-era changes
+          season_groups=defaultdict(list)
+          for r in valid: season_groups[(r['league'],r['season'])].append(r)
+          season_summary=[]
+          for k,g in sorted(season_groups.items()):
+              a=agg(g); a.update({'league':k[0],'season':k[1]}); season_summary.append(a)
+          summary['league_seasons']=season_summary
+          pathlib.Path('analysis/drafted_vs_acquisitions_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+
+          md=['# Shiva Drafted Players vs Waiver/Acquisitions — 2018–2025','',
+              'Points are actual regular-season starter points from ESPN weekly matchup rosters. A player counts as Drafted only if that same fantasy team drafted that player; trades and all adds count as Waiver/Acquisitions for this split.','']
+          for label,key in [('All team-seasons','all_team_seasons'),('Top-4 scoring teams','top4_scoring_teams'),('Non-top-4 scoring teams','non_top4_scoring_teams'),('Champions','champions')]:
+              a=summary[key]
+              md += [f'## {label}', f"- Team-seasons: {a.get('team_seasons',0)}", f"- Drafted Players share: {a.get('weighted_drafted_share_pct')}%", f"- Waiver/Acquisitions share: {round(100-a.get('weighted_drafted_share_pct',0),2) if a.get('weighted_drafted_share_pct') is not None else None}%", f"- Average team Drafted Players share: {a.get('average_team_drafted_share_pct')}%", f"- Median team Drafted Players share: {a.get('median_team_drafted_share_pct')}%", '']
+          pathlib.Path('analysis/drafted_vs_acquisitions_report.md').write_text('\n'.join(md),encoding='utf-8')
           PY
-      - name: Commit inventory
+      - name: Commit report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add analysis/db_inventory.txt analysis/db_inventory.json
-          git diff --cached --quiet || git commit -m "Generate Shiva database inventory"
+          git add analysis/drafted_vs_acquisitions_2018_2025.csv analysis/drafted_vs_acquisitions_player_weeks.csv analysis/drafted_vs_acquisitions_audit.json analysis/drafted_vs_acquisitions_summary.json analysis/drafted_vs_acquisitions_report.md
+          git diff --cached --quiet || git commit -m "Generate drafted vs acquisitions report"
           git push
