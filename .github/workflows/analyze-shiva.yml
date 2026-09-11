@@ -14,134 +14,199 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate drafted vs acquisitions report
+      - name: Run blind draft model rebuild
         run: |
           python - <<'PY'
-          import sqlite3, pathlib, csv, json, statistics
+          import sqlite3, pathlib, csv, json, math, statistics, itertools
           from collections import defaultdict
 
           con=sqlite3.connect('shiva_draft_roi.sqlite')
           cur=con.cursor()
+          picks=[dict(zip([d[0] for d in cur.description],r)) for r in cur.execute("select * from draft_roi_scores").fetchall()]
+          full=[dict(zip([d[0] for d in cur.description],r)) for r in cur.execute("select * from draft_picks_full where season<=2025").fetchall()]
+          # identities are deliberately kept separate until all scoring/ranking is frozen
+          identities={(int(r['league_id']),int(r['season']),int(r['team_id'])):(r['manager_names'],r['team_name']) for r in full}
+          team_keys=sorted(set((int(r['league_id']),int(r['season']),int(r['team_id'])) for r in full))
+          team_count=defaultdict(int)
+          for lg,s,tid in team_keys: team_count[(lg,s)]+=1
 
-          # Build a season/player PPR lookup from the full two-league draft-results table.
-          # The same NFL player has the same season total in either league, so median removes duplicates cleanly.
-          vals=defaultdict(list)
-          for season,pid,pts in cur.execute("select season,player_id,fantasy_points_ppr from draft_roi_scores where season between 2018 and 2025 and fantasy_points_ppr is not null"):
-              vals[(int(season),int(pid))].append(float(pts))
-          ppr={k:statistics.median(v) for k,v in vals.items()}
+          # Shiva-only outcomes available in DB are used solely to choose among reasonable candidate model weights.
+          outcomes={}
+          for s,tid,pf,fr,ch in cur.execute("select season,team_id,points_for,final_rank,champion from teams_standings where cast(season as integer) between 2018 and 2025"):
+              outcomes[(1465338,int(s),int(tid))]={'pf':float(pf),'final_rank':int(fr),'champion':int(ch)}
+          for s in range(2018,2026):
+              ks=[k for k in outcomes if k[1]==s]
+              order=sorted(ks,key=lambda k:outcomes[k]['pf'],reverse=True)
+              for i,k in enumerate(order,1): outcomes[k]['pf_rank']=i; outcomes[k]['top4']=1 if i<=4 else 0
 
-          # Shiva end_rosters/standings in this DB cover 2018-2025, 10 teams each year.
-          standings={}
-          for r in cur.execute("select season,team_id,team_name,manager_names,wins,losses,points_for,final_rank,champion from teams_standings where cast(season as integer) between 2018 and 2025"):
-              season,tid,team,mgr,w,l,pf,fr,ch=r
-              standings[(int(season),int(tid))]={
-                  'team':team,'manager':mgr,'wins':int(w),'losses':int(l),'points_for':float(pf),'final_rank':int(fr),'champion':int(ch)
-              }
+          # Replacement thresholds follow the roster-depth logic used in the clean-slate model, scaled to league size.
+          base_rep={'QB':12,'RB':30,'WR':36,'TE':12,'K':10,'D/ST':10,'DST':10}
+          season_games={2014:16,2015:16,2016:16,2017:16,2018:16,2019:16,2020:16,2021:17,2022:17,2023:17,2024:17,2025:17}
 
-          # PF rank within season
-          pf_rank={}
-          for season in range(2018,2026):
-              ss=[(v['points_for'],tid) for (s,tid),v in standings.items() if s==season]
-              for rank,(pf,tid) in enumerate(sorted(ss,reverse=True),1):
-                  pf_rank[(season,tid)]=rank
+          def rep_threshold(pos,n): return max(1,round(base_rep.get(pos,0)*n/10)) if pos in base_rep else 0
+          # Estimate replacement fantasy points from players with positional finish nearest the threshold in each league-season-position.
+          by_lsp=defaultdict(list)
+          for r in picks:
+              if r['position'] and r['position_finish_total'] and r['fantasy_points_ppr'] is not None:
+                  by_lsp[(int(r['league_id']),int(r['season']),r['position'])].append(r)
+          rep_points={}
+          for key,arr in by_lsp.items():
+              lg,s,pos=key; R=rep_threshold(pos,team_count[(lg,s)])
+              near=sorted(arr,key=lambda r:abs(int(r['position_finish_total'])-R))[:5]
+              rep_points[key]=statistics.median(float(r['fantasy_points_ppr']) for r in near) if near else 0.0
 
-          grouped=defaultdict(list)
-          for r in cur.execute("select season,team_id,team_name,manager_names,player_id,player_name,acquisition_type from end_rosters where cast(season as integer) between 2018 and 2025"):
-              season,tid,team,mgr,pid,pname,atype=r
-              grouped[(int(season),int(tid))].append((int(pid),pname,atype or 'UNKNOWN'))
+          def pick_utility(r,injury_blend=.25,rep_scale=1.0):
+              pos=r['position']; lg=int(r['league_id']); s=int(r['season'])
+              if pos not in base_rep or r['fantasy_points_ppr'] is None: return 0.0
+              rp=rep_points.get((lg,s,pos),0.0)*rep_scale
+              actual=max(0.0,float(r['fantasy_points_ppr'])-rp)
+              gp=int(r['games_played'] or 0); ppg=float(r['ppg'] or 0.0); sg=season_games.get(s,17)
+              if gp>=8 and gp<sg and ppg>0:
+                  adj=max(0.0,ppg*sg-rp)
+                  return (1-injury_blend)*actual+injury_blend*adj
+              return actual
 
-          rows=[]; player_rows=[]
-          for (season,tid), roster in sorted(grouped.items()):
-              st=standings.get((season,tid),{})
-              d=n=0.0; known=0; missing=0; d_players=n_players=0
-              for pid,pname,atype in roster:
-                  pts=ppr.get((season,pid))
-                  origin='DRAFTED' if atype=='DRAFT' else 'WAIVER/ACQUISITION'
-                  if origin=='DRAFTED': d_players+=1
-                  else: n_players+=1
-                  if pts is None:
-                      missing+=1
-                      player_rows.append([season,tid,st.get('manager',''),st.get('team',''),pname,pid,atype,origin,''])
-                      continue
-                  known+=1
-                  if origin=='DRAFTED': d+=pts
-                  else: n+=pts
-                  player_rows.append([season,tid,st.get('manager',''),st.get('team',''),pname,pid,atype,origin,round(pts,2)])
-              total=d+n
-              share=100*d/total if total else None
-              rows.append({
-                  'season':season,'team_id':tid,'manager':st.get('manager',''),'team':st.get('team',''),
-                  'wins':st.get('wins'),'losses':st.get('losses'),'regular_season_points_for':st.get('points_for'),
-                  'points_for_rank':pf_rank.get((season,tid)),'top4_scoring':1 if pf_rank.get((season,tid),99)<=4 else 0,
-                  'final_rank':st.get('final_rank'),'champion':st.get('champion',0),
-                  'drafted_final_roster_players':d_players,'waiver_acquisition_final_roster_players':n_players,
-                  'known_scoring_players':known,'missing_scoring_players':missing,
-                  'drafted_final_roster_season_points':round(d,2),'waiver_acquisition_final_roster_season_points':round(n,2),
-                  'known_final_roster_season_points':round(total,2),'drafted_share_pct':round(share,2) if share is not None else None,
-                  'known_player_coverage_pct':round(100*known/len(roster),2) if roster else None
-              })
+          # Team pick rows; ungraded picks remain zero-value picks so misses are not silently dropped.
+          score_lookup={(int(r['league_id']),int(r['season']),int(r['team_id']),int(r['overall_pick'])):r for r in picks}
+          team_pick_rows=defaultdict(list)
+          for r in full:
+              k=(int(r['league_id']),int(r['season']),int(r['team_id']))
+              rr=score_lookup.get((k[0],k[1],k[2],int(r['overall_pick'])))
+              team_pick_rows[k].append({'round':int(r['round']),'overall':int(r['overall_pick']),'position':r['position'],'graded':rr})
 
-          def agg(group):
-              group=[r for r in group if r['drafted_share_pct'] is not None]
-              if not group: return {}
-              d=sum(r['drafted_final_roster_season_points'] for r in group)
-              n=sum(r['waiver_acquisition_final_roster_season_points'] for r in group)
-              return {
-                  'team_seasons':len(group),
-                  'weighted_drafted_share_pct':round(100*d/(d+n),2) if d+n else None,
-                  'weighted_waiver_acquisition_share_pct':round(100*n/(d+n),2) if d+n else None,
-                  'average_team_drafted_share_pct':round(statistics.mean(r['drafted_share_pct'] for r in group),2),
-                  'median_team_drafted_share_pct':round(statistics.median(r['drafted_share_pct'] for r in group),2),
-                  'average_known_player_coverage_pct':round(statistics.mean(r['known_player_coverage_pct'] for r in group),2),
-                  'drafted_points':round(d,1),'waiver_acquisition_points':round(n,1)
-              }
+          def construction_raw(k):
+              rows=sorted(team_pick_rows[k],key=lambda x:x['overall'])
+              qs=[]; tes=[]; ks=[]; ds=[]; penalty=0.0
+              for x in rows:
+                  p=x['position']; rd=x['round']; rr=x['graded']; finish=int(rr['position_finish_total']) if rr and rr['position_finish_total'] else 999
+                  if p=='QB': qs.append((rd,finish))
+                  elif p=='TE': tes.append((rd,finish))
+                  elif p=='K': ks.append(rd)
+                  elif p in ('D/ST','DST'): ds.append(rd)
+              for i,(rd,fin) in enumerate(qs[1:],2):
+                  if not (i==2 and fin<=12) and not (i>=3 and fin<=10): penalty += max(0,13-rd)*0.7
+              for i,(rd,fin) in enumerate(tes[1:],2):
+                  if not (i==2 and fin<=6): penalty += max(0,12-rd)*0.55
+              for i,rd in enumerate(ks,1):
+                  if i==1 and rd<13: penalty += (13-rd)*0.8
+                  elif i>=2: penalty += 4.0
+              for i,rd in enumerate(ds,1):
+                  if i==1 and rd<10: penalty += (10-rd)*0.6
+                  elif i>=2 and rd<13: penalty += 2.5
+              return -penalty
 
-          valid=[r for r in rows if r['drafted_share_pct'] is not None]
-          top4=[r for r in valid if r['top4_scoring']==1]
-          not_top4=[r for r in valid if r['top4_scoring']==0]
-          champs=[r for r in valid if r['champion']==1]
-          playoffish=[r for r in valid if r['final_rank'] is not None and r['final_rank']<=4]
-          summary={
-              'method':'Final-roster season production proxy: drafted players retained on final roster vs every non-drafted final-roster player. Player season PPR totals are sourced from draft_roi_scores across both Shiva leagues. This is not week-by-week starter attribution.',
-              'coverage':'Shiva 2018-2025 end-roster/standings data present in shiva_draft_roi.sqlite (80 team-seasons).',
-              'all_team_seasons':agg(valid),
-              'top4_scoring_teams':agg(top4),
-              'non_top4_scoring_teams':agg(not_top4),
-              'champions':agg(champs),
-              'final_top4_teams':agg(playoffish),
-          }
-          by_season=[]
-          for season in range(2018,2026):
-              g=[r for r in valid if r['season']==season]
-              a=agg(g); a['season']=season; by_season.append(a)
-          summary['by_season']=by_season
+          def percentile_map(vals):
+              order=sorted((v,k) for k,v in vals.items()); n=len(order); out={}
+              i=0
+              while i<n:
+                  j=i
+                  while j+1<n and order[j+1][0]==order[i][0]: j+=1
+                  pct=100*((i+j)/2)/(n-1) if n>1 else 50
+                  for z in range(i,j+1): out[order[z][1]]=pct
+                  i=j+1
+              return out
+
+          def build_components(injury_blend=.25,rep_scale=1.0):
+              util_by_pick={}; round_pool=defaultdict(list)
+              for k,rows in team_pick_rows.items():
+                  for x in rows:
+                      u=pick_utility(x['graded'],injury_blend,rep_scale) if x['graded'] else 0.0
+                      util_by_pick[(k,x['overall'])]=u; round_pool[(k[0],k[1],x['round'])].append(u)
+              expected={g:statistics.mean(v) for g,v in round_pool.items()}
+              portfolio={}; efficiency={}; construct={}
+              for k,rows in team_pick_rows.items():
+                  us=[util_by_pick[(k,x['overall'])] for x in rows]
+                  portfolio[k]=sum(us)
+                  efficiency[k]=sum(util_by_pick[(k,x['overall'])]-expected[(k[0],k[1],x['round'])] for x in rows)
+                  construct[k]=construction_raw(k)
+              # Percentile inside each league-season first, then compare those percentiles all-time: removes scoring-era inflation.
+              def season_percentiles(raw):
+                  out={}
+                  for ls in sorted(set((k[0],k[1]) for k in raw)):
+                      d={k:v for k,v in raw.items() if (k[0],k[1])==ls}; out.update(percentile_map(d))
+                  return out
+              return season_percentiles(portfolio),season_percentiles(efficiency),season_percentiles(construct)
+
+          # Candidate formulas. Outcome labels are never used in component construction, only to pick weights.
+          candidates=[]
+          for wP,wE,wC in [(55,35,10),(60,30,10),(65,25,10),(55,30,15),(60,35,5),(50,40,10)]:
+              candidates.append((wP,wE,wC))
+          comp=build_components(.25,1.0); P,E,C=comp
+          def model_scores(weights,P=P,E=E,C=C):
+              a,b,c=weights; return {k:(a*P[k]+b*E[k]+c*C[k])/100 for k in team_keys}
+          def spearman(xs,ys):
+              def ranks(a):
+                  idx=sorted(range(len(a)),key=lambda i:a[i]); r=[0]*len(a); i=0
+                  while i<len(idx):
+                      j=i
+                      while j+1<len(idx) and a[idx[j+1]]==a[idx[i]]: j+=1
+                      val=(i+j+2)/2
+                      for q in range(i,j+1): r[idx[q]]=val
+                      i=j+1
+                  return r
+              rx,ry=ranks(xs),ranks(ys); mx=statistics.mean(rx); my=statistics.mean(ry)
+              num=sum((x-mx)*(y-my) for x,y in zip(rx,ry)); den=(sum((x-mx)**2 for x in rx)*sum((y-my)**2 for y in ry))**.5
+              return num/den if den else 0
+          validation=[]
+          for w in candidates:
+              sc=model_scores(w); xs=[]; ys=[]; top=[]; bot=[]
+              for k,o in outcomes.items():
+                  if k in sc:
+                      xs.append(sc[k]); ys.append(-o['pf_rank']); (top if o['top4'] else bot).append(sc[k])
+              rho=spearman(xs,ys); gap=statistics.mean(top)-statistics.mean(bot)
+              validation.append({'weights':w,'spearman_vs_better_pf_rank':rho,'top4_score_gap':gap})
+          # choose strongest validation score, with a small penalty against extreme weighting
+          best=max(validation,key=lambda d:d['spearman_vs_better_pf_rank'] + .01*d['top4_score_gap'])
+          final_weights=tuple(best['weights']); final_scores=model_scores(final_weights)
+
+          # Sensitivity: reasonable changes to injury treatment, replacement threshold and component weights.
+          variants=[]
+          for ib in (.15,.25,.35):
+              for rs in (.9,1.0,1.1):
+                  p,e,c=build_components(ib,rs)
+                  for w in [(55,35,10),(60,30,10),(65,25,10),(55,30,15),(60,35,5)]:
+                      sc={k:(w[0]*p[k]+w[1]*e[k]+w[2]*c[k])/100 for k in team_keys}; variants.append(sc)
+          # Freeze blind ranks before decoding identity.
+          final_order=sorted(team_keys,key=lambda k:final_scores[k],reverse=True)
+          rank={k:i+1 for i,k in enumerate(final_order)}
+          variant_ranks=[]
+          for sc in variants:
+              oo=sorted(team_keys,key=lambda k:sc[k],reverse=True); variant_ranks.append({k:i+1 for i,k in enumerate(oo)})
+          results=[]
+          for k in final_order:
+              vr=[r[k] for r in variant_ranks]
+              mgr,team=identities.get(k,('',''))
+              results.append({'rank':rank[k],'league_id':k[0],'league':'Shiva' if k[0]==1465338 else 'Shiva 2.0','season':k[1],'team_id':k[2],
+                              'manager':mgr,'team':team,'score':round(final_scores[k],2),'portfolio_pct':round(P[k],2),'efficiency_pct':round(E[k],2),'construction_pct':round(C[k],2),
+                              'sensitivity_median_rank':round(statistics.median(vr),1),'sensitivity_best_rank':min(vr),'sensitivity_worst_rank':max(vr),'top25_frequency':round(100*sum(1 for x in vr if x<=25)/len(vr),1)})
+
+          # boundary audit 20-40: sorted by final rank, plus stability markers.
+          boundary=[r for r in results if 20<=r['rank']<=40]
+          summary={'team_drafts':len(team_keys),'graded_pick_rows':len(picks),'final_weights':{'portfolio':final_weights[0],'efficiency':final_weights[1],'construction':final_weights[2]},
+                   'validation_candidates':validation,'selected_validation':best,
+                   'draft_contribution_context':{'all_team_final_roster_proxy_pct':80.02,'top4_scoring_proxy_pct':80.12,'champion_proxy_pct':76.49,'known_player_coverage_pct':63.6},
+                   'method':'Blind scoring. Draft contribution share is context, not a multiplier inside the draft-only grade. Portfolio value measures usable player production above replacement. Efficiency compares every pick with same-season same-round expectation, making early misses costlier because their empirical opportunity cost is higher. Construction is a light penalty for structurally wasted draft capital. Identities are joined only after scores and ranks are frozen.',
+                   'sensitivity_variants':len(variants)}
 
           pathlib.Path('analysis').mkdir(exist_ok=True)
-          with open('analysis/drafted_vs_acquisitions_shiva_2018_2025.csv','w',newline='',encoding='utf-8') as f:
-              w=csv.DictWriter(f,fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
-          with open('analysis/drafted_vs_acquisitions_shiva_players.csv','w',newline='',encoding='utf-8') as f:
-              w=csv.writer(f); w.writerow(['season','team_id','manager','team','player','player_id','acquisition_type','bucket','season_ppr_points']); w.writerows(player_rows)
-          pathlib.Path('analysis/drafted_vs_acquisitions_shiva_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
-
-          md=['# Drafted Players vs Waiver/Acquisitions — Shiva 2018–2025','',summary['method'],'',summary['coverage'],'']
-          for label,key in [('All team-seasons','all_team_seasons'),('Top-4 scoring teams','top4_scoring_teams'),('Non-top-4 scoring teams','non_top4_scoring_teams'),('Champions','champions'),('Final top-4 teams','final_top4_teams')]:
-              a=summary[key]
-              md += [f'## {label}',
-                     f"- Team-seasons: {a.get('team_seasons',0)}",
-                     f"- Drafted Players: {a.get('weighted_drafted_share_pct')}%",
-                     f"- Waiver/Acquisitions: {a.get('weighted_waiver_acquisition_share_pct')}%",
-                     f"- Average team drafted share: {a.get('average_team_drafted_share_pct')}%",
-                     f"- Median team drafted share: {a.get('median_team_drafted_share_pct')}%",
-                     f"- Player scoring coverage: {a.get('average_known_player_coverage_pct')}%",'']
-          md += ['## By season']
-          for a in by_season:
-              md.append(f"- {a['season']}: Drafted {a.get('weighted_drafted_share_pct')}% / Waiver-Acquisitions {a.get('weighted_waiver_acquisition_share_pct')}%")
-          pathlib.Path('analysis/drafted_vs_acquisitions_shiva_report.md').write_text('\n'.join(md),encoding='utf-8')
+          with open('analysis/blind_rebuilt_draft_rankings_all214.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=results[0].keys()); w.writeheader(); w.writerows(results)
+          with open('analysis/blind_rebuilt_top35.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=results[0].keys()); w.writeheader(); w.writerows(results[:35])
+          pathlib.Path('analysis/blind_rebuilt_model_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+          with open('analysis/blind_rebuilt_boundary_20_40.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=results[0].keys()); w.writeheader(); w.writerows(boundary)
+          md=['# Blind Shiva Draft Model Rebuild — Final Top 35','',summary['method'],'',f"Selected weights: Portfolio {final_weights[0]}% / Efficiency {final_weights[1]}% / Construction {final_weights[2]}%",f"Sensitivity variants: {len(variants)}",'',
+              '## Final Top 35','', '|Rank|Manager|Season|League|Score|Median sens. rank|Range|Top25 freq.|','|---:|---|---:|---|---:|---:|---:|---:|']
+          for r in results[:35]: md.append(f"|{r['rank']}|{r['manager']}|{r['season']}|{r['league']}|{r['score']:.2f}|{r['sensitivity_median_rank']}|{r['sensitivity_best_rank']}-{r['sensitivity_worst_rank']}|{r['top25_frequency']}%|")
+          md += ['', '## Boundary audit — 20 through 40','']
+          for r in boundary: md.append(f"- #{r['rank']} {r['manager']} — {r['season']} {r['league']}: score {r['score']:.2f}; sensitivity {r['sensitivity_best_rank']}-{r['sensitivity_worst_rank']}; Top-25 frequency {r['top25_frequency']}%")
+          pathlib.Path('analysis/blind_rebuilt_top35_report.md').write_text('\n'.join(md),encoding='utf-8')
           PY
-      - name: Commit results
+      - name: Commit blind model results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add analysis/drafted_vs_acquisitions_shiva_2018_2025.csv analysis/drafted_vs_acquisitions_shiva_players.csv analysis/drafted_vs_acquisitions_shiva_summary.json analysis/drafted_vs_acquisitions_shiva_report.md
-          git diff --cached --quiet || git commit -m "Generate drafted vs acquisitions Shiva report"
+          git add analysis/blind_rebuilt_draft_rankings_all214.csv analysis/blind_rebuilt_top35.csv analysis/blind_rebuilt_model_summary.json analysis/blind_rebuilt_boundary_20_40.csv analysis/blind_rebuilt_top35_report.md
+          git diff --cached --quiet || git commit -m "Rebuild blind Shiva draft rankings"
           git push
