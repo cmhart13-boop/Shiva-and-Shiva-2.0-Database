@@ -1,0 +1,91 @@
+name: Top 25 Draft Evidence
+on:
+  push:
+    paths:
+      - '.github/workflows/top25-detail.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build detailed Top 25 report
+        run: |
+          python - <<'PY'
+          import sqlite3, pathlib, csv
+          con=sqlite3.connect('shiva_draft_roi.sqlite')
+          con.row_factory=sqlite3.Row
+          cur=con.cursor()
+
+          # Final audited order from blind v2, with robustness boundary tiebreak moving Ben Miller 2016 Shiva 2.0 into #25.
+          final=[
+          ('Shiva',2014,3),('Shiva',2022,4),('Shiva',2024,1),('Shiva',2017,2),('Shiva',2021,8),
+          ('Shiva',2023,1),('Shiva',2025,1),('Shiva 2.0',2021,10),('Shiva',2016,1),('Shiva 2.0',2019,4),
+          ('Shiva 2.0',2016,2),('Shiva 2.0',2022,2),('Shiva 2.0',2017,9),('Shiva',2019,8),('Shiva 2.0',2020,10),
+          ('Shiva 2.0',2023,7),('Shiva 2.0',2018,10),('Shiva',2015,1),('Shiva 2.0',2020,8),('Shiva 2.0',2023,10),
+          ('Shiva 2.0',2018,6),('Shiva',2020,5),('Shiva',2015,8),('Shiva',2018,10),('Shiva 2.0',2016,7)]
+          lid={'Shiva':1465338,'Shiva 2.0':1506903}
+          repl={'QB':12,'RB':30,'WR':36,'TE':12,'K':10,'D/ST':10,'DST':10}
+
+          def impact(r):
+              pos=r['position'] or ''
+              fin=r['position_finish_total']
+              rnd=r['round'] or 16
+              pts=r['fantasy_points_ppr'] or 0
+              if fin is None:
+                  return -999
+              th=repl.get(pos,20)
+              quality=max(0,(th+1-fin)/th)
+              elite=max(0,(11-fin)/10)
+              bargain=(rnd-1)/15
+              return 100*(0.62*quality+0.23*elite+0.15*quality*bargain) + pts/10000
+
+          md=['# Final Audited Top 25 — Draft Evidence','',
+              'This report shows every pick from each Top-25 draft. The six **defining picks** are selected only from player outcome, positional finish and draft-round value; owner identity, standings and championships are not inputs. Every other pick is shown underneath so the ranking can be audited top-to-bottom.','']
+          flat=[]
+          for rank,(league,season,tid) in enumerate(final,1):
+              rows=cur.execute('''
+                SELECT d.round,d.overall_pick,d.player_name,d.position,d.manager_names,d.team_name,
+                       r.position_finish_total,r.position_finish_ppg,r.fantasy_points_ppr,r.ppg,r.games_played,r.classification,r.final_draft_roi
+                FROM draft_picks_full d
+                LEFT JOIN draft_roi_scores r
+                  ON r.league_id=d.league_id AND r.season=d.season AND r.team_id=d.team_id AND r.player_id=d.player_id AND r.overall_pick=d.overall_pick
+                WHERE d.league_id=? AND d.season=? AND d.team_id=?
+                ORDER BY d.round,d.overall_pick
+              ''',(lid[league],season,tid)).fetchall()
+              if not rows: continue
+              manager=rows[0]['manager_names']; team=rows[0]['team_name']
+              scored=[(impact(r),i,r) for i,r in enumerate(rows)]
+              defining={i for _,i,_ in sorted(scored,reverse=True)[:6]}
+              md += [f'## {rank}. {manager} — {season} {league}',f'**{team}**','', '**Defining picks**']
+              defs=[]
+              for _,i,r in sorted(scored,reverse=True)[:6]:
+                  fin='?' if r['position_finish_total'] is None else f"{r['position']}{r['position_finish_total']}"
+                  ppgfin='' if r['position_finish_ppg'] is None or r['position_finish_ppg']==r['position_finish_total'] else f" / {r['position']} {r['position_finish_ppg']} PPG"
+                  defs.append(f"R{r['round']} {r['player_name']} — {fin}{ppgfin}")
+              md.append(' • '.join(defs)); md += ['','**Full draft**']
+              parts=[]
+              for i,r in enumerate(rows):
+                  fin='?' if r['position_finish_total'] is None else f"{r['position']}{r['position_finish_total']}"
+                  ppgfin='' if r['position_finish_ppg'] is None or r['position_finish_ppg']==r['position_finish_total'] else f"/{r['position']}{r['position_finish_ppg']} PPG"
+                  gp='' if r['games_played'] is None else f", {r['games_played']}g"
+                  token=f"R{r['round']} {r['player_name']} ({fin}{ppgfin}{gp})"
+                  if i in defining: token='**'+token+'**'
+                  parts.append(token)
+                  flat.append([rank,manager,season,league,r['round'],r['overall_pick'],r['player_name'],r['position'],r['position_finish_total'],r['position_finish_ppg'],r['fantasy_points_ppr'],r['ppg'],r['games_played'],1 if i in defining else 0])
+              md.append(' | '.join(parts)); md += ['']
+
+          pathlib.Path('analysis').mkdir(exist_ok=True)
+          pathlib.Path('analysis/final_top25_draft_evidence.md').write_text('\n'.join(md),encoding='utf-8')
+          with open('analysis/final_top25_draft_evidence.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.writer(f); w.writerow(['rank','manager','season','league','round','overall_pick','player','position','position_finish_total','position_finish_ppg','fantasy_points_ppr','ppg','games_played','defining_pick']); w.writerows(flat)
+          PY
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/final_top25_draft_evidence.md analysis/final_top25_draft_evidence.csv
+          git diff --cached --quiet || git commit -m "Generate detailed final Top 25 draft evidence"
+          git push
