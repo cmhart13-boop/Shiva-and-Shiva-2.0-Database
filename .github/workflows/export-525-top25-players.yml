@@ -1,0 +1,43 @@
+name: Export 525 Top25 Player Boards
+on:
+  push:
+    paths:
+      - '.github/workflows/export-525-top25-players.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build player evidence CSV
+        run: |
+          python - <<'PY'
+          import csv, sqlite3, pathlib
+          with open('analysis/blind_525_top35.csv',newline='',encoding='utf-8') as f:
+              top=list(csv.DictReader(f))[:25]
+          con=sqlite3.connect('shiva_draft_roi.sqlite'); cur=con.cursor()
+          pcols=[d[0] for d in cur.execute('select * from draft_picks_full limit 1').description]
+          rcols=[d[0] for d in cur.execute('select * from draft_roi_scores limit 1').description]
+          full=[dict(zip(pcols,r)) for r in cur.execute('select * from draft_picks_full where season<=2025').fetchall()]
+          roi=[dict(zip(rcols,r)) for r in cur.execute('select * from draft_roi_scores').fetchall()]
+          lk={(int(r['league_id']),int(r['season']),int(r['team_id']),int(r['overall_pick'])):r for r in roi}
+          rows=[]
+          for t in top:
+              lg=1465338 if t['league']=='Shiva' else 1506903; s=int(t['season']); tid=int(t['team_id'])
+              picks=[r for r in full if int(r['league_id'])==lg and int(r['season'])==s and int(r['team_id'])==tid]
+              for r in sorted(picks,key=lambda x:int(x['round'])):
+                  q=lk.get((lg,s,tid,int(r['overall_pick'])))
+                  rows.append({'rank_525':t['consensus_rank'],'manager':t['manager'],'season':s,'league':t['league'],'round':r['round'],'overall_pick':r['overall_pick'],'player':r['player_name'],'position':r['position'],'position_finish_total':q['position_finish_total'] if q else '', 'position_finish_ppg':q['position_finish_ppg'] if q else '', 'fantasy_points_ppr':q['fantasy_points_ppr'] if q else '', 'ppg':q['ppg'] if q else '', 'games_played':q['games_played'] if q else ''})
+          pathlib.Path('analysis').mkdir(exist_ok=True)
+          with open('analysis/blind_525_top25_players.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
+          PY
+      - name: Commit player evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/blind_525_top25_players.csv
+          git diff --cached --quiet || git commit -m "Export 525-trial Top25 player boards"
+          git push
