@@ -1,0 +1,42 @@
+name: Blind 525 Top35 Draft Audit
+on:
+  push:
+    paths:
+      - '.github/workflows/blind-525-top35-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run 525 blind trials on prior Top35
+        run: |
+          python - <<'PY'
+          import pathlib
+          src=pathlib.Path('.github/workflows/blind-250-audit.yml').read_text()
+          marker="          python - <<'PY'\n"
+          start=src.index(marker)+len(marker)
+          end=src.index("\n          PY",start)
+          block=src[start:end]
+          script='\n'.join(line[10:] if line.startswith('          ') else line for line in block.splitlines())
+          script=script.replace('NTRIALS=250','NTRIALS=525')
+          script=script.replace('blind_250_','blind_525_')
+          script=script.replace('250 deterministic-seed','525 deterministic-seed')
+          script=script.replace('250 blind rank distributions','525 blind rank distributions')
+          script=script.replace('250 blind trials','525 blind trials')
+          needle='# Consensus is based ONLY on anonymous draft keys and 525 blind rank distributions.\nstats={}'
+          inject="""# Restrict final comparison pool to the prior 250-trial consensus Top35, while keeping all league-season data in the component calculations.\nwith open('analysis/blind_250_top35.csv',newline='',encoding='utf-8') as f:\n    prior35=list(csv.DictReader(f))\nkeys=[(1465338 if r['league']=='Shiva' else 1506903,int(r['season']),int(r['team_id'])) for r in prior35]\n# Consensus is based ONLY on anonymous draft keys and 525 blind rank distributions.\nstats={}"""
+          if needle not in script:
+              raise RuntimeError('Could not locate consensus insertion point')
+          script=script.replace(needle,inject)
+          exec(compile(script,'blind_525_generated.py','exec'))
+          PY
+      - name: Commit 525-trial results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/blind_525_*
+          git diff --cached --quiet || git commit -m "Generate 525-trial blind Top35 audit"
+          git push
