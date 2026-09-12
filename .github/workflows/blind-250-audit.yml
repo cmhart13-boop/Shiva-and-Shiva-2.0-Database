@@ -1,0 +1,218 @@
+name: Blind 250 Draft Stability Audit
+on:
+  push:
+    paths:
+      - '.github/workflows/blind-250-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run 250-trial blind stability audit
+        run: |
+          python - <<'PY'
+          import sqlite3, pathlib, csv, json, statistics, random, math
+          from collections import defaultdict
+
+          NTRIALS=250
+          RNG=random.Random(20260911)
+          con=sqlite3.connect('shiva_draft_roi.sqlite'); cur=con.cursor()
+          cols=[d[0] for d in cur.execute('select * from draft_roi_scores limit 1').description]
+          picks=[dict(zip(cols,r)) for r in cur.execute('select * from draft_roi_scores').fetchall()]
+          fcols=[d[0] for d in cur.execute('select * from draft_picks_full limit 1').description]
+          full=[dict(zip(fcols,r)) for r in cur.execute('select * from draft_picks_full where season<=2025').fetchall()]
+
+          # Identities are stored separately and are NOT used in scoring or ranking.
+          ids={(int(r['league_id']),int(r['season']),int(r['team_id'])):(r['manager_names'],r['team_name']) for r in full}
+          keys=sorted(ids)
+          nteams=defaultdict(int)
+          for k in keys: nteams[k[:2]]+=1
+          lookup={(int(r['league_id']),int(r['season']),int(r['team_id']),int(r['overall_pick'])):r for r in picks}
+          teamrows=defaultdict(list)
+          for r in full:
+              k=(int(r['league_id']),int(r['season']),int(r['team_id']))
+              teamrows[k].append((int(r['round']),int(r['overall_pick']),r['position'],lookup.get((k[0],k[1],k[2],int(r['overall_pick'])))))
+
+          baseR={'QB':12,'RB':30,'WR':36,'TE':12,'K':10,'D/ST':10,'DST':10}
+          games={2014:16,2015:16,2016:16,2017:16,2018:16,2019:16,2020:16,2021:17,2022:17,2023:17,2024:17,2025:17}
+          by=defaultdict(list)
+          for r in picks:
+              if r['position'] in baseR and r['position_finish_total'] and r['fantasy_points_ppr'] is not None:
+                  by[(int(r['league_id']),int(r['season']),r['position'])].append(r)
+          rep={}
+          for (lg,s,p),a in by.items():
+              R=max(1,round(baseR[p]*nteams[(lg,s)]/10))
+              near=sorted(a,key=lambda x:abs(int(x['position_finish_total'])-R))[:5]
+              rep[(lg,s,p)]=statistics.median(float(x['fantasy_points_ppr']) for x in near)
+
+          def percentile_global_by_season(d):
+              # Percentiles within each league-season preserve competitive context.
+              out={}
+              for ls in set(k[:2] for k in d):
+                  a=sorted((v,k) for k,v in d.items() if k[:2]==ls); m=len(a); i=0
+                  while i<m:
+                      j=i
+                      while j+1<m and a[j+1][0]==a[i][0]: j+=1
+                      q=100*((i+j)/2)/(m-1) if m>1 else 50
+                      for z in range(i,j+1): out[a[z][1]]=q
+                      i=j+1
+              return out
+
+          def construct_raw(k,qb2=12,qb3=10,te2=6,k_start=13,dst_start=10):
+              q=[];te=[];kk=[];dd=[];pen=0.0
+              for rd,op,p,r in sorted(teamrows[k]):
+                  fin=int(r['position_finish_total']) if r and r['position_finish_total'] else 999
+                  if p=='QB': q.append((rd,fin))
+                  elif p=='TE': te.append((rd,fin))
+                  elif p=='K': kk.append(rd)
+                  elif p in ('D/ST','DST'): dd.append(rd)
+              for i,(rd,fin) in enumerate(q[1:],2):
+                  allowed=(i==2 and fin<=qb2) or (i>=3 and fin<=qb3)
+                  if not allowed: pen+=max(0,13-rd)*.7
+              for i,(rd,fin) in enumerate(te[1:],2):
+                  if not (i==2 and fin<=te2): pen+=max(0,12-rd)*.55
+              for i,rd in enumerate(kk,1): pen+=(max(0,k_start-rd)*.8 if i==1 else 4)
+              for i,rd in enumerate(dd,1): pen+=(max(0,dst_start-rd)*.6 if i==1 else (2.5 if rd<13 else 0))
+              return -pen
+
+          def components(ib,rs,gpmin,round_clip_lo,round_clip_hi,qb2,qb3,te2,k_start,dst_start):
+              U={}; pools=defaultdict(list)
+              for k,a in teamrows.items():
+                  for rd,op,p,r in a:
+                      if not r or r['position'] not in baseR or r['fantasy_points_ppr'] is None:
+                          u=0.0
+                      else:
+                          lg,s,pos=int(r['league_id']),int(r['season']),r['position']
+                          rp=rep.get((lg,s,pos),0)*rs
+                          actual=max(0,float(r['fantasy_points_ppr'])-rp)
+                          gp=int(r['games_played'] or 0); ppg=float(r['ppg'] or 0); sg=games.get(s,17)
+                          if gpmin<=gp<sg and ppg>0:
+                              u=(1-ib)*actual+ib*max(0,ppg*sg-rp)
+                          else: u=actual
+                      U[(k,op)]=u; pools[(k[0],k[1],rd)].append(u)
+              exp={g:statistics.mean(v) for g,v in pools.items()}
+              rw={}
+              for ls in set((g[0],g[1]) for g in exp):
+                  vals=[v for g,v in exp.items() if g[:2]==ls]; mean=statistics.mean(vals) or 1
+                  for g,v in exp.items():
+                      if g[:2]==ls: rw[g]=min(round_clip_hi,max(round_clip_lo,v/mean))
+              P={};E={};C={}
+              for k,a in teamrows.items():
+                  P[k]=sum(U[(k,op)] for rd,op,p,r in a)
+                  E[k]=sum((U[(k,op)]-exp[(k[0],k[1],rd)])*rw[(k[0],k[1],rd)] for rd,op,p,r in a)
+                  C[k]=construct_raw(k,qb2,qb3,te2,k_start,dst_start)
+              return percentile_global_by_season(P),percentile_global_by_season(E),percentile_global_by_season(C)
+
+          # Build 250 plausible model specifications centered on the validated 60/35/5 model.
+          trials=[]; params=[]
+          for t in range(NTRIALS):
+              # Wide enough to test robustness, narrow enough to remain faithful to the agreed model family.
+              wp=RNG.uniform(0.52,0.68)
+              we=RNG.uniform(0.27,0.42)
+              wc=RNG.uniform(0.03,0.12)
+              total=wp+we+wc; wp,we,wc=[100*x/total for x in (wp,we,wc)]
+              ib=RNG.uniform(.12,.38)
+              rs=RNG.uniform(.90,1.10)
+              gpmin=RNG.choice([7,8,9,10])
+              clip_lo=RNG.uniform(.25,.40); clip_hi=RNG.uniform(1.9,2.5)
+              qb2=RNG.choice([10,11,12,13]); qb3=RNG.choice([8,9,10,11])
+              te2=RNG.choice([5,6,7,8]); kstart=RNG.choice([12,13,14]); dststart=RNG.choice([9,10,11])
+              P,E,C=components(ib,rs,gpmin,clip_lo,clip_hi,qb2,qb3,te2,kstart,dststart)
+              sc={k:(wp*P[k]+we*E[k]+wc*C[k])/100 for k in keys}
+              order=sorted(keys,key=lambda k:(-sc[k],k))
+              rank={k:i+1 for i,k in enumerate(order)}
+              trials.append(rank)
+              params.append({'trial':t+1,'portfolio_w':round(wp,3),'efficiency_w':round(we,3),'construction_w':round(wc,3),'injury_blend':round(ib,3),'replacement_scale':round(rs,3),'injury_gp_min':gpmin,'round_clip_lo':round(clip_lo,3),'round_clip_hi':round(clip_hi,3),'qb2_threshold':qb2,'qb3_threshold':qb3,'te2_threshold':te2,'k_start_round':kstart,'dst_start_round':dststart})
+
+          # Consensus is based ONLY on anonymous draft keys and 250 blind rank distributions.
+          stats={}
+          for k in keys:
+              rr=[tr[k] for tr in trials]
+              sr=sorted(rr)
+              stats[k]={
+                  'mean_rank':statistics.mean(rr),'median_rank':statistics.median(rr),
+                  'p10_rank':sr[int(.10*(NTRIALS-1))],'p90_rank':sr[int(.90*(NTRIALS-1))],
+                  'best_rank':min(rr),'worst_rank':max(rr),
+                  'top10_freq':sum(x<=10 for x in rr)/NTRIALS,
+                  'top15_freq':sum(x<=15 for x in rr)/NTRIALS,
+                  'top25_freq':sum(x<=25 for x in rr)/NTRIALS,
+                  'top35_freq':sum(x<=35 for x in rr)/NTRIALS,
+                  'top50_freq':sum(x<=50 for x in rr)/NTRIALS,
+                  'rank_sd':statistics.pstdev(rr)
+              }
+          consensus=sorted(keys,key=lambda k:(stats[k]['median_rank'],stats[k]['mean_rank'],-stats[k]['top25_freq'],k))
+          cr={k:i+1 for i,k in enumerate(consensus)}
+
+          # Pairwise dominance among consensus Top 50: how often each draft outranks another.
+          top50=consensus[:50]
+          pair={}
+          for a in top50:
+              pair[a]={}
+              for b in top50:
+                  if a==b: pair[a][b]=.5
+                  else: pair[a][b]=sum(tr[a]<tr[b] for tr in trials)/NTRIALS
+
+          # Stable tiers: adjacent drafts are separated only when higher draft wins >=70% head-to-head.
+          tiers=[]; current=[]
+          for i,k in enumerate(top50):
+              if i==0: current=[k]; continue
+              prev=top50[i-1]
+              if pair[prev][k] >= .70:
+                  tiers.append(current); current=[k]
+              else: current.append(k)
+          if current: tiers.append(current)
+          tier_of={k:i+1 for i,g in enumerate(tiers) for k in g}
+
+          # Decode identities only now, after trial scoring, consensus ranks, pairwise results and tiers are frozen.
+          rows=[]
+          for k in consensus:
+              s=stats[k]; mgr,team=ids[k]
+              rows.append({
+                  'consensus_rank':cr[k],'tier':tier_of.get(k,''),'league':'Shiva' if k[0]==1465338 else 'Shiva 2.0','season':k[1],'team_id':k[2],
+                  'manager':mgr,'team':team,'median_rank':round(s['median_rank'],1),'mean_rank':round(s['mean_rank'],2),'rank_sd':round(s['rank_sd'],2),
+                  'p10_rank':s['p10_rank'],'p90_rank':s['p90_rank'],'best_rank':s['best_rank'],'worst_rank':s['worst_rank'],
+                  'top10_frequency_pct':round(100*s['top10_freq'],1),'top15_frequency_pct':round(100*s['top15_freq'],1),'top25_frequency_pct':round(100*s['top25_freq'],1),'top35_frequency_pct':round(100*s['top35_freq'],1),'top50_frequency_pct':round(100*s['top50_freq'],1)
+              })
+
+          # Pairwise confidence for final Top 25 against immediate neighbors and cutoff contenders.
+          audit=[]
+          for i,k in enumerate(consensus[:35]):
+              rec={'consensus_rank':i+1,'manager':ids[k][0],'season':k[1],'league':'Shiva' if k[0]==1465338 else 'Shiva 2.0','tier':tier_of.get(k,'')}
+              if i>0: rec['beats_previous_pct']=round(100*pair[k][consensus[i-1]],1) if consensus[i-1] in top50 else None
+              if i+1<len(top50): rec['beats_next_pct']=round(100*pair[k][consensus[i+1]],1)
+              if i<25 and len(consensus)>25: rec['beats_rank26_pct']=round(100*pair[k][consensus[25]],1)
+              audit.append(rec)
+
+          pathlib.Path('analysis').mkdir(exist_ok=True)
+          with open('analysis/blind_250_all214.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+          with open('analysis/blind_250_top50.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows[:50])
+          with open('analysis/blind_250_top35.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows[:35])
+          with open('analysis/blind_250_parameters.csv','w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=params[0].keys()); w.writeheader(); w.writerows(params)
+          pathlib.Path('analysis/blind_250_boundary_audit.json').write_text(json.dumps(audit,indent=2),encoding='utf-8')
+
+          summary={'trials':NTRIALS,'drafts':len(keys),'method':'250 deterministic-seed blind sensitivity trials. Each trial varies portfolio/efficiency/construction weights, injury adjustment, replacement level, empirical round-weight clipping, and structural QB/TE/K/DST rules within plausible ranges. Team/owner identities are not used until all scores, ranks, pairwise comparisons, and tiers are frozen. Consensus rank = median trial rank, then mean rank, then Top-25 frequency.','tier_rule':'Within Top 50, create a new tier only when the higher adjacent draft beats the lower in at least 70% of the 250 blind trials.','top25_cutoff':{'rank25':rows[24],'rank26':rows[25]},'tiers_top50':[]}
+          for i,g in enumerate(tiers,1):
+              summary['tiers_top50'].append({'tier':i,'ranks':[cr[k] for k in g],'members':[{'manager':ids[k][0],'season':k[1],'league':'Shiva' if k[0]==1465338 else 'Shiva 2.0'} for k in g]})
+          pathlib.Path('analysis/blind_250_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+
+          md=['# Blind 250-Trial Shiva Draft Stability Audit','',summary['method'],'',summary['tier_rule'],'',
+              '|#|Tier|Manager|Year|League|Median|Mean|80% band|Top25 %|Top10 %|','|---:|---:|---|---:|---|---:|---:|---:|---:|---:|']
+          for r in rows[:50]:
+              md.append(f"|{r['consensus_rank']}|{r['tier']}|{r['manager']}|{r['season']}|{r['league']}|{r['median_rank']}|{r['mean_rank']}|{r['p10_rank']}-{r['p90_rank']}|{r['top25_frequency_pct']}|{r['top10_frequency_pct']}|")
+          md += ['','## Top-25 cutoff',f"#25 {rows[24]['manager']} {rows[24]['season']} {rows[24]['league']} — Top25 in {rows[24]['top25_frequency_pct']}% of trials; median {rows[24]['median_rank']}; 80% band {rows[24]['p10_rank']}-{rows[24]['p90_rank']}",f"#26 {rows[25]['manager']} {rows[25]['season']} {rows[25]['league']} — Top25 in {rows[25]['top25_frequency_pct']}% of trials; median {rows[25]['median_rank']}; 80% band {rows[25]['p10_rank']}-{rows[25]['p90_rank']}"]
+          pathlib.Path('analysis/blind_250_report.md').write_text('\n'.join(md),encoding='utf-8')
+          PY
+      - name: Commit 250-trial results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/blind_250_*
+          git diff --cached --quiet || git commit -m "Generate 250-trial blind draft stability audit"
+          git push
