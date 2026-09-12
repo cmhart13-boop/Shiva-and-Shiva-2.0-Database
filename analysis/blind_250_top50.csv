@@ -1,0 +1,51 @@
+consensus_rank,tier,league,season,team_id,manager,team,median_rank,mean_rank,rank_sd,p10_rank,p90_rank,best_rank,worst_rank,top10_frequency_pct,top15_frequency_pct,top25_frequency_pct,top35_frequency_pct,top50_frequency_pct
+1,1,Shiva,2014,3,luke ahlenius,.. Stay Yucky,1.0,1.02,0.14,1,1,1,2,100.0,100.0,100.0,100.0,100.0
+2,2,Shiva,2022,4,Jacob Barton,Show me  the TDs,2.0,3.11,3.21,2,3,2,15,90.4,100.0,100.0,100.0,100.0
+3,3,Shiva,2024,1,Chris H,Password Is Taco,4.0,6.6,5.47,3,19,2,23,86.0,86.0,100.0,100.0,100.0
+4,3,Shiva,2017,2,Jason Hewitt,Team Hewitt,5.0,4.72,1.18,3,6,2,8,100.0,100.0,100.0,100.0,100.0
+5,3,Shiva,2021,8,Nick Chipchase,Bend it like Beckham Jr.,5.0,4.94,1.66,3,7,2,10,100.0,100.0,100.0,100.0,100.0
+6,4,Shiva,2023,1,Chris H,Password Is Taco,8.0,8.02,1.71,6,10,5,13,91.6,100.0,100.0,100.0,100.0
+7,4,Shiva,2016,1,Chris H,Password Is Taco,9.0,8.69,2.44,5,11,3,25,79.6,99.6,100.0,100.0,100.0
+8,4,Shiva 2.0,2021,10,Rob Derrig,"Rock, Flag  and Eagle...",9.0,8.99,1.61,7,11,5,14,82.0,100.0,100.0,100.0,100.0
+9,4,Shiva 2.0,2019,4,Matt Hollingsworth,Full Chubb,10.0,8.61,2.84,4,12,2,13,64.8,100.0,100.0,100.0,100.0
+10,4,Shiva,2025,1,Chris H,Password Is Taco,10.0,9.52,1.72,7,12,6,13,67.2,100.0,100.0,100.0,100.0
+11,5,Shiva 2.0,2016,2,Matt Hollingsworth,Team Hollingsworth,12.0,11.8,1.49,10,13,8,16,16.8,98.4,100.0,100.0,100.0
+12,5,Shiva 2.0,2018,10,Rob Derrig,"Rock, Flag  and Eagle...",15.0,12.51,4.5,6,17,4,19,37.2,62.4,100.0,100.0,100.0
+13,5,Shiva,2015,1,Chris H,Password Is Taco,15.0,14.19,4.32,12,18,1,19,8.8,56.4,100.0,100.0,100.0
+14,5,Shiva 2.0,2020,10,Rob Derrig,"Rock, Flag  and Eagle...",15.0,14.8,1.44,13,17,12,19,0.0,70.0,100.0,100.0,100.0
+15,5,Shiva 2.0,2022,2,Pascual Rodarte,Team Rodarte,16.5,16.09,2.19,13,19,11,22,0.0,35.6,100.0,100.0,100.0
+16,5,Shiva,2019,8,Nick Chipchase,Bend it like Beckham Jr.,17.0,21.3,12.92,3,41,2,46,15.2,44.0,64.4,76.8,100.0
+17,5,Shiva 2.0,2017,9,Dustin Hodges,Team Hodges,18.0,18.54,2.88,15,22,12,25,0.0,19.6,100.0,100.0,100.0
+18,5,Shiva 2.0,2023,10,Rob Derrig,"Rock, Flag  and Eagle...",19.0,15.7,8.85,4,26,2,32,38.0,38.4,86.4,100.0,100.0
+19,5,Shiva 2.0,2023,7,Nick Chipchase,Wentz Upon A Time,19.0,22.88,13.65,4,41,3,42,22.0,38.8,61.6,67.2,100.0
+20,5,Shiva 2.0,2020,8,Mike Hart,No sacko no sacko ,19.5,19.28,1.39,17,21,16,22,0.0,0.0,100.0,100.0,100.0
+21,5,Shiva,2020,5,Dustin Hodges,everybody was kungflu fightin,21.0,21.26,5.2,15,28,11,36,0.0,12.0,82.4,99.6,100.0
+22,5,Shiva,2015,8,Sean Ahlenius,Team Ahlenius,22.0,22.18,4.02,18,25,15,40,0.0,0.4,91.6,98.4,100.0
+23,5,Shiva 2.0,2018,6,Jacob Barton,Show me the TDs,22.0,23.48,3.92,19,30,17,32,0.0,0.0,66.4,100.0,100.0
+24,5,Shiva,2018,10,Josh McAuliffe,Raging  Falcoholics,23.0,22.58,1.79,20,25,17,26,0.0,0.0,97.2,100.0,100.0
+25,6,Shiva 2.0,2016,7,Ben Miller,Team Miller,24.5,24.53,1.46,23,26,21,29,0.0,0.0,74.8,100.0,100.0
+26,6,Shiva,2019,4,Matt Hollingsworth,Ron Mexico,25.0,23.88,8.99,13,37,10,42,0.4,27.2,57.6,84.8,100.0
+27,6,Shiva,2024,6,Zack Brower,Tyrannosaurus Rux,26.0,25.2,4.37,15,29,13,34,0.0,11.2,32.0,100.0,100.0
+28,7,Shiva 2.0,2022,10,Rob Derrig,"Rock, Flag  and Eagle...",28.0,33.08,8.8,26,45,23,56,0.0,0.0,3.6,70.8,92.8
+29,8,Shiva,2023,2,Rob Derrig,Olave Asians,30.0,29.92,1.81,27,32,26,34,0.0,0.0,0.0,100.0,100.0
+30,8,Shiva 2.0,2021,4,Jaqueline Bascino,❄☃️ ☄🌊,30.0,30.46,1.93,28,32,26,42,0.0,0.0,0.0,98.8,100.0
+31,8,Shiva,2017,10,Josh McAuliffe,Raging  Falcoholics,30.0,30.8,3.68,27,37,25,39,0.0,0.0,3.2,82.0,100.0
+32,8,Shiva 2.0,2024,10,Rob Derrig,"Rock, Flag  and Eagle...",31.0,30.56,5.06,25,35,20,49,0.0,0.0,15.6,91.6,100.0
+33,9,Shiva,2014,8,Sean Ahlenius,Team Ahlenius,33.0,33.39,2.55,30,37,26,39,0.0,0.0,0.0,81.6,100.0
+34,9,Shiva 2.0,2025,4,Jaqueline Bascino,JackedOff,34.0,33.56,3.63,28,37,24,49,0.0,0.0,2.0,78.4,100.0
+35,9,Shiva,2020,7,Jaqueline Bascino,FuxBe3nRuxin !,36.0,35.41,5.62,26,42,23,46,0.0,0.0,6.0,46.8,100.0
+36,9,Shiva,2016,8,Kyle Winterowd,Gotta Catch  Jamaal,38.0,37.65,2.25,35,40,19,43,0.0,0.0,0.4,13.6,100.0
+37,9,Shiva,2022,9,Stewart Helton,Scary Larry,38.0,37.79,4.2,33,42,24,47,0.0,0.0,2.4,23.6,100.0
+38,9,Shiva 2.0,2025,2,Pascual Rodarte,Team Rodarte,39.0,38.93,14.84,22,62,20,69,0.0,0.0,35.6,38.8,76.0
+39,9,Shiva,2018,4,David Huffman,Flavor-est Dave of ALL,39.5,38.26,7.23,22,45,18,47,0.0,0.0,10.4,28.4,100.0
+40,9,Shiva,2018,5,Dustin Hodges,Team Hodges,40.0,39.51,7.81,29,49,22,60,0.0,0.0,6.4,30.8,92.8
+41,9,Shiva,2021,7,Jaqueline Bascino,Scary Mary,40.0,39.58,2.85,36,43,31,53,0.0,0.0,0.0,5.6,99.2
+42,9,Shiva 2.0,2024,9,Bruce Self,Joe Buck Yourself,41.0,39.41,4.68,32,44,29,46,0.0,0.0,0.0,30.0,100.0
+43,9,Shiva 2.0,2017,10,Rob Derrig,Kennan and Mel ,41.0,44.01,5.9,37,51,33,54,0.0,0.0,0.0,3.6,80.0
+44,9,Shiva 2.0,2025,3,Dustin Hodges,A'Chane n da membrane,42.0,41.39,7.66,31,49,29,73,0.0,0.0,0.0,30.0,90.8
+45,9,Shiva,2025,4,Jacob Barton,Show me  the TDs,46.0,44.02,5.42,34,49,28,51,0.0,0.0,0.0,10.8,98.4
+46,9,Shiva 2.0,2023,3,Dustin Hodges,Cee Deez Nutz,46.0,46.46,3.63,42,51,38,62,0.0,0.0,0.0,0.0,84.4
+47,10,Shiva,2025,8,Nick Chipchase,Bend it like Beckham Jr.,46.0,52.22,9.61,45,70,41,76,0.0,0.0,0.0,0.0,63.6
+48,10,Shiva 2.0,2024,6,Zack Brower,The Comeback Kid,47.0,47.38,3.79,43,52,27,58,0.0,0.0,0.0,2.4,82.0
+49,10,Shiva 2.0,2017,3,David Huffman,No Problem Man  Happy With It,48.0,46.64,5.78,39,53,35,59,0.0,0.0,0.0,0.8,64.0
+50,10,Shiva,2024,3,Mike Hart,Scary Jerry,50.0,51.33,4.37,47,59,45,64,0.0,0.0,0.0,0.0,60.4

@@ -1,0 +1,341 @@
+[
+  {
+    "consensus_rank": 1,
+    "manager": "luke ahlenius",
+    "season": 2014,
+    "league": "Shiva",
+    "tier": 1,
+    "beats_next_pct": 100.0,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 2,
+    "manager": "Jacob Barton",
+    "season": 2022,
+    "league": "Shiva",
+    "tier": 2,
+    "beats_previous_pct": 0.0,
+    "beats_next_pct": 90.4,
+    "beats_rank26_pct": 99.6
+  },
+  {
+    "consensus_rank": 3,
+    "manager": "Chris H",
+    "season": 2024,
+    "league": "Shiva",
+    "tier": 3,
+    "beats_previous_pct": 9.6,
+    "beats_next_pct": 52.0,
+    "beats_rank26_pct": 86.0
+  },
+  {
+    "consensus_rank": 4,
+    "manager": "Jason Hewitt",
+    "season": 2017,
+    "league": "Shiva",
+    "tier": 3,
+    "beats_previous_pct": 48.0,
+    "beats_next_pct": 66.4,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 5,
+    "manager": "Nick Chipchase",
+    "season": 2021,
+    "league": "Shiva",
+    "tier": 3,
+    "beats_previous_pct": 33.6,
+    "beats_next_pct": 100.0,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 6,
+    "manager": "Chris H",
+    "season": 2023,
+    "league": "Shiva",
+    "tier": 4,
+    "beats_previous_pct": 0.0,
+    "beats_next_pct": 48.0,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 7,
+    "manager": "Chris H",
+    "season": 2016,
+    "league": "Shiva",
+    "tier": 4,
+    "beats_previous_pct": 52.0,
+    "beats_next_pct": 26.8,
+    "beats_rank26_pct": 99.6
+  },
+  {
+    "consensus_rank": 8,
+    "manager": "Rob Derrig",
+    "season": 2021,
+    "league": "Shiva 2.0",
+    "tier": 4,
+    "beats_previous_pct": 73.2,
+    "beats_next_pct": 48.0,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 9,
+    "manager": "Matt Hollingsworth",
+    "season": 2019,
+    "league": "Shiva 2.0",
+    "tier": 4,
+    "beats_previous_pct": 52.0,
+    "beats_next_pct": 44.0,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 10,
+    "manager": "Chris H",
+    "season": 2025,
+    "league": "Shiva",
+    "tier": 4,
+    "beats_previous_pct": 56.0,
+    "beats_next_pct": 92.0,
+    "beats_rank26_pct": 100.0
+  },
+  {
+    "consensus_rank": 11,
+    "manager": "Matt Hollingsworth",
+    "season": 2016,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 8.0,
+    "beats_next_pct": 60.8,
+    "beats_rank26_pct": 96.8
+  },
+  {
+    "consensus_rank": 12,
+    "manager": "Rob Derrig",
+    "season": 2018,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 39.2,
+    "beats_next_pct": 59.6,
+    "beats_rank26_pct": 93.6
+  },
+  {
+    "consensus_rank": 13,
+    "manager": "Chris H",
+    "season": 2015,
+    "league": "Shiva",
+    "tier": 5,
+    "beats_previous_pct": 40.4,
+    "beats_next_pct": 42.8,
+    "beats_rank26_pct": 81.2
+  },
+  {
+    "consensus_rank": 14,
+    "manager": "Rob Derrig",
+    "season": 2020,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 57.2,
+    "beats_next_pct": 68.0,
+    "beats_rank26_pct": 76.0
+  },
+  {
+    "consensus_rank": 15,
+    "manager": "Pascual Rodarte",
+    "season": 2022,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 32.0,
+    "beats_next_pct": 61.6,
+    "beats_rank26_pct": 61.6
+  },
+  {
+    "consensus_rank": 16,
+    "manager": "Nick Chipchase",
+    "season": 2019,
+    "league": "Shiva",
+    "tier": 5,
+    "beats_previous_pct": 38.4,
+    "beats_next_pct": 46.0,
+    "beats_rank26_pct": 61.6
+  },
+  {
+    "consensus_rank": 17,
+    "manager": "Dustin Hodges",
+    "season": 2017,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 54.0,
+    "beats_next_pct": 48.4,
+    "beats_rank26_pct": 61.6
+  },
+  {
+    "consensus_rank": 18,
+    "manager": "Rob Derrig",
+    "season": 2023,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 51.6,
+    "beats_next_pct": 49.2,
+    "beats_rank26_pct": 61.6
+  },
+  {
+    "consensus_rank": 19,
+    "manager": "Nick Chipchase",
+    "season": 2023,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 50.8,
+    "beats_next_pct": 50.8,
+    "beats_rank26_pct": 56.0
+  },
+  {
+    "consensus_rank": 20,
+    "manager": "Mike Hart",
+    "season": 2020,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 49.2,
+    "beats_next_pct": 58.8,
+    "beats_rank26_pct": 61.6
+  },
+  {
+    "consensus_rank": 21,
+    "manager": "Dustin Hodges",
+    "season": 2020,
+    "league": "Shiva",
+    "tier": 5,
+    "beats_previous_pct": 41.2,
+    "beats_next_pct": 54.0,
+    "beats_rank26_pct": 56.4
+  },
+  {
+    "consensus_rank": 22,
+    "manager": "Sean Ahlenius",
+    "season": 2015,
+    "league": "Shiva",
+    "tier": 5,
+    "beats_previous_pct": 46.0,
+    "beats_next_pct": 52.0,
+    "beats_rank26_pct": 58.4
+  },
+  {
+    "consensus_rank": 23,
+    "manager": "Jacob Barton",
+    "season": 2018,
+    "league": "Shiva 2.0",
+    "tier": 5,
+    "beats_previous_pct": 48.0,
+    "beats_next_pct": 50.4,
+    "beats_rank26_pct": 55.2
+  },
+  {
+    "consensus_rank": 24,
+    "manager": "Josh McAuliffe",
+    "season": 2018,
+    "league": "Shiva",
+    "tier": 5,
+    "beats_previous_pct": 49.6,
+    "beats_next_pct": 86.0,
+    "beats_rank26_pct": 56.8
+  },
+  {
+    "consensus_rank": 25,
+    "manager": "Ben Miller",
+    "season": 2016,
+    "league": "Shiva 2.0",
+    "tier": 6,
+    "beats_previous_pct": 14.0,
+    "beats_next_pct": 45.2,
+    "beats_rank26_pct": 45.2
+  },
+  {
+    "consensus_rank": 26,
+    "manager": "Matt Hollingsworth",
+    "season": 2019,
+    "league": "Shiva",
+    "tier": 6,
+    "beats_previous_pct": 54.8,
+    "beats_next_pct": 64.8
+  },
+  {
+    "consensus_rank": 27,
+    "manager": "Zack Brower",
+    "season": 2024,
+    "league": "Shiva",
+    "tier": 6,
+    "beats_previous_pct": 35.2,
+    "beats_next_pct": 94.0
+  },
+  {
+    "consensus_rank": 28,
+    "manager": "Rob Derrig",
+    "season": 2022,
+    "league": "Shiva 2.0",
+    "tier": 7,
+    "beats_previous_pct": 6.0,
+    "beats_next_pct": 70.8
+  },
+  {
+    "consensus_rank": 29,
+    "manager": "Rob Derrig",
+    "season": 2023,
+    "league": "Shiva",
+    "tier": 8,
+    "beats_previous_pct": 29.2,
+    "beats_next_pct": 66.4
+  },
+  {
+    "consensus_rank": 30,
+    "manager": "Jaqueline Bascino",
+    "season": 2021,
+    "league": "Shiva 2.0",
+    "tier": 8,
+    "beats_previous_pct": 33.6,
+    "beats_next_pct": 30.8
+  },
+  {
+    "consensus_rank": 31,
+    "manager": "Josh McAuliffe",
+    "season": 2017,
+    "league": "Shiva",
+    "tier": 8,
+    "beats_previous_pct": 69.2,
+    "beats_next_pct": 45.2
+  },
+  {
+    "consensus_rank": 32,
+    "manager": "Rob Derrig",
+    "season": 2024,
+    "league": "Shiva 2.0",
+    "tier": 8,
+    "beats_previous_pct": 54.8,
+    "beats_next_pct": 70.8
+  },
+  {
+    "consensus_rank": 33,
+    "manager": "Sean Ahlenius",
+    "season": 2014,
+    "league": "Shiva",
+    "tier": 9,
+    "beats_previous_pct": 29.2,
+    "beats_next_pct": 53.2
+  },
+  {
+    "consensus_rank": 34,
+    "manager": "Jaqueline Bascino",
+    "season": 2025,
+    "league": "Shiva 2.0",
+    "tier": 9,
+    "beats_previous_pct": 46.8,
+    "beats_next_pct": 66.0
+  },
+  {
+    "consensus_rank": 35,
+    "manager": "Jaqueline Bascino",
+    "season": 2020,
+    "league": "Shiva",
+    "tier": 9,
+    "beats_previous_pct": 34.0,
+    "beats_next_pct": 60.8
+  }
+]

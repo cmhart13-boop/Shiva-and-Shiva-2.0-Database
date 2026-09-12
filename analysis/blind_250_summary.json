@@ -1,0 +1,422 @@
+{
+  "trials": 250,
+  "drafts": 214,
+  "method": "250 deterministic-seed blind sensitivity trials. Each trial varies portfolio/efficiency/construction weights, injury adjustment, replacement level, empirical round-weight clipping, and structural QB/TE/K/DST rules within plausible ranges. Team/owner identities are not used until all scores, ranks, pairwise comparisons, and tiers are frozen. Consensus rank = median trial rank, then mean rank, then Top-25 frequency.",
+  "tier_rule": "Within Top 50, create a new tier only when the higher adjacent draft beats the lower in at least 70% of the 250 blind trials.",
+  "top25_cutoff": {
+    "rank25": {
+      "consensus_rank": 25,
+      "tier": 6,
+      "league": "Shiva 2.0",
+      "season": 2016,
+      "team_id": 7,
+      "manager": "Ben Miller",
+      "team": "Team Miller",
+      "median_rank": 24.5,
+      "mean_rank": 24.53,
+      "rank_sd": 1.46,
+      "p10_rank": 23,
+      "p90_rank": 26,
+      "best_rank": 21,
+      "worst_rank": 29,
+      "top10_frequency_pct": 0.0,
+      "top15_frequency_pct": 0.0,
+      "top25_frequency_pct": 74.8,
+      "top35_frequency_pct": 100.0,
+      "top50_frequency_pct": 100.0
+    },
+    "rank26": {
+      "consensus_rank": 26,
+      "tier": 6,
+      "league": "Shiva",
+      "season": 2019,
+      "team_id": 4,
+      "manager": "Matt Hollingsworth",
+      "team": "Ron Mexico",
+      "median_rank": 25.0,
+      "mean_rank": 23.88,
+      "rank_sd": 8.99,
+      "p10_rank": 13,
+      "p90_rank": 37,
+      "best_rank": 10,
+      "worst_rank": 42,
+      "top10_frequency_pct": 0.4,
+      "top15_frequency_pct": 27.2,
+      "top25_frequency_pct": 57.6,
+      "top35_frequency_pct": 84.8,
+      "top50_frequency_pct": 100.0
+    }
+  },
+  "tiers_top50": [
+    {
+      "tier": 1,
+      "ranks": [
+        1
+      ],
+      "members": [
+        {
+          "manager": "luke ahlenius",
+          "season": 2014,
+          "league": "Shiva"
+        }
+      ]
+    },
+    {
+      "tier": 2,
+      "ranks": [
+        2
+      ],
+      "members": [
+        {
+          "manager": "Jacob Barton",
+          "season": 2022,
+          "league": "Shiva"
+        }
+      ]
+    },
+    {
+      "tier": 3,
+      "ranks": [
+        3,
+        4,
+        5
+      ],
+      "members": [
+        {
+          "manager": "Chris H",
+          "season": 2024,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Jason Hewitt",
+          "season": 2017,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Nick Chipchase",
+          "season": 2021,
+          "league": "Shiva"
+        }
+      ]
+    },
+    {
+      "tier": 4,
+      "ranks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "members": [
+        {
+          "manager": "Chris H",
+          "season": 2023,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Chris H",
+          "season": 2016,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Rob Derrig",
+          "season": 2021,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Matt Hollingsworth",
+          "season": 2019,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Chris H",
+          "season": 2025,
+          "league": "Shiva"
+        }
+      ]
+    },
+    {
+      "tier": 5,
+      "ranks": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "members": [
+        {
+          "manager": "Matt Hollingsworth",
+          "season": 2016,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Rob Derrig",
+          "season": 2018,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Chris H",
+          "season": 2015,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Rob Derrig",
+          "season": 2020,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Pascual Rodarte",
+          "season": 2022,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Nick Chipchase",
+          "season": 2019,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Dustin Hodges",
+          "season": 2017,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Rob Derrig",
+          "season": 2023,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Nick Chipchase",
+          "season": 2023,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Mike Hart",
+          "season": 2020,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Dustin Hodges",
+          "season": 2020,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Sean Ahlenius",
+          "season": 2015,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Jacob Barton",
+          "season": 2018,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Josh McAuliffe",
+          "season": 2018,
+          "league": "Shiva"
+        }
+      ]
+    },
+    {
+      "tier": 6,
+      "ranks": [
+        25,
+        26,
+        27
+      ],
+      "members": [
+        {
+          "manager": "Ben Miller",
+          "season": 2016,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Matt Hollingsworth",
+          "season": 2019,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Zack Brower",
+          "season": 2024,
+          "league": "Shiva"
+        }
+      ]
+    },
+    {
+      "tier": 7,
+      "ranks": [
+        28
+      ],
+      "members": [
+        {
+          "manager": "Rob Derrig",
+          "season": 2022,
+          "league": "Shiva 2.0"
+        }
+      ]
+    },
+    {
+      "tier": 8,
+      "ranks": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "members": [
+        {
+          "manager": "Rob Derrig",
+          "season": 2023,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Jaqueline Bascino",
+          "season": 2021,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Josh McAuliffe",
+          "season": 2017,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Rob Derrig",
+          "season": 2024,
+          "league": "Shiva 2.0"
+        }
+      ]
+    },
+    {
+      "tier": 9,
+      "ranks": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "members": [
+        {
+          "manager": "Sean Ahlenius",
+          "season": 2014,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Jaqueline Bascino",
+          "season": 2025,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Jaqueline Bascino",
+          "season": 2020,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Kyle Winterowd",
+          "season": 2016,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Stewart Helton",
+          "season": 2022,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Pascual Rodarte",
+          "season": 2025,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "David Huffman",
+          "season": 2018,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Dustin Hodges",
+          "season": 2018,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Jaqueline Bascino",
+          "season": 2021,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Bruce Self",
+          "season": 2024,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Rob Derrig",
+          "season": 2017,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Dustin Hodges",
+          "season": 2025,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Jacob Barton",
+          "season": 2025,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Dustin Hodges",
+          "season": 2023,
+          "league": "Shiva 2.0"
+        }
+      ]
+    },
+    {
+      "tier": 10,
+      "ranks": [
+        47,
+        48,
+        49,
+        50
+      ],
+      "members": [
+        {
+          "manager": "Nick Chipchase",
+          "season": 2025,
+          "league": "Shiva"
+        },
+        {
+          "manager": "Zack Brower",
+          "season": 2024,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "David Huffman",
+          "season": 2017,
+          "league": "Shiva 2.0"
+        },
+        {
+          "manager": "Mike Hart",
+          "season": 2024,
+          "league": "Shiva"
+        }
+      ]
+    }
+  ]
+}
