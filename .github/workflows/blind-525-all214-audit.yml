@@ -1,0 +1,37 @@
+name: Blind 525 All214 Draft Audit
+on:
+  push:
+    paths:
+      - '.github/workflows/blind-525-all214-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run 525 blind trials across all 214 drafts
+        run: |
+          python - <<'PY'
+          import pathlib
+          src=pathlib.Path('.github/workflows/blind-250-audit.yml').read_text()
+          marker="          python - <<'PY'\n"
+          start=src.index(marker)+len(marker)
+          end=src.index("\n          PY",start)
+          block=src[start:end]
+          script='\n'.join(line[10:] if line.startswith('          ') else line for line in block.splitlines())
+          script=script.replace('NTRIALS=250','NTRIALS=525')
+          script=script.replace('blind_250_','blind_525_all214_')
+          script=script.replace('250 deterministic-seed','525 deterministic-seed')
+          script=script.replace('250 blind rank distributions','525 blind rank distributions')
+          script=script.replace('250 blind trials','525 blind trials')
+          script=script.replace('# Blind 250-Trial Shiva Draft Stability Audit','# Blind 525-Trial All-214 Shiva Draft Stability Audit')
+          exec(compile(script,'blind_525_all214_generated.py','exec'))
+          PY
+      - name: Upload 525-trial audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: blind-525-all214-results
+          path: analysis/blind_525_all214_*
+          if-no-files-found: error
