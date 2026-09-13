@@ -1,0 +1,76 @@
+name: Blind 600 Consistency-First All214 Draft Audit
+on:
+  push:
+    paths:
+      - '.github/workflows/blind-600-consistency-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run 600 blind trials across all 214 drafts with consistency-first consensus
+        run: |
+          python - <<'PY'
+          import pathlib
+          src=pathlib.Path('.github/workflows/blind-250-audit.yml').read_text()
+          marker="          python - <<'PY'\n"
+          start=src.index(marker)+len(marker)
+          end=src.index("\n          PY",start)
+          block=src[start:end]
+          script='\n'.join(line[10:] if line.startswith('          ') else line for line in block.splitlines())
+
+          # Run the full blind model 600 times across all 214 drafts.
+          script=script.replace('NTRIALS=250','NTRIALS=600')
+          script=script.replace('blind_250_','blind_600_consistency_')
+          script=script.replace('250 deterministic-seed','600 deterministic-seed')
+          script=script.replace('250 blind rank distributions','600 blind rank distributions')
+          script=script.replace('250 blind trials','600 blind trials')
+          script=script.replace('# Blind 250-Trial Shiva Draft Stability Audit','# Blind 600-Trial Consistency-First All-214 Shiva Draft Stability Audit')
+
+          # Updated consensus principle agreed after reviewing the 600-run cutoff:
+          # 1) typical placement (median rank),
+          # 2) frequency of actually being Top 25,
+          # 3) cross-model stability (lower rank SD),
+          # 4) mean rank only after those consistency measures.
+          old="consensus=sorted(keys,key=lambda k:(stats[k]['median_rank'],stats[k]['mean_rank'],-stats[k]['top25_freq'],k))"
+          new="consensus=sorted(keys,key=lambda k:(stats[k]['median_rank'],-stats[k]['top25_freq'],stats[k]['rank_sd'],stats[k]['mean_rank'],k))"
+          assert old in script, 'Original consensus sorter not found; refusing to run an unverified patch.'
+          script=script.replace(old,new)
+          script=script.replace(
+              'Consensus rank = median trial rank, then mean rank, then Top-25 frequency.',
+              'Consensus rank = median trial rank, then Top-25 frequency, then lower rank standard deviation, then mean rank. Best/worst peak ranks are descriptive only and never decide consensus order.'
+          )
+          exec(compile(script,'blind_600_consistency_generated.py','exec'))
+          PY
+      - name: Verify full execution and updated consensus rule
+        run: |
+          test -s analysis/blind_600_consistency_all214.csv
+          test -s analysis/blind_600_consistency_top35.csv
+          test -s analysis/blind_600_consistency_top50.csv
+          test -s analysis/blind_600_consistency_parameters.csv
+          test -s analysis/blind_600_consistency_boundary_audit.json
+          test -s analysis/blind_600_consistency_summary.json
+          test -s analysis/blind_600_consistency_report.md
+          python - <<'PY'
+          import csv, json
+          rows=list(csv.DictReader(open('analysis/blind_600_consistency_all214.csv', encoding='utf-8')))
+          params=list(csv.DictReader(open('analysis/blind_600_consistency_parameters.csv', encoding='utf-8')))
+          summary=json.load(open('analysis/blind_600_consistency_summary.json', encoding='utf-8'))
+          assert len(rows)==214, len(rows)
+          assert len(params)==600, len(params)
+          assert [int(r['consensus_rank']) for r in rows]==list(range(1,215))
+          assert summary['trials']==600, summary
+          assert summary['drafts']==214, summary
+          assert 'then Top-25 frequency, then lower rank standard deviation, then mean rank' in summary['method'], summary['method']
+          print('AUDIT_OK drafts=214 trials=600 consistency_rule=median>top25freq>lowerSD>mean')
+          print('TOP25_CUTOFF rank25=',rows[24]['manager'],rows[24]['season'],rows[24]['league'],'rank26=',rows[25]['manager'],rows[25]['season'],rows[25]['league'])
+          PY
+      - name: Upload consistency-first 600-trial audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: blind-600-consistency-results
+          path: analysis/blind_600_consistency_*
+          if-no-files-found: error
