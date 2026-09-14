@@ -1,0 +1,28 @@
+name: Probe ESPN exact historical URLs
+on:
+  push:
+    paths:
+      - '.github/workflows/probe-espn-exact.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe
+        run: |
+          python - <<'PY'
+          import requests
+          urls=[
+          'https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/leagueHistory/1465338?seasonId=2014&view=mSettings&view=mTeam&view=mRoster&view=mMatchup&view=mMatchupScore&view=mDraftDetail&view=mTransactions2&view=mStatus',
+          'https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2014/segments/0/leagues/1465338?view=mSettings&view=mTeam&view=mRoster&view=mMatchup&view=mMatchupScore&view=mDraftDetail',
+          'https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/1465338?seasonId=2014&view=mSettings&view=mTeam&view=mRoster&view=mMatchup&view=mMatchupScore&view=mDraftDetail'
+          ]
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0','Accept':'application/json'})
+          for u in urls:
+              r=s.get(u,timeout=30)
+              print('URL',u)
+              print('STATUS',r.status_code,'LEN',len(r.content),'TYPE',r.headers.get('content-type'))
+              print(r.text[:300].replace('\n',' '))
+          PY
