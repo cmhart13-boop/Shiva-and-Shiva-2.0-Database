@@ -1,0 +1,25 @@
+name: Inspect matchup weekly data
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-weekly-db.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect DB
+        run: |
+          python - <<'PY'
+          import sqlite3
+          con=sqlite3.connect('shiva_draft_roi.sqlite'); con.row_factory=sqlite3.Row
+          c=con.cursor()
+          for t in ['matchups','draft_picks_full','teams_standings','end_rosters']:
+              print('\nTABLE',t)
+              print([r[1] for r in c.execute(f'pragma table_info({t})')])
+              for r in c.execute(f'select * from {t} limit 3'):
+                  print(dict(r))
+          PY
