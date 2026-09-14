@@ -1,0 +1,24 @@
+name: Champion Attribution Inspect
+on:
+  push:
+    paths:
+      - '.github/workflows/champion-attribution-inspect.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect source tables
+        run: |
+          python - <<'PY'
+          import sqlite3, json
+          con=sqlite3.connect('shiva_draft_roi.sqlite'); con.row_factory=sqlite3.Row; c=con.cursor()
+          for t in ['end_rosters','teams_standings','draft_picks_full','draft_roi_scores']:
+              print('\nTABLE',t)
+              print('COLUMNS', [r[1] for r in c.execute(f'pragma table_info({t})')])
+              for r in c.execute(f'select * from {t} limit 2'):
+                  print(dict(r))
+          PY
