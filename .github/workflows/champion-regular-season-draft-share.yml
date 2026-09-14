@@ -1,0 +1,88 @@
+name: Champion Regular Season Draft Share
+on:
+  push:
+    paths:
+      - '.github/workflows/champion-regular-season-draft-share.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Calculate drafted scoring share for all champions
+        run: |
+          python - <<'PY'
+          import requests,csv,json,pathlib,time
+          leagues=[(1465338,'Shiva',range(2014,2026)),(1506903,'Shiva 2.0',range(2016,2026))]
+          sess=requests.Session(); sess.headers['User-Agent']='Mozilla/5.0'
+          out=[]
+          for lid,lname,seasons in leagues:
+            for season in seasons:
+              if season<=2017:
+                base=f'https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{lid}'
+                params={'seasonId':season,'view':['mSettings','mTeam','mDraftDetail','mMatchup','mMatchupScore']}
+              else:
+                base=f'https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leagues/{lid}'
+                params={'view':['mSettings','mTeam','mDraftDetail','mMatchup','mMatchupScore']}
+              r=sess.get(base,params=params,timeout=30); r.raise_for_status(); data=r.json()
+              if isinstance(data,list): data=data[0]
+              teams=data.get('teams',[])
+              champs=[t for t in teams if int(t.get('rankCalculatedFinal') or 999)==1]
+              if not champs:
+                print('NO_CHAMP',lname,season); continue
+              champ=champs[0]; tid=int(champ['id'])
+              manager=', '.join(champ.get('owners') or [])
+              # Prefer manager display name from draft pick metadata where available later.
+              drafted={int(p['playerId']) for p in data.get('draftDetail',{}).get('picks',[]) if int(p.get('teamId') or -1)==tid}
+              # ESPN regular-season length is matchupPeriodCount in scheduleSettings.
+              ss=data.get('settings',{}).get('scheduleSettings',{})
+              reg_weeks=int(ss.get('matchupPeriodCount') or (14 if season>=2021 else 13))
+              drafted_pts=0.0; acquired_pts=0.0; team_pts=0.0; weeks_found=0; player_rows=0
+              for week in range(1,reg_weeks+1):
+                p2={'view':['mMatchup','mMatchupScore','mBoxscore'],'scoringPeriodId':week}
+                rr=sess.get(base,params=({**p2,'seasonId':season} if season<=2017 else p2),timeout=30)
+                rr.raise_for_status(); wd=rr.json(); wd=wd[0] if isinstance(wd,list) else wd
+                found=False
+                for m in wd.get('schedule',[]):
+                  for sidekey in ('home','away'):
+                    side=m.get(sidekey) or {}
+                    if int(side.get('teamId') or -1)!=tid: continue
+                    if int(m.get('matchupPeriodId') or week)!=week: continue
+                    found=True
+                    team_pts += float((side.get('pointsByScoringPeriod') or {}).get(str(week), side.get('totalPoints') or 0) or 0)
+                    roster=side.get('rosterForCurrentScoringPeriod') or side.get('rosterForMatchupPeriod') or {}
+                    for e in roster.get('entries',[]):
+                      slot=int(e.get('lineupSlotId') or 0)
+                      if slot in (20,21): continue
+                      pid=int(e.get('playerId') or e.get('playerPoolEntry',{}).get('id') or 0)
+                      pts=float(e.get('playerPoolEntry',{}).get('appliedStatTotal') or 0)
+                      player_rows+=1
+                      if pid in drafted: drafted_pts+=pts
+                      else: acquired_pts+=pts
+                    break
+                  if found: break
+                if found: weeks_found+=1
+                time.sleep(.05)
+              calc_total=drafted_pts+acquired_pts
+              share=(100*drafted_pts/calc_total) if calc_total else None
+              # pull manager/team text from first draft pick for champ
+              picks=[p for p in data.get('draftDetail',{}).get('picks',[]) if int(p.get('teamId') or -1)==tid]
+              out.append({'league':lname,'season':season,'team_id':tid,'champion_team':champ.get('location','')+' '+champ.get('nickname',''),'regular_season_weeks':reg_weeks,'weeks_found':weeks_found,'drafted_points':round(drafted_pts,2),'acquired_points':round(acquired_pts,2),'calculated_starter_points':round(calc_total,2),'espn_team_points':round(team_pts,2),'drafted_share_pct':round(share,2) if share is not None else None,'drafted_player_count':len(drafted),'starter_player_rows':player_rows})
+              print(lname,season,'team',tid,'weeks',weeks_found,'draftshare',share,'calc',calc_total,'espn',team_pts)
+          out.sort(key=lambda x:(-(x['drafted_share_pct'] if x['drafted_share_pct'] is not None else -1),x['league'],x['season']))
+          pathlib.Path('analysis').mkdir(exist_ok=True)
+          with open('analysis/champion_regular_season_draft_share.csv','w',newline='',encoding='utf-8') as f:
+            w=csv.DictWriter(f,fieldnames=out[0].keys());w.writeheader();w.writerows(out)
+          pathlib.Path('analysis/champion_regular_season_draft_share.json').write_text(json.dumps(out,indent=2),encoding='utf-8')
+          print('TOP10')
+          for i,r in enumerate(out[:10],1): print(i,r)
+          PY
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/champion_regular_season_draft_share.csv analysis/champion_regular_season_draft_share.json
+          git diff --cached --quiet || git commit -m "Calculate champion regular-season drafted scoring share"
+          git push
