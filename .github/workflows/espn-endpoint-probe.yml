@@ -1,0 +1,25 @@
+name: ESPN Endpoint Probe
+on:
+  push:
+    paths:
+      - '.github/workflows/espn-endpoint-probe.yml'
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe
+        run: |
+          python - <<'PY'
+          import requests
+          tests=[
+          ('old2014','https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/leagueHistory/1465338?seasonId=2014&view=mTeam'),
+          ('new2014','https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2014/segments/0/leagues/1465338?view=mTeam'),
+          ('old2017','https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/leagueHistory/1465338?seasonId=2017&view=mTeam'),
+          ('new2017','https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2017/segments/0/leagues/1465338?view=mTeam'),
+          ('new2018','https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2018/segments/0/leagues/1465338?view=mTeam'),
+          ('new2025','https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2025/segments/0/leagues/1465338?view=mTeam')]
+          for name,url in tests:
+              r=requests.get(url,headers={'User-Agent':'Mozilla/5.0'},timeout=20)
+              print(name,r.status_code,len(r.content),r.url,repr(r.text[:100]))
+          PY
